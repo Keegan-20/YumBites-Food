@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import { Title } from "./components/Header";
 //we can write .js or jsx one at the same
 
-
 const AppLayout = () => {
     return (
         //  {/* ----//React fragment   */}

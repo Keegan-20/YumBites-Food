@@ -42,12 +42,16 @@
 
 }
 
-.card h2,h3{
-
+.card h2,h3,h4{
+    padding-bottom: 0.3rem;
     font-size: 1rem;
 }
-.card-content{
 
+.RestaurantName{
+text-align: center;
+}
+
+.card-content{
     text-align:justify;
     font-weight: 100;
     padding: 0 0.6rem;
