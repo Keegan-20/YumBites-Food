@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const filterData = (searchText,restaurants) => {
 const filterRestaurant = restaurants.filter((restaurant) => 
-                          restaurant.data.name.includes(searchText));
+                          restaurant.data.name.toLowerCase().includes(searchText.toLowerCase()));
   return filterRestaurant;
 }
 
@@ -15,7 +15,10 @@ const Body = () => {
   return (
     <>
       <div className="search-container">
-        <input type="text" placeholder="Search for restaurants and food" className="search-input" value={searchText}
+      <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee> 
+        <input type="text" 
+        placeholder="Search for restaurants and food"
+         className="search-input" value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
