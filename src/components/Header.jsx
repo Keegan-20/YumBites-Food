@@ -1,3 +1,4 @@
+import { useState } from "react";
 import logoImage from "../img/logo.svg";
 
 // Named Exports:
@@ -8,9 +9,12 @@ import logoImage from "../img/logo.svg";
 
 //creating a header section
  export const HeaderComponent = () => {
+  const [title,setTitle] = useState("YumBite Foods")
+  
     return (
         <div className="header">
             <Title />
+        <h2>{title} </h2>
             <div className="nav-items">
                 <ul>  
                     <li>Home</li>

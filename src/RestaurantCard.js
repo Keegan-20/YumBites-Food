@@ -14,6 +14,7 @@ return (
             <h3>{cuisines.join(",")}</h3>
             <p>{area} </p>
             <h4>{lastMileTravelString} minutes</h4>
+ 
             </div>
         </div>
 );
