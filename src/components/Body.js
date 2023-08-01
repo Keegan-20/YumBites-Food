@@ -13,9 +13,8 @@ const filterData = (searchText, restaurants) => {
 const Body = () => {
   //  let searchText="OLA" //normal js
   const [searchText, setSearchText] = useState(""); //returns =[variable name,function to update the variable]
-  const [restaurants, setRestaurants] = useState(restaurantList);
-  console.log(restaurants);
-
+  const [restaurants, setRestaurants] = useState([]);
+  // console.log(restaurants);
 
   useEffect(() => { //callback fn will be called once after the render()
     //Api call
@@ -48,6 +47,7 @@ const Body = () => {
     const resData = await checkJsonData(json);
     setRestaurants(resData);
   }
+  console.log("render");
   return (
     <>
       <div className="search-container">
