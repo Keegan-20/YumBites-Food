@@ -1,7 +1,7 @@
 import { IMG_CDN_URL } from "./components/constant";
 
 const RestaurantCard = ({
-    name,cuisines,
+    name,avgRating,
     areaName,cloudinaryImageId,
     locality,
 }) => {
@@ -10,12 +10,13 @@ return (
             < img src={IMG_CDN_URL + cloudinaryImageId} />
            <div className="card-content">
             <h2 className="RestaurantName">{name}</h2>
-            {/* <h3>{cuisines.join(",")}</h3> */}
+            <div className="sub-content">
             <p>{locality } </p>
             <p>{areaName}</p>
- 
-            </div>
-        </div>
+            <h3>{avgRating}</h3>
+         </div>
+     </div>
+</div>
 
 
 );

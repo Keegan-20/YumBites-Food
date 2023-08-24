@@ -18,21 +18,21 @@ const Body = () => {
 
   useEffect(() => { //callback fn will be called once after the render()
     //Api call
-    getRestaurants();
+    getRestaurants(); //sideffect:api calling
     console.log("call this when dependency is changed");
   }, []);
 
   async function getRestaurants() {
     const data = await fetch(
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.4934622&lng=73.8327136&page_type=DESKTOP_WEB_LISTING"
-    );
+   );
     const json = await data.json();
 
     // initialize checkJsonData() function to check Swiggy Restaurant data
     async function checkJsonData(jsonData) {
       for (let i = 0; i < jsonData?.data?.cards.length;i++) {
 
-        // initialize checkData for Swiy Restaurant data
+        // initialize checkData for Swiggy Restaurant data i=5
         let checkData = json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         console.log(checkData);
         // if checkData is not undefined then return it
@@ -51,7 +51,7 @@ const Body = () => {
   return (
     <>
       <div className="search-container">
-        {/* <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee> */}
+        <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee>
 
         <input type="text"
           placeholder="Search for restaurants and food"
@@ -71,9 +71,9 @@ const Body = () => {
       </div>
 
       <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
+        {restaurants.map((eachRestaurant) => {
           return (
-            <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />);
+            <RestaurantCard key={eachRestaurant?.info?.id} {...eachRestaurant?.info} />);
           // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
         })}
       </div>

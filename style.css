@@ -41,8 +41,12 @@
     border-radius:8px;
 
 }
+.sub-content{
+    /* border:2px solid hotpink; */
+    padding-right: 0.5rem;
+}
 
-.card h2,h3,h4{
+.card h2{
     padding-bottom: 0.3rem;
     font-size: 1rem;
 }

@@ -15,6 +15,8 @@ import logoImage from "../img/logo.svg";
         <div className="header">
             <Title />
         <h2>{title} </h2>
+                               {/* condition ? expressionIfTrue : expressionIfFalse */}
+        <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button>
             <div className="nav-items">
                 <ul>  
                     <li>Home</li>
