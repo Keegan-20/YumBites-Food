@@ -1,7 +1,9 @@
 import { IMG_CDN_URL } from "./components/constant";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const RestaurantCard = ({
-    name,avgRating,
+    name,avgRating,cuisines,
     areaName,cloudinaryImageId,
     locality,
 }) => {
@@ -12,7 +14,8 @@ return (
             <h2 className="RestaurantName">{name}</h2>
             <div className="sub-content">
             <p>{locality } </p>
-            <p>{areaName}</p>
+            <p className="cuisines">{cuisines.join(", ")}</p>
+            {/* <p>{areaName}</p> */}
             <h3>{avgRating}</h3>
          </div>
      </div>
@@ -20,5 +23,7 @@ return (
 
 
 );
+
 }
+
  export default RestaurantCard;
