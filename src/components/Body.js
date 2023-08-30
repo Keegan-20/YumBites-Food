@@ -16,16 +16,13 @@ const filterData = (searchText, restaurants) => {
 const Body = () => {
   //  let searchText="OLA" //normal js
   const [searchText, setSearchText] = useState(""); //returns =[variable name,function to update the variable]
-  const[isLoading,setIsLoading] = useState([true]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  // console.log(restaurants);
-
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => { //callback fn will be called once after the render()
     //Api call
     getRestaurants(); //sideffect:api calling
-    console.log("call this when dependency is changed");
   }, []);
 
   async function getRestaurants() {
@@ -52,24 +49,22 @@ const Body = () => {
     // call the checkJsonData() function which return Swiggy Restaurant data
     const resData = await checkJsonData(json);
     setAllRestaurants(resData); //initially show all restaurant on load
-    console.log(setAllRestaurants);
-    setFilteredRestaurants(resData); //show only filtered restaurant search by the 
-    console.log(setFilteredRestaurants);
-   
- 
+    // console.log(setAllRestaurants);
+    setFilteredRestaurants(resData); //show only filtered restaurant search by the user 
+    setLoading(false);
   }
   console.log("render");
 
 // if not rendered properly this is called Early return
-if(!allRestaurants) return null;
+// if(!allRestaurants) return null;
 // if(filteredRestaurants?.length === 0) return <h1>Sorry! No Restaurant Found</h1>
 //Conditional Rendering
 //if restaurant is empty => shimmer UI
 // else restaurant has data => actual data UI 
 //used ternary operator
-  return allRestaurants.length === 0 ? (
-    <Skeleton count={5} />
-  ) : (
+  
+  if (loading) return <Shimmer cards={20}/>;   ;
+return(
     <>
       <div className="search-container">
         <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee>
@@ -91,21 +86,17 @@ if(!allRestaurants) return null;
         }>Search</button>
       </div>
 
-      <div className="card">
-    <Skeleton  width={230} height={180} 
-     style={{ borderRadius:8 }} /> 
-    <h2><Skeleton/></h2>
-    <p><Skeleton/></p>
-    <p><Skeleton/></p>
-     <h3><Skeleton/></h3>
+{
+
+ <div className="restaurant-list">
+ {filteredRestaurants.map((eachRestaurant) => {
+   return (
+     <RestaurantCard key={eachRestaurant?.info?.id} {...eachRestaurant?.info} />);
+   // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
+ })}
 </div>
-      <div className="restaurant-list">
-        {filteredRestaurants.map((eachRestaurant) => {
-          return (
-            <RestaurantCard key={eachRestaurant?.info?.id} {...eachRestaurant?.info} />);
-          // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
-        })}
-      </div>
+}
+  
     </>
   );
 };

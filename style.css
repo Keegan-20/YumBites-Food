@@ -8,8 +8,15 @@
     display: flex; 
     justify-content:space-between;
     margin:0.5rem 0.3rem;
-    /* border:2px solid limegreen; */
 }
+
+.shimmer-header{
+    display: flex; 
+    justify-content:space-between;
+    gap:8rem;
+    margin:0.5rem 0.3rem;
+}
+
 
 .logo{
     width:70px;
@@ -26,16 +33,33 @@
     cursor: pointer;
     border-bottom: 2px solid limegreen;
 }
-
+.logIn, .logOut{
+    width:60px;
+    height:30px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+}
 /* Resturant cards items */
 .card{
     width:230px;
     background-color: wheat;
     margin:1rem;
     border-radius:8px;
-
 }
+.cards-container {
+    display: flex; 
+    flex-wrap: wrap; 
+  }
+
+.card-skeleton{
+    width:230px;
+    margin:1rem;
+    border-radius:8px;
+}
+
 .card img{
+    
     width:100%;
     height:200px;
     border-radius:8px;
@@ -68,10 +92,16 @@ text-align: center;
 display: flex;
 flex-wrap: wrap;
 
-}
-
-  
+}  
 
 #footer-text{
     text-align: center;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .card{
+        flex-direction: column;
+    }
+  }

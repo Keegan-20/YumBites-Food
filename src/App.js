@@ -16,7 +16,7 @@ const AppLayout = () => {
     return (
         //  {/* ----//React fragment   */}
         <>
-        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        <SkeletonTheme>
             <HeaderComponent />
             <Body />
             <Footer />
