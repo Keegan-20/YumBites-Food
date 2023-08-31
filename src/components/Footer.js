@@ -15,7 +15,7 @@ useEffect(() =>{
         {loading ? (
           <FooterShimmer/>
         ):(
-        <h4 className="footer-text">Food Villa &copy;2023 All Rights Reserved</h4>
+        <h4 className="footer-text">YumBites Food &copy;2023 All Rights Reserved</h4>
         )}
 </>
     );

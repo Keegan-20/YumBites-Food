@@ -1,12 +1,12 @@
-import { restaurantList } from "./constant";
 import RestaurantCard from "../RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // filterData function to search restaurants
 const filterData = (searchText, restaurants) => {
   const filterData = restaurants.filter((restaurant) =>
-  restaurant?.data?.name?.toLowerCase()?.includes(searchText.trim().toLowerCase()));
+  restaurant?.info?.name?.toLowerCase()?.includes(searchText.trim().toLowerCase()));
   console.log('filterRestaurant:', filterData)
   return filterData;
 }
@@ -17,6 +17,7 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [loading, setLoading] = useState(true); 
+  const[errorMessage,setErrorMessage] = useState([]);
 
   useEffect(() => { //callback fn will be called once after the render()
     //Api call
@@ -53,8 +54,9 @@ const Body = () => {
   }
   console.log("render");
 
-// if not rendered properly this is called Early return
+// if not rendered properly this is called: Early return
 if(!allRestaurants) return null;
+// use searchData function and set condition if data is empty show error message
 // if(filteredRestaurants?.length === 0) return <h1>Sorry! No Restaurant Found</h1>
 //Conditional Rendering
 //if restaurant is empty => shimmer UI
@@ -68,7 +70,7 @@ return(
         <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee>
 
         <input type="text"
-          placeholder="Search for restaurants and food"
+          placeholder="Search for restaurants"
           className="search-input"
           value={searchText}
           onChange={(e) => {

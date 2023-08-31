@@ -8,7 +8,7 @@ const Title = () => (
 
 //creating a header section
  export const HeaderComponent = () => {
-  const [title,setTitle] = useState("YumBite Foods")
+  const [title,setTitle] = useState("YumBites Food")
   const [isLoggedIn,setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
