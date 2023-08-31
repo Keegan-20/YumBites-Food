@@ -1,7 +1,24 @@
+import { useState,useEffect} from "react";
+import { FooterShimmer } from './Shimmer';
+import 'react-loading-skeleton/dist/skeleton.css';
+
+
 const Footer = () => {
+const [loading, setLoading] = useState(true);
+useEffect(() =>{
+    setTimeout(() => {
+        setLoading(false)
+    },2000);
+},[]);
     return (
-        <h4 id="footer-text">Food Villa &copy;2023 All Rights Reserved</h4>
-    )
+        <>
+        {loading ? (
+          <FooterShimmer/>
+        ):(
+        <h4 className="footer-text">Food Villa &copy;2023 All Rights Reserved</h4>
+        )}
+</>
+    );
 }
 
 export default Footer;

@@ -1,13 +1,11 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
-import logoImage from "../img/logo.svg";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const HeaderShimmer = () => {
   return (
     <div className='header-container'>
     <div className="shimmer-header">
-      {/* <img className="logo" src={logoImage} alt="logoImage" /> */}
       <Skeleton width={70} height={70} style={{ borderRadius: 8 }} />
       <h2><Skeleton width={150} /></h2>
       <div className="nav-items">
@@ -39,5 +37,15 @@ const Shimmer = ({ cards }) => {
     </div>
   );
 };
+
+const FooterShimmer =() =>{
+  return(
+    <div className="footer-text">
+      <h4><Skeleton/></h4>
+    </div>
+  );
+};
+
 export default Shimmer;
-export  {HeaderShimmer}
+export {HeaderShimmer};
+export {FooterShimmer};

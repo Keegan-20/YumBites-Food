@@ -2,8 +2,6 @@ import { restaurantList } from "./constant";
 import RestaurantCard from "../RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 // filterData function to search restaurants
 const filterData = (searchText, restaurants) => {
@@ -56,7 +54,7 @@ const Body = () => {
   console.log("render");
 
 // if not rendered properly this is called Early return
-// if(!allRestaurants) return null;
+if(!allRestaurants) return null;
 // if(filteredRestaurants?.length === 0) return <h1>Sorry! No Restaurant Found</h1>
 //Conditional Rendering
 //if restaurant is empty => shimmer UI
