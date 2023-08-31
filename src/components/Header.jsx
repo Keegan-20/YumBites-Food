@@ -1,10 +1,6 @@
 import { useState, useEffect} from "react";
 import logoImage from "../img/logo.svg";
-import { HeaderShimmer } from "./Shimmer";
-// Named Exports:
-const Title = () => (
-    <img className="logo" src={logoImage} alt="logoImage"/>
-);
+import { HeaderShimmer } from "./Shimmer"; // Named Import:
 
 //creating a header section
  export const HeaderComponent = () => {
@@ -17,7 +13,7 @@ const Title = () => (
       setLoading(false);
     }, 2000);
   }, []);
-  
+
        {/* condition ? expressionIfTrue : expressionIfFalse */}
         {/* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */}
     return (

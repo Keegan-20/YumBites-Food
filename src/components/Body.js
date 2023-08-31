@@ -58,12 +58,12 @@ const Body = () => {
 if(!allRestaurants) return null;
 // use searchData function and set condition if data is empty show error message
 // if(filteredRestaurants?.length === 0) return <h1>Sorry! No Restaurant Found</h1>
+
 //Conditional Rendering
 //if restaurant is empty => shimmer UI
-// else restaurant has data => actual data UI 
-//used ternary operator
-  
-  if (loading) return <Shimmer cards={20}/>;   ;
+// else restaurant has data => actual
+
+if (loading) return <Shimmer cards={20}/>;   ;
 return(
     <>
       <div className="search-container">
