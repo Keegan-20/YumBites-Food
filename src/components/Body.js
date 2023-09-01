@@ -41,7 +41,6 @@ const Body = () => {
         if (checkData !== undefined) {
           return checkData;
         }
-
       }
     }
 

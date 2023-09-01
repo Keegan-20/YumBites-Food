@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import logoImage from "../img/logo.svg";
 import { HeaderShimmer } from "./Shimmer"; // Named Import:
+import { Link } from "react-router-dom";
 
 //creating a header section
  export const HeaderComponent = () => {
@@ -11,7 +12,7 @@ import { HeaderShimmer } from "./Shimmer"; // Named Import:
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
        {/* condition ? expressionIfTrue : expressionIfFalse */}
@@ -26,9 +27,9 @@ import { HeaderShimmer } from "./Shimmer"; // Named Import:
           <h2>{title}</h2>
           <div className="nav-items">
             <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact us</li>
+              <Link to="/"><li>Home</li></Link>
+              <Link to ="/about"> <li>About</li></Link>
+               <li>Contact us</li>
               <li>Cart</li>
             </ul>
           </div>

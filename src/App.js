@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 //default import
 import HeaderComponent from "./components/Header";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-
+import About from "./components/About";
+import Error from "./components/Error";
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 //Named import
 import { Title } from "./components/Header";
 import { SkeletonTheme } from "react-loading-skeleton";
@@ -16,16 +16,29 @@ const AppLayout = () => {
     return (
         //  {/* ----//React fragment   */}
         <>
-        <SkeletonTheme>
+  
             <HeaderComponent />
             <Body />
-            <Footer />
-         </SkeletonTheme>
+            <Footer/>
+         
         </>
 
-    )
-}
+    );
+};
+        // React Router - creating the router
+const appRouter = createBrowserRouter([
+    {
+         path:"/",
+         element:<AppLayout/>,
+         errorElement:<Error/>,
+    },
+    {
+        path:"/about",
+        element:<About/>,
+    },
+   
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AppLayout />)
+root.render(<RouterProvider router={appRouter} />)
 
