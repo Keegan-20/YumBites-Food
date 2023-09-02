@@ -5,8 +5,9 @@ import HeaderComponent from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Error from "./components/Error";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 //Named import
 import { Title } from "./components/Header";
 import { SkeletonTheme } from "react-loading-skeleton";
@@ -16,27 +17,37 @@ const AppLayout = () => {
     return (
         //  {/* ----//React fragment   */}
         <>
-  
             <HeaderComponent />
-            <Body />
-            <Footer/>
-         
+            <Outlet /> {/* child routes */} 
+            <Footer />
+
         </>
 
     );
 };
-        // React Router - creating the router
+// React Router - creating the router
 const appRouter = createBrowserRouter([
     {
-         path:"/",
-         element:<AppLayout/>,
-         errorElement:<Error/>,
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error />,
+        children: [
+            {
+                path: "/",
+                element: <Body />,
+            },
+
+            {
+                path: "/about",
+                element: <About />,
+            },
+
+            {
+                path: "/contactUs",
+                element: <Contact />,
+            },
+        ],
     },
-    {
-        path:"/about",
-        element:<About/>,
-    },
-   
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

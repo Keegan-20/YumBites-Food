@@ -1,5 +1,6 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import { Link } from "react-router-dom";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const HeaderShimmer = () => {
@@ -10,8 +11,7 @@ const HeaderShimmer = () => {
       <h2><Skeleton width={150} /></h2>
       <div className="nav-items">
         <ul>
-          <li><Skeleton width={60} /></li>
-          <li><Skeleton width={60} /></li>
+         <li><Skeleton width={60} /></li>
           <li><Skeleton width={60} /></li>
           <li><Skeleton width={60} /></li>
         </ul>

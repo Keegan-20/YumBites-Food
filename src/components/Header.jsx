@@ -27,9 +27,9 @@ import { Link } from "react-router-dom";
           <h2>{title}</h2>
           <div className="nav-items">
             <ul>
-              <Link to="/"><li>Home</li></Link>
-              <Link to ="/about"> <li>About</li></Link>
-               <li>Contact us</li>
+              <Link to="/" className="nav-link"><li>Home</li></Link>
+              <Link to ="/about" className="nav-link"> <li>About</li></Link>
+              <Link to="/contactUs" className="nav-link"> <li>Contact us</li> </Link>
               <li>Cart</li>
             </ul>
           </div>
