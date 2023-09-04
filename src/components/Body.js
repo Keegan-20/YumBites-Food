@@ -2,7 +2,7 @@ import RestaurantCard from "../RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import 'react-loading-skeleton/dist/skeleton.css'
-
+import RestaurantMenu from "./RestaurantMenu";
 // filterData function to search restaurants
 const filterData = (searchText, restaurants) => {
   const filterData = restaurants.filter((restaurant) =>
