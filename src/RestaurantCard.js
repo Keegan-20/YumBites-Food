@@ -1,4 +1,4 @@
-import { IMG_CDN_URL } from "./components/constant";
+import { IMG_CDN_URL } from './constant';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 

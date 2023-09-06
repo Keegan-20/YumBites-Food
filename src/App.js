@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom/client";
 //default import
 import HeaderComponent from "./components/Header";
@@ -49,7 +49,7 @@ const appRouter = createBrowserRouter([
             },
             // dynamic Routing
           {
-            path:"/restaurant/:resid",
+            path:"/restaurant/:resId",
             element:<RestaurantMenu />,
           },
         ],

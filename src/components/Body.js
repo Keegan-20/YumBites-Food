@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import 'react-loading-skeleton/dist/skeleton.css'
 import RestaurantMenu from "./RestaurantMenu";
+import { Link } from "react-router-dom";
 // filterData function to search restaurants
 const filterData = (searchText, restaurants) => {
   const filterData = restaurants.filter((restaurant) =>
@@ -90,7 +91,13 @@ return(
  <div className="restaurant-list">
  {filteredRestaurants.map((eachRestaurant) => {
    return (
-     <RestaurantCard key={eachRestaurant?.info?.id} {...eachRestaurant?.info} />);
+    <Link
+    to={"/restaurant/" + eachRestaurant?.info?.id}
+    key={eachRestaurant?.info?.id}
+  >
+    <RestaurantCard {...eachRestaurant?.info} />
+  </Link>
+     );
    // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
  })}
 </div>
