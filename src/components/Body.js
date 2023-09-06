@@ -91,7 +91,7 @@ return(
  <div className="restaurant-list">
  {filteredRestaurants.map((eachRestaurant) => {
    return (
-    <Link
+    <Link className="restaurantMenu-links"
     to={"/restaurant/" + eachRestaurant?.info?.id}
     key={eachRestaurant?.info?.id}
   >

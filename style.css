@@ -97,7 +97,20 @@ display: flex;
 flex-wrap: wrap;
 
 }  
-
+/* Restaurant Menu page */
+.restaurant-img{
+    width:200px;
+    height:150px;
+    padding:1rem;
+    border-radius:8px;
+}
+.restaurant-menu{
+    display: flex;
+}
+.restaurantMenu-links{
+text-decoration: none;
+color: #333;
+}
 .footer-text{
     text-align: center;
 }
