@@ -19,30 +19,39 @@ const RestaurantMenu = () => {
 
   async function getRestaurantInfo() {
     try {
+      //fetching menu details of restaurant from swiggy api
       const response = await fetch(swiggy_menu_api_URL + resId);
       const json = await response.json();
       console.log(response);
 
       // Set restaurant data
-      const restaurantData = json?.data?.cards?.map(x => x.card)?.
-                             find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?.card?.info || null;
-      setRestaurant(restaurantData);
+      const restaurantData = json?.data?.cards?.map(x => x.card)?. //maps each element in the cards array to x.card
+        find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?. //x is not falsyand if x.card['@type'] is equal to RESTAURANT_TYPE_KEY.
+        card?.info || null;  // if card found accesses its card property and then the info property.
+      setRestaurant(restaurantData); //sets the state variable restaurant with the extracted restaurant data
 
       // Set menu item data
-      const menuItemsData = json?.data?.cards.find(x=> x.groupedCard)?.
-                            groupedCard?.cardGroupMap?.REGULAR?.
-                            cards?.map(x => x.card?.card)?.
-                            filter(x=> x['@type'] == MENU_ITEM_TYPE_KEY)?.
-                            map(x=> x.itemCards).flat().map(x=> x.card?.info) || [];
-      
+      const menuItemsData = json?.data?.cards.find(x => x.groupedCard)?.
+        groupedCard?.cardGroupMap?.REGULAR?.
+        cards?.map(x => x.card?.card)?.
+        filter(x => x['@type'] == MENU_ITEM_TYPE_KEY)?.
+        map(x => x.itemCards).
+        flat(). //x.itemCards is an array of arrays, merges all the arrays into a single array.
+        map(x => x.card?.info) || [];
+
+ //menuItemsData contains only unique items based on their id
       const uniqueMenuItems = [];
       menuItemsData.forEach((item) => {
+        //checks if there is no match in uniqueMenuItems for an item with the same id
         if (!uniqueMenuItems.find(x => x.id === item.id)) {
+          //If there is no match (meaning it's a unique item), it pushes the item to the uniqueMenuItems array:
           uniqueMenuItems.push(item);
         }
       })
       setMenuItems(uniqueMenuItems);
-    } catch (error) {
+    }
+    //incase of error during fetching  of data
+    catch (error) {
       setMenuItems([]);
       setRestaurant(null);
       console.log(error);
@@ -53,7 +62,8 @@ const RestaurantMenu = () => {
     <Shimmer />
   ) : (
     <div className="restaurant-menu">
-      <div className="restaurant-summary">
+    {/*restaurant summary details */}
+        <div className="restaurant-summary">
         <img
           className="restaurant-img"
           src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
@@ -63,14 +73,8 @@ const RestaurantMenu = () => {
           <h2 className="restaurant-title">{restaurant?.name}</h2>
           <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
           <div className="restaurant-details">
-            <div className="restaurant-rating" style={
-            (restaurant?.avgRating) < 4
-              ? { backgroundColor: "var(--light-red)" }
-              : (restaurant?.avgRating) === "--"
-              ? { backgroundColor: "white", color: "black" }
-              : { color: "white" }
-          }>
-            <i className="fa-solid fa-star"></i>
+            <div className="restaurant-rating">
+              <i className="fa-solid fa-star"></i>
               <span>{restaurant?.avgRating}</span>
             </div>
             <div className="restaurant-rating-slash">|</div>
@@ -80,7 +84,7 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
-
+       {/* Restaurant menu details */}
       <div className="restaurant-menu-content">
         <div className="menu-items-container">
           <div className="menu-title-wrap">
@@ -95,15 +99,17 @@ const RestaurantMenu = () => {
                 <div className="menu-item-details">
                   <h3 className="item-title">{item?.name}</h3>
                   <p className="item-cost">
+
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
-                          style: "currency",
-                          currency: "INR",
-                        }).format(item?.price / 100)
+                        style: "currency",
+                        currency: "INR",
+                      }).format(item?.price / 100)
                       : " "}
                   </p>
                   <p className="item-desc">{item?.description}</p>
                 </div>
+                      {/* menu-item image */}
                 <div className="menu-img-wrapper">
                   {item?.imageId && (
                     <img

@@ -14,9 +14,10 @@ return (
             <h2 className="RestaurantName">{name}</h2>
             <div className="sub-content">
             <p>{locality } </p>
-            <p className="cuisines">{cuisines.join(", ")}</p>
+            <p className="cuisines">{cuisines.slice(0, 4).join(", ")}</p>
             {/* <p>{areaName}</p> */}
-            <h3>{avgRating}</h3>
+            <h4> <i className="fa-solid fa-star"></i>
+           {avgRating}</h4>
          </div>
      </div>
 </div>
