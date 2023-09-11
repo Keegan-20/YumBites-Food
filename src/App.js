@@ -19,7 +19,7 @@ const AppLayout = () => {
         //  {/* ----//React fragment   */}
         <>
             <HeaderComponent />
-            <Outlet /> {/* child routes */} 
+            <Outlet /> {/* Outlet is a component that serves as a placeholder where child routes can be rendered.*/} 
             <Footer />
 
         </>
@@ -49,7 +49,7 @@ const appRouter = createBrowserRouter([
             },
             // dynamic Routing
           {
-            path:"/restaurant/:resId",
+            path:"/restaurant/:resId", //dynamic id will be used using useParams
             element:<RestaurantMenu />,
           },
         ],
