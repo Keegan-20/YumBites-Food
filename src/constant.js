@@ -1,8 +1,7 @@
 //In React.js, a config.js/constant.js file is often used to store configuration settings, environment variables, or other constants that are used throughout the application. It helps centralize such configurations in one place, making it easier to manage and update them when needed. basically to store hard coded things.
 // example api keys, json data(or any hard coded data)
 
-export const IMG_CDN_URL =
- "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
  // Image CDN URL for Restaurant Menu
 export const ITEM_IMG_CDN_URL =
