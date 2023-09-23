@@ -7,16 +7,16 @@ class Profile extends React.Component {
         count:0,
         name:'Keegan',
     };
-    console.log('constructor');
+    console.log(' child constructor:'  + this.props.name);
 }
      componentDidMount(){
         //APi call
-        console.log("componentDidMount");
+        console.log(" child componentDidMount:" + this.props.name);
      }
      //first constructuor is called than render and at the end componentDidMount is called
      // render() mandatory for class based component
     render() {  
-        console.log('render');
+        console.log('child render:' + this.props.name);
         return (
         <>
         <h1>Profile Class Component</h1>
