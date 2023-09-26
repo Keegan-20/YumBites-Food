@@ -49,6 +49,7 @@
     width:235px;
     height:300px;
     background-color: wheat;
+    box-shadow: 2px 3px 23px #a19e9e;
     margin:1rem;
     border-radius:8px;
 }

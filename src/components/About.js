@@ -5,7 +5,6 @@ class About extends React.Component {
     constructor(props){
         super(props);
     console.log("parent cons");
-
     };
     
      componentDidMount() { 
@@ -22,7 +21,7 @@ class About extends React.Component {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat at magna a tincidunt. Sed condimentum est suscipit, tempus eros pellentesque, egestas sapien. Aenean odio odio, maximus eget nibh et, elementum laoreet nibh. In iaculis condimentum est, sit amet vestibulum neque finibus eget. Etiam pharetra luctus volutpat. Mauris pharetra turpis nisi, ut commodo ipsum imperdiet eget. Aenean sit amet elementum odio. Morbi a posuere enim, ac vulputate dolor. Nunc eu augue mollis ligula rhoncus porttitor. Morbi sapien libero, varius a tempus vel, rutrum egestas libero. Ut vitae nunc tortor.</p>
                 {/* child componet */}
           <Profile name={"Keegan"} rollno="191205002" age="22"/>
-          <Profile name={"Keegan2"} rollno="191205002" age="26"/>
+          {/* <Profile name={"Keegan2"} rollno="191205002" age="26"/> */}
         </>
 
     )
