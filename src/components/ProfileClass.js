@@ -12,7 +12,7 @@ class Profile extends React.Component {
       }
     console.log(' child constructor:'  + this.props.name);
 }
-
+  //cdm will be called after first render 
      async componentDidMount(){
         //APi call   
       const data =  await fetch("https://api.github.com/users/Keegan-20");
@@ -22,6 +22,15 @@ class Profile extends React.Component {
         userInfo:json,
       });
       console.log("child -ComponentDidMount:" + this.props.name);
+     }
+
+     //componentDidUpdate is called after every update
+     componentDidUpdate(){
+      console.log("Component Did Update");  
+     } 
+
+     componentWillUnmount() {
+      console.log("Component Will Unmount");
      }
      //first constructuor is called than render and at the end componentDidMount is called
      // render() mandatory for class based component
