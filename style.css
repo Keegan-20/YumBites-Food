@@ -4,7 +4,10 @@
     box-sizing: border-box;
 }
 
-.header{
+.header {
+    position: sticky;
+    top:0;
+    z-index:10;
     display: flex; 
     justify-content:space-between;
     margin:0.5rem 0.3rem;
