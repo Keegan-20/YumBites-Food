@@ -4,16 +4,11 @@ import Shimmer from "./Shimmer";
 import 'react-loading-skeleton/dist/skeleton.css'
 import RestaurantMenu from "./RestaurantMenu";
 import { Link } from "react-router-dom";
-// filterData function to search restaurants
-const filterData = (searchText, restaurants) => {
-  const filterData = restaurants.filter((restaurant) =>
-  restaurant?.info?.name?.toLowerCase()?.includes(searchText.trim().toLowerCase()));
-  console.log('filterRestaurant:', filterData)
-  return filterData;
-}
+import { filterData } from "./utils/helper";
+import useOnline from "../Custom Hooks/useOnline";
 
 const Body = () => {
-  //  let searchText="OLA" //normal js
+  //let searchText="OLA" //normal js
   const [searchText, setSearchText] = useState(""); //returns =[variable name,function to update the variable]
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -24,6 +19,7 @@ const Body = () => {
     //Api call
     getRestaurants(); //sideffect:api calling
   }, []);
+
 
   async function getRestaurants() {
     const data = await fetch(
@@ -54,6 +50,11 @@ const Body = () => {
   }
   console.log("render");
 
+  //Checking if user is online or offline
+  const isOnline=useOnline();
+  if(!isOnline){
+    return <h1>🔴Oops!! Seems like your offline, Please Check Your Internet🔴</h1>
+  }
 // if not rendered properly this is called: Early return
 if(!allRestaurants) return null;
 // use searchData function and set condition if data is empty show error message

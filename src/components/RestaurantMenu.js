@@ -1,69 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import {
-  swiggy_menu_api_URL,
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
+  swiggy_menu_api_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../constant";
 import Shimmer from "./Shimmer";
+import useResMenuData from "../Custom Hooks/useResMenuData";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
-  const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in res
-  const [menuItems, setMenuItems] = useState([]);
-  useEffect(() => {
-    getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
-  }, []);
+ const [restaurant, menuItems] = useResMenuData(
+  swiggy_menu_api_URL,
+  resId,
+  RESTAURANT_TYPE_KEY,
+  MENU_ITEM_TYPE_KEY
+);
 
-  async function getRestaurantInfo() {
-    try {
-      //fetching menu details of restaurant from swiggy api
-      const response = await fetch(swiggy_menu_api_URL + resId);
-      const json = await response.json();
-      console.log(response);
-
-      // Set restaurant data
-      const restaurantData = json?.data?.cards?.map(x => x.card)?. //maps each element in the cards array to x.card
-        find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?. //x is not falsyand if x.card['@type'] is equal to RESTAURANT_TYPE_KEY.
-        card?.info || null;  // if card found accesses its card property and then the info property.
-      setRestaurant(restaurantData); //sets the state variable restaurant with the extracted restaurant data
-
-      // Set menu item data
-      const menuItemsData = json?.data?.cards.find(x => x.groupedCard)?.
-        groupedCard?.cardGroupMap?.REGULAR?.
-        cards?.map(x => x.card?.card)?.
-        filter(x => x['@type'] == MENU_ITEM_TYPE_KEY)?.
-        map(x => x.itemCards).
-        flat(). //x.itemCards is an array of arrays, merges all the arrays into a single array.
-        map(x => x.card?.info) || [];
-
- //menuItemsData contains only unique items based on their id
-      const uniqueMenuItems = [];
-      menuItemsData.forEach((item) => {
-        //checks if there is no match in uniqueMenuItems for an item with the same id
-        if (!uniqueMenuItems.find(x => x.id === item.id)) {
-          //If there is no match (meaning it's a unique item), it pushes the item to the uniqueMenuItems array:
-          uniqueMenuItems.push(item);
-        }
-      })
-      setMenuItems(uniqueMenuItems);
-    }
-    //incase of error during fetching  of data
-    catch (error) {
-      setMenuItems([]);
-      setRestaurant(null);
-      console.log(error);
-    }
-  }
 
   return !restaurant ? (
     <Shimmer />
   ) : (
     <div className="restaurant-menu">
-    {/*restaurant summary details */}
-        <div className="restaurant-summary">
+      {/*restaurant summary details */}
+      <div className="restaurant-summary">
         <img
           className="restaurant-img"
           src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
@@ -84,7 +46,7 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
-       {/* Restaurant menu details */}
+      {/* Restaurant menu details */}
       <div className="restaurant-menu-content">
         <div className="menu-items-container">
           <div className="menu-title-wrap">
@@ -109,7 +71,7 @@ const RestaurantMenu = () => {
                   </p>
                   <p className="item-desc">{item?.description}</p>
                 </div>
-                      {/* menu-item image */}
+                {/* menu-item image */}
                 <div className="menu-img-wrapper">
                   {item?.imageId && (
                     <img
