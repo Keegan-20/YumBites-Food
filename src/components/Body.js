@@ -52,6 +52,7 @@ const Body = () => {
 
   //Checking if user is online or offline
   const isOnline=useOnline();
+  
   if(!isOnline){
     return <h1>🔴Oops!! Seems like your offline, Please Check Your Internet🔴</h1>
   }

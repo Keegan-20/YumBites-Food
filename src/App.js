@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from "react-dom/client";
 //default import
 import HeaderComponent from "./components/Header";
@@ -13,7 +13,12 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 //Named import
 import { Title } from "./components/Header";
 import { SkeletonTheme } from "react-loading-skeleton";
+import Shimmer from './components/Shimmer';
 //we can write .js or jsx one at the same
+
+//optimizing the react app:
+// chunking, Code Splitting,dynamic bundling,Laxy loading,on Demand Loading,Dynamic Import
+const Instamart = lazy(() => import("./components/Instamart")); //lazy import
 
 const AppLayout = () => {
     return (
@@ -56,6 +61,13 @@ const appRouter = createBrowserRouter([
           {
             path:"/restaurant/:resId", //dynamic id will be used using useParams
             element:<RestaurantMenu />,
+          },
+          {
+            path:"/instamart",       
+     // Suspense is a special component in React that allows you to suspend rendering while some asynchronous work is being done
+            element: <Suspense fallback={<Shimmer/>} >
+            <Instamart />
+            </Suspense>
           },
         ],
     },

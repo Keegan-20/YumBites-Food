@@ -1,6 +1,5 @@
 import React from 'react';
 import Profile from './ProfileClass';
-
 class About extends React.Component {
     constructor(props){
         super(props);

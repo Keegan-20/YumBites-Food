@@ -9,7 +9,7 @@ const useOnline = () => {
             setIsOnline(true);
         }
 
-        const handleOffine = () => {
+        const handleOffine = () => { 
             setIsOnline(false);
         }
 
