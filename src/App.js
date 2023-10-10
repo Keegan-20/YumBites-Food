@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -19,7 +18,7 @@ import Shimmer from './components/Shimmer';
 //optimizing the react app:
 // chunking, Code Splitting,dynamic bundling,Laxy loading,on Demand Loading,Dynamic Import
 const Instamart = lazy(() => import("./components/Instamart")); //lazy import
-
+const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
     return (
         //  {/* ----//React fragment   */}
@@ -46,7 +45,9 @@ const appRouter = createBrowserRouter([
 
             {
                 path: "/about",
-                element: <About />,
+                element: <Suspense fallback={<h1>Loading....</h1>}>
+                <About />
+                </Suspense>,
                 children:[{
                     path:"profile", //children of children: localhostl:1234/about/profile
                     element:<Profile/>,
