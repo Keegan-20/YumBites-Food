@@ -18,21 +18,24 @@ import useOnline from "../Custom Hooks/useOnline";
        {/* condition ? expressionIfTrue : expressionIfFalse */}
         {/* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */}
     return (
-        <div className="header flex">
+        <div className="flex justify-between my-1 mx-2 bg-white	">
            {loading ? (
         <HeaderShimmer />
       ) : (   
          
         <>
-          <img className=" w-20" src={logoImage} alt="logoImage" />
+          <img className="w-20 p-2 " src={logoImage} alt="logoImage" />
 
           {/* <h1>{isOnline?"🟢": "🔴"}</h1> */}
           <div className="nav-items">
-            <ul>
-              <Link to="/" className="nav-link"><li>Home</li></Link>
-              <Link to ="/about" className="nav-link"> <li>About</li></Link>
-              <Link to="/contactUs" className="nav-link"> <li>Contact us</li> </Link>
-              <li>Cart</li>
+            <ul className="flex py-10 ">
+              <Link to="/" className="nav-link">
+                <li className="px-2">Home</li></Link>
+              <Link to ="/about" className="nav-link">
+                 <li className="px-2">About</li></Link>
+              <Link to="/contactUs" className="nav-link">
+                 <li className="px-2">Contact us</li> </Link>
+              <li className="px-2">Cart</li>
               <Link to="/instamart" className="nav-link"> <li>Instamart</li> </Link>
             
             </ul>
