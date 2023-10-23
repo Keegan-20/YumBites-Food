@@ -49,9 +49,10 @@
     outline:none;
 }
 /* Resturant cards items */
+
 .card{
     width:235px;
-    height:300px;
+    height:330px;
     background-color: wheat;
     box-shadow: 2px 3px 23px #a19e9e;
     margin:1rem;

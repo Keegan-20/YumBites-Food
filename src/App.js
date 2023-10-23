@@ -46,7 +46,7 @@ const appRouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <Suspense fallback={<h1>Loading....</h1>}>
-                <About />
+                <About />,
                 </Suspense>,
                 children:[{
                     path:"profile", //children of children: localhostl:1234/about/profile

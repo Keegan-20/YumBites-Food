@@ -6,7 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const HeaderShimmer = () => {
   return (
     <div className='header-container'>
-    <div className="shimmer-header">
+    <div className="shimmer-header"> 
       <Skeleton width={70} height={70} style={{ borderRadius: 8 }} />
       <h2><Skeleton width={150} /></h2>
       <div className="nav-items">
