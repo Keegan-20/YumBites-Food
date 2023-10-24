@@ -18,7 +18,7 @@ import useOnline from "../Custom Hooks/useOnline";
        {/* condition ? expressionIfTrue : expressionIfFalse */}
         {/* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */}
     return (
-        <div className="flex justify-between  sticky  top-0  z-10 my-1 mx-2 ">
+        <div className="flex justify-between  sticky  top-0 max-h-14 z-10  bg-white">
            {loading ? (
         <HeaderShimmer />
       ) : (   
@@ -28,7 +28,7 @@ import useOnline from "../Custom Hooks/useOnline";
 
           {/* <h1>{isOnline?"🟢": "🔴"}</h1> */}
           <div className="nav-items">
-            <ul className="flex py-10 ">
+            <ul className="flex py-3 ">
               <Link to="/" className="nav-link">
                 <li className="px-2">Home</li></Link>
               <Link to ="/about" className="nav-link">

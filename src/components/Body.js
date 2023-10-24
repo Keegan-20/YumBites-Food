@@ -90,7 +90,7 @@ return(
 
 {
 
- <div className="restaurant-list">
+ <div className="flex flex-wrap">
  {filteredRestaurants.map((eachRestaurant) => {
    return (
     <Link className="restaurantMenu-links"
