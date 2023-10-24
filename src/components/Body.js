@@ -68,12 +68,12 @@ if(!allRestaurants) return null;
 if (loading) return <Shimmer cards={20}/>;   ;
 return(
     <>
-      <div className="search-container">
-        <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee>
+      <div className="search-container my-2 p-2 flex ">
+        {/* <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee> */}
 
         <input type="text"
           placeholder="Search for restaurants"
-          className="search-input"
+          className="search-input p-2 border-solid border-2 border-black-500 rounded-lg"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -81,7 +81,7 @@ return(
         />
         <h3>{searchText}</h3>
         {/* Searching the restaurant */}
-        <button className="search-button" onClick={() => {
+        <button className="search-button bg-amber-200   py-1 px-2  my-2 rounded-lg text-black ml-2" onClick={() => {
           const data = filterData(searchText,allRestaurants);
           setFilteredRestaurants(data);
         }

@@ -8,7 +8,7 @@ const RestaurantCard = ({
     locality,
 }) => {
 return (
-        <div className="card">
+        <div className="card w-64 h-77 bg-amber-100 rounded-lg m-2">
             < img src={IMG_CDN_URL + cloudinaryImageId} />
            <div className="card-content">
             <h2 className="RestaurantName">{name}</h2>

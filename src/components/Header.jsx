@@ -18,13 +18,13 @@ import useOnline from "../Custom Hooks/useOnline";
        {/* condition ? expressionIfTrue : expressionIfFalse */}
         {/* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */}
     return (
-        <div className="flex justify-between my-1 mx-2 bg-white	">
+        <div className="flex justify-between  sticky  top-0  z-10 my-1 mx-2 ">
            {loading ? (
         <HeaderShimmer />
       ) : (   
          
         <>
-          <img className="w-20 p-2 " src={logoImage} alt="logoImage" />
+          <img className="w-20 p-2" src={logoImage} alt="logoImage" />
 
           {/* <h1>{isOnline?"🟢": "🔴"}</h1> */}
           <div className="nav-items">
