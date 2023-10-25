@@ -18,7 +18,7 @@ import useOnline from "../Custom Hooks/useOnline";
        {/* condition ? expressionIfTrue : expressionIfFalse */}
         {/* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */}
     return (
-        <div className="flex justify-between  sticky  top-0 max-h-14 z-10  bg-white">
+        <div className="flex justify-between  sticky  top-0 max-h-14 z-10  bg-amber-500">
            {loading ? (
         <HeaderShimmer />
       ) : (   
