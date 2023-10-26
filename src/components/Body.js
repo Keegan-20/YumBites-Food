@@ -73,7 +73,8 @@ return(
 
         <input type="text"
           placeholder="Search for restaurants"
-          className="search-input p-2 border-solid border-2 border-black-500 rounded-lg"
+      className="search-input p-2 border-solid border-2 border-black-500 rounded-lg 
+       focus:bg-[#FFFBAC]"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
