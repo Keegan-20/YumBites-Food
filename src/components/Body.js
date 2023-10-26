@@ -91,7 +91,7 @@ return(
 
 {
 
- <div className="flex flex-wrap">
+ <div className="flex flex-wrap md:justify-center">
  {filteredRestaurants.map((eachRestaurant) => {
    return (
     <Link className="restaurantMenu-links"
