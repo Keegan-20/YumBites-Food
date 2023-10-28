@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
       {/*restaurant summary details */}
       <div className="restaurant-summary">
         <img
-          className="restaurant-img w-[200px] h-[150px] p-4 rounded-lg"
+          className="restaurant-img w-[200px] h-[150px] p-4 rounded-lg  "
           src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
           alt={restaurant?.name}
         />

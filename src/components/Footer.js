@@ -15,7 +15,7 @@ useEffect(() =>{
         {loading ? (
           <FooterShimmer/>
         ):(
-        <h4 className="footer-text">YumBites Food &copy;2023 All Rights Reserved</h4>
+        <h4 className="flex justify-center w-full max-h-14 p-2 bg-red-400 text-white" >YumBites Food &copy;2023 All Rights Reserved</h4>
         )}
 </>
     );

@@ -6,6 +6,7 @@ import RestaurantMenu from "./RestaurantMenu";
 import { Link } from "react-router-dom";
 import { filterData } from "./utils/helper";
 import useOnline from "../Custom Hooks/useOnline";
+import { swiggy_restaurant_details } from "../constant";
 
 const Body = () => {
   //let searchText="OLA" //normal js
@@ -23,7 +24,7 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.4934622&lng=73.8327136&page_type=DESKTOP_WEB_LISTING"
+      swiggy_restaurant_details
     );
     const json = await data.json();
 
