@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import ReactDOM from "react-dom/client";
 //default import
 import HeaderComponent from "./components/Header";
