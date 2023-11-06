@@ -5,10 +5,18 @@ import { useState } from "react";
 const Section = ({title,description}) => {
  const [isVisible,setIsVisible] = useState(false);
     return (
+        //accordion component //F&Q section kind thing
         <div className="border border-amber-400 m-2 p2">
-            <h3 className="font-bold">{title}</h3>
-            <button onClick={setIsVisible(true)} >Show</button>
-            {isVisible && <p>description</p>}
+               <h3 className="font-bold">{title}  </h3>
+            {isVisible ? (
+        <button className=" cursor-pointer px-2" onClick={() => setIsVisible(false)} ><i className="fa-solid fa-caret-up fa-caret-up bg-red-500 rounded-lg text-white px-2 py-1"></i> 
+        </button>
+            ) : (
+        <button className=" cursor-pointer px-2" onClick={() => setIsVisible(true)} ><i className="fa-solid fa-caret-down bg-red-500 rounded-lg text-white px-2 py-1"></i></button>
+            )}
+            { // wrapping it inside { } so we can use  it as js
+                isVisible && <p>{description}</p>
+            }
         </div>
     );
 };
