@@ -31,6 +31,7 @@ const AppLayout = () => {
 
     );
 };
+
 // React Router - creating the router
 const appRouter = createBrowserRouter([
     {
