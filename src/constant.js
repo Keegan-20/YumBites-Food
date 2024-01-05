@@ -13,8 +13,7 @@ export const swiggy_restaurant_details=
 
 // Swiggy API to get Restaurant Menu data with thingproxy
 export const swiggy_menu_api_URL =
-"https://thingproxy.freeboard.io/fetch/www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.4909301&lng=73.8278496&&submitAction=ENTER&restaurantId=";
-
+"https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.4909301&lng=73.8278496&&submitAction=ENTER&restaurantId=";
 
 // menu items api card type key
 export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
