@@ -11,7 +11,7 @@ const RestaurantCard = ({
 }) => {
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
-    <div className="card w-[235px] h-[320px] bg-amber-100 rounded-lg  m-3 shadow-lg ">
+    <div className="card w-[235px] h-[320px] bg-amber-100 rounded-lg z-10 m-3 shadow-lg ">
       < img src={IMG_CDN_URL + cloudinaryImageId} className='w-full h-[180px] rounded-t-xl ' />
       <div className="card-content px-2">
         <h2 className="RestaurantName font-medium text-center">{name}</h2>

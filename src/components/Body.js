@@ -21,7 +21,6 @@ const Body = () => {
     getRestaurants(); //sideffect:api calling
   }, []);
 
-
   async function getRestaurants() {
     const data = await fetch(
       swiggy_restaurant_details
@@ -99,7 +98,7 @@ return(
     to={"/restaurant/" + eachRestaurant?.info?.id}
     key={eachRestaurant?.info?.id}
   >
-    <RestaurantCard {...eachRestaurant?.info} />
+    <RestaurantCard {...eachRestaurant?.info}  />
   </Link>
      );
    // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
