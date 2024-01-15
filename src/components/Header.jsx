@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import logoImage from "../img/logo.svg";
 import { HeaderShimmer } from "./Shimmer"; // Named Import:
 import { Link } from "react-router-dom";
 import useOnline from "../Custom Hooks/useOnline";
+import UserContext from "./utils/UserContext";
+
 //creating a header section
 export const HeaderComponent = () => {
   const [title, setTitle] = useState("YumBites Food");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const isOnline = useOnline();
+
+  const {user}=useContext(UserContext);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -59,6 +63,7 @@ export const HeaderComponent = () => {
               </Link>
             </ul>
           </div>
+          <h2 className="p-2 m-2 font-bold">Hey {user.name} </h2>
           {isLoggedIn ? (
             <button
               className="logOut text-sm p-2 m-2 rounded-lg bg-slate-950"

@@ -1,14 +1,16 @@
+import { useContext } from 'react';
 import { IMG_CDN_URL } from './constant';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import UserContext from './components/utils/UserContext';
 
 const RestaurantCard = ({
   name, avgRating, cuisines, // this are props
   cloudinaryImageId,
   locality
-
   //   sla // This is the entire 'sla' object
 }) => {
+  const { user} = useContext(UserContext);
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
     <div className="card w-[235px] h-[320px] bg-amber-100 rounded-lg z-10 m-3 shadow-lg ">
@@ -20,6 +22,7 @@ const RestaurantCard = ({
         <div className="sub-content">
           <p>{locality} </p>
           <p className="cuisines text-sm font-medium">{cuisines.slice(0, 4).join(", ")}</p>
+          <h5>{user.state}</h5>
         </div>
       </div>
     </div>
