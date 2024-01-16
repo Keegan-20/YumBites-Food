@@ -14,7 +14,7 @@ useEffect(() =>{
 },[]);
     return (
         <>
-                {loading ? (
+            {loading ? (
           <FooterShimmer/>
         ):(
         <h4 className="flex justify-center w-full fixed bottom-0 max-h-14 p-2 bg-red-400 text-white" >YumBites Food &copy;2023 All Rights Reserved 

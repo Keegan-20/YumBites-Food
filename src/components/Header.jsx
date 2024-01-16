@@ -63,7 +63,7 @@ export const HeaderComponent = () => {
               </Link>
             </ul>
           </div>
-          <h2 className="p-2 m-2 font-bold">Hey {user.name} </h2>
+          <h2 className="p-2 m-2 font-bold text-black">Hey {user.name} </h2>
           {isLoggedIn ? (
             <button
               className="logOut text-sm p-2 m-2 rounded-lg bg-slate-950"

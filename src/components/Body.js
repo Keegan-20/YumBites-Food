@@ -87,6 +87,7 @@ return(
           setFilteredRestaurants(data);
         }
         }>Search</button>
+  
       </div>
 
 {
@@ -106,7 +107,7 @@ return(
 </div>
 }
   
-    </>
+    </> 
   );
 };
 
