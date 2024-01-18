@@ -10,9 +10,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from './components/Profile';
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 //Named import
-import { Title } from "./components/Header";
-import { SkeletonTheme } from "react-loading-skeleton";
 import Shimmer from './components/Shimmer';
+import UserContext from './components/utils/UserContext';
+import { Provider } from 'react-redux';
+import store from './components/utils/store';
 //we can write .js or jsx one at the same
 
 //optimizing the react app:
@@ -20,15 +21,22 @@ import Shimmer from './components/Shimmer';
 const Instamart = lazy(() => import("./components/Instamart")); //lazy import
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
+    const[user,setUser]=useState({
+        name:"Keegan Colaco",
+        email:"key@gmail.com"
+    });
     return (
         //  {/* ----//React fragment   */}
-        <>
+        <Provider store={store}>
+        <UserContext.Provider value={{
+            user:user,
+        }}>
             <HeaderComponent />
             <Outlet /> {/* Outlet is a component that serves as a placeholder where child routes can be rendered.*/} 
             <Footer />
 
-        </>
-
+        </UserContext.Provider>
+        </Provider>
     );
 };
 
