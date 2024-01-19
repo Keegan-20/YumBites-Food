@@ -15,18 +15,18 @@ import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
- const [restaurant, menuItems] = useResMenuData(
-  swiggy_menu_api_URL,
-  resId,
-  RESTAURANT_TYPE_KEY,
-  MENU_ITEM_TYPE_KEY
-);
+  const [restaurant, menuItems] = useResMenuData(
+    swiggy_menu_api_URL,
+    resId,
+    RESTAURANT_TYPE_KEY,
+    MENU_ITEM_TYPE_KEY
+  );
 
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const  handleAddItem =() =>{
-  dispatch(addItem("Grapes"));
-}
+  const handleAddItem = () => {
+    dispatch(addItem("Grapes")); //dispatch is coming from useDispatch hook
+  };
 
   return !restaurant ? (
     <Shimmer />
@@ -53,16 +53,13 @@ const  handleAddItem =() =>{
             <div>{restaurant?.costForTwoMessage}</div>
           </div>
         </div>
-        
       </div>
       {/* Restaurant menu details */}
       <div className="restaurant-menu-content">
         <div className="menu-items-container">
           <div className="menu-title-wrap">
             <h3 className="menu-title">Recommended</h3>
-            <p className="menu-count">
-              {menuItems.length} ITEMS
-            </p>
+            <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
           <div className="menu-items-list">
             {menuItems.map((item) => (
@@ -70,12 +67,11 @@ const  handleAddItem =() =>{
                 <div className="menu-item-details">
                   <h3 className="item-title">{item?.name}</h3>
                   <p className="item-cost">
-
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: "INR",
-                      }).format(item?.price / 100)
+                          style: "currency",
+                          currency: "INR",
+                        }).format(item?.price / 100)
                       : " "}
                   </p>
                   <p className="item-desc">{item?.description}</p>
@@ -89,8 +85,13 @@ const  handleAddItem =() =>{
                       alt={item?.name}
                     />
                   )}
-                  <button className="p-2 m-2 bg-green-200 rounded-lg font-medium" 
-                  onClick={()=> handleAddItem()} > ADD </button>
+                  <button
+                    className="p-2 m-2 bg-green-200 rounded-lg font-medium"
+                    onClick={() => handleAddItem()}
+                  >
+                    {" "}
+                    ADD{" "}
+                  </button>
                 </div>
               </div>
             ))}
