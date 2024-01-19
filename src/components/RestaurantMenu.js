@@ -7,8 +7,11 @@ import {
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../constant";
+
 import Shimmer from "./Shimmer";
 import useResMenuData from "../Custom Hooks/useResMenuData";
+import { addItem } from "./utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
@@ -19,6 +22,11 @@ const RestaurantMenu = () => {
   MENU_ITEM_TYPE_KEY
 );
 
+const dispatch = useDispatch();
+
+const  handleAddItem =() =>{
+  dispatch(addItem("Grapes"));
+}
 
   return !restaurant ? (
     <Shimmer />
@@ -45,6 +53,7 @@ const RestaurantMenu = () => {
             <div>{restaurant?.costForTwoMessage}</div>
           </div>
         </div>
+        
       </div>
       {/* Restaurant menu details */}
       <div className="restaurant-menu-content">
@@ -80,7 +89,8 @@ const RestaurantMenu = () => {
                       alt={item?.name}
                     />
                   )}
-                  <button className="add-btn"> ADD +</button>
+                  <button className="p-2 m-2 bg-green-200 rounded-lg font-medium" 
+                  onClick={()=> handleAddItem()} > ADD </button>
                 </div>
               </div>
             ))}

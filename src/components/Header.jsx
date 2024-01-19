@@ -4,6 +4,7 @@ import { HeaderShimmer } from "./Shimmer"; // Named Import:
 import { Link } from "react-router-dom";
 import useOnline from "../Custom Hooks/useOnline";
 import UserContext from "./utils/UserContext";
+import { useSelector } from "react-redux";
 
 //creating a header section
 export const HeaderComponent = () => {
@@ -11,6 +12,7 @@ export const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const isOnline = useOnline();
+  const cartItems = useSelector(store =>store.cart.items);
 
   const {user}=useContext(UserContext);
   useEffect(() => {
@@ -51,15 +53,18 @@ export const HeaderComponent = () => {
                   Contact us
                 </li>{" "}
               </Link>
-              <li className="px-2  hover:border-b-4 border-white hover:text-black">
-                Cart
-              </li>
+          
               <Link
                 to="/instamart"
                 className=" px-2 nav-link  hover:border-b-4 border-white  hover:text-black"
               >
                 {" "}
                 <li>Instamart</li>{" "}
+              </Link>
+              <Link>
+              <li className="px-2  hover:border-b-4 border-white hover:text-black">
+                Cart -{cartItems.length} items
+              </li>
               </Link>
             </ul>
           </div>
