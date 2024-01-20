@@ -13,7 +13,7 @@ export const HeaderComponent = () => {
   const [loading, setLoading] = useState(true);
   const isOnline = useOnline();
   const cartItems = useSelector(store =>store.cart.items);
-
+    console.log(cartItems);
   const {user}=useContext(UserContext);
   useEffect(() => {
     setTimeout(() => {
@@ -54,18 +54,17 @@ export const HeaderComponent = () => {
                 </li>{" "}
               </Link>
           
-              <Link
-                to="/instamart"
-                className=" px-2 nav-link  hover:border-b-4 border-white  hover:text-black"
+              <Link to="/instamart" className=" px-2 nav-link  hover:border-b-4 border-white  hover:text-black"
               >
                 {" "}
                 <li>Instamart</li>{" "}
               </Link>
-              <Link>
+              <Link to ="/cart">
               <li className="px-2  hover:border-b-4 border-white hover:text-black">
                 Cart -{cartItems.length} items
               </li>
               </Link>
+
             </ul>
           </div>
           <h2 className="p-2 m-2 font-bold text-black">Hey {user.name} </h2>

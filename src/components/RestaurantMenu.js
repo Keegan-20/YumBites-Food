@@ -24,14 +24,14 @@ const RestaurantMenu = () => {
 
   const dispatch = useDispatch();
 
-  const handleAddItem = () => {
-    dispatch(addItem("Grapes")); //dispatch is coming from useDispatch hook
+  const addFoodItem = (item) => {
+   dispatch(addItem(item));
   };
 
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu">
+    <div className="restaurant-menu flex">
       {/*restaurant summary details */}
       <div className="restaurant-summary">
         <img
@@ -54,6 +54,7 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
+
       {/* Restaurant menu details */}
       <div className="restaurant-menu-content">
         <div className="menu-items-container">
@@ -76,6 +77,7 @@ const RestaurantMenu = () => {
                   </p>
                   <p className="item-desc">{item?.description}</p>
                 </div>
+
                 {/* menu-item image */}
                 <div className="menu-img-wrapper">
                   {item?.imageId && (
@@ -86,11 +88,9 @@ const RestaurantMenu = () => {
                     />
                   )}
                   <button
-                    className="p-2 m-2 bg-green-200 rounded-lg font-medium"
-                    onClick={() => handleAddItem()}
-                  >
-                    {" "}
-                    ADD{" "}
+                    className="p-2 m-2 bg-green-200 rounded-lg font-medium "
+                    onClick={() => addFoodItem(item)}
+                  > ADD
                   </button>
                 </div>
               </div>

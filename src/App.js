@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from './components/Profile';
+import Cart from './components/Cart';
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 //Named import
 import Shimmer from './components/Shimmer';
@@ -81,6 +82,10 @@ const appRouter = createBrowserRouter([
           },
         ],
     },
+    {
+        path:"/cart",
+        element:<Cart/>
+    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
