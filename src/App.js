@@ -74,6 +74,10 @@ const appRouter = createBrowserRouter([
             element:<RestaurantMenu />,
           },
           {
+            path:"/cart",
+            element:<Cart/>,
+        },
+          {
             path:"/instamart",       
      // Suspense is a special component in React that allows you to suspend rendering while some asynchronous work is being done
             element: <Suspense fallback={<Shimmer/>} >
@@ -82,10 +86,7 @@ const appRouter = createBrowserRouter([
           },
         ],
     },
-    {
-        path:"/cart",
-        element:<Cart/>
-    }
+ 
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
