@@ -1,4 +1,4 @@
-import RestaurantCard from "../RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import 'react-loading-skeleton/dist/skeleton.css'

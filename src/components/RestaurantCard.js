@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { IMG_CDN_URL } from './constant';
+import { IMG_CDN_URL } from '../constant';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import UserContext from './components/utils/UserContext';
+import UserContext from './utils/UserContext';
 
 const RestaurantCard = ({
   name, avgRating, cuisines, // this are props
