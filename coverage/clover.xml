@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1706517049117" clover="3.2.0">
-  <project timestamp="1706517049117" name="All files">
+<coverage generated="1706544904898" clover="3.2.0">
+  <project timestamp="1706544904898" name="All files">
     <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="2" coveredelements="2" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
     <file name="sum.js" path="C:\Users\keega\OneDrive\Desktop\Web Development\React js\YumBite Foods\src\components\sum.js">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="2" count="1" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
