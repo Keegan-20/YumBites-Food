@@ -33,7 +33,7 @@ export const HeaderComponent = () => {
         <HeaderShimmer />
       ) : (
         <>
-          <img className="w-20 p-2" src={logoImage} alt="logoImage" />
+          <img  data-testid="logo" className="w-20 p-2" src={logoImage} alt="logoImage" />
 
           {/* <h1>{isOnline?"🟢": "🔴"}</h1> */}
           <div className="nav-items">
