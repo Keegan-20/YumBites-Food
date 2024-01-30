@@ -3,3 +3,4 @@ temp.js
 .parcel-cache
 dist/
 /coverage
+coverage/

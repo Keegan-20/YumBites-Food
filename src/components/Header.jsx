@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import logoImage from "../img/logo.svg";
-import { HeaderShimmer } from "./Shimmer"; // Named Import:
+import { HeaderShimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../Custom Hooks/useOnline";
 import UserContext from "./utils/UserContext";
