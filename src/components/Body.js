@@ -82,7 +82,8 @@ return(
         />
         <h3>{searchText}</h3>
         {/* Searching the restaurant */}
-        <button className="search-button bg-amber-200   py-1 px-2  my-2 rounded-lg text-black ml-2" onClick={() => {
+        <button data-testid="search-btn"
+        className="search-button bg-amber-200   py-1 px-2  my-2 rounded-lg text-black ml-2" onClick={() => {
           const data = filterData(searchText,allRestaurants);
           setFilteredRestaurants(data);
         }

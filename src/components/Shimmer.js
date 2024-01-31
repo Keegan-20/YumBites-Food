@@ -23,7 +23,7 @@ const HeaderShimmer = () => {
 
 const Shimmer = ({ cards }) => {
   return (
-    <div className="cards-container"> 
+    <div data-testid="shimmer" className="cards-container"> 
       {Array(cards).fill(0).map((_, index) => (
         <div className="card-skeleton" key={index}>
           <Skeleton width={230} height={200} style={{ borderRadius: 8 }} />
