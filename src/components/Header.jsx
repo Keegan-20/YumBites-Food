@@ -35,7 +35,7 @@ export const HeaderComponent = () => {
         <>
           <img  data-testid="logo" className="w-20 p-2" src={logoImage} alt="logoImage" />
 
-          {/* <h1>{isOnline?"🟢": "🔴"}</h1> */}
+          <h1 data-testid="online-status" className="py-3">{isOnline?"🟢🟢🟢": "🔴🔴🔴"}</h1>
           <div className="nav-items">
             <ul className="flex py-3 ">
               <Link to="/" className="nav-link">
@@ -60,7 +60,7 @@ export const HeaderComponent = () => {
                 <li>Instamart</li>{" "}
               </Link>
               <Link to ="/cart">
-              <li className="px-2  hover:border-b-4 border-white hover:text-black">
+              <li className="px-2  hover:border-b-4 border-white hover:text-black" data-testid="cart">
                 Cart -{cartItems.length} items
               </li>
               </Link>
