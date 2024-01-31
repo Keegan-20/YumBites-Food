@@ -19,8 +19,6 @@ test("logo should load on rendering the header", async () => {
   const logo = await waitFor(() => header.getByTestId("logo"), {
     timeout: 2000,
   });
-
-  console.log(logo);
   expect(logo.src).toBe("http://localhost/dummy.png");
 });
 
@@ -33,13 +31,12 @@ test("Online status should be Green on rendering header", async () => {
       </Provider>
     </StaticRouter>
   );
-  const onlineStatus = await waitFor(
-    () => header.getByTestId("online-status"),
+  const onlineStatus = await waitFor(() => header.getByTestId("online-status"),
     {
       timeout: 2000,
     }
   );
-  console.log(onlineStatus);
+  // console.log(onlineStatus);
   //what output you are expecting
   expect(onlineStatus.innerHTML).toBe("🟢🟢🟢");
 });
