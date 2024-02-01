@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const HeaderShimmer = () => {
   return (
-    <div className='header-container'>
+    <div className='header-container '>
     <div className="shimmer-header"> 
       <Skeleton width={70} height={70} style={{ borderRadius: 8 }} />
       <h2><Skeleton width={150} /></h2>
@@ -23,9 +23,9 @@ const HeaderShimmer = () => {
 
 const Shimmer = ({ cards }) => {
   return (
-    <div data-testid="shimmer" className="cards-container"> 
+    <div data-testid="shimmer" className="cards-container flex flex-wrap md:justify-center "> 
       {Array(cards).fill(0).map((_, index) => (
-        <div className="card-skeleton" key={index}>
+        <div className="card-skeleton m-3" key={index}>
           <Skeleton width={230} height={200} style={{ borderRadius: 8 }} />
           <h2><Skeleton /></h2>
           <p><Skeleton /></p>
