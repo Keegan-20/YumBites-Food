@@ -1,4 +1,4 @@
-import { render, waitFor,fireEvent } from "@testing-library/react";
+import { render, waitFor, fireEvent } from "@testing-library/react";
 import { StaticRouter } from "react-router-dom/server";
 import "@testing-library/jest-dom";
 import { Provider } from "react-redux";
@@ -20,7 +20,7 @@ test("Shimmer UI should load on homepage", async () => {
   const body = render(
     <StaticRouter>
       <Provider store={store}>
-        <Body/>
+        <Body />
       </Provider>
     </StaticRouter>
   );
@@ -28,36 +28,46 @@ test("Shimmer UI should load on homepage", async () => {
     timeout: 2000,
   });
 
-   expect(shimmerUi.children.length).toBe(20);
+  expect(shimmerUi.children.length).toBe(20);
 });
 
-
-test("restaurant list should be render on load",async()=>{
+test("restaurant list should be render on load", async () => {
   const body = render(
     <StaticRouter>
       <Provider store={store}>
-        <Body/>
+        <Body />
       </Provider>
     </StaticRouter>
   );
 
-  const restaurantList= await waitFor(()=>body.getByTestId("res-list"),{
-    timeout:2000,
+  const restaurantList = await waitFor(() => body.getByTestId("res-list"), {
+    timeout: 2000,
   });
   console.log(RESTAURANT_DATA.length);
-  expect(restaurantList.children.length).toBe(18)
-  
-}) 
+  expect(restaurantList.children.length).toBe(18);
+});
 
- //testcase for search button
-test("Search for string(food) on Homepage",async()=>{
+//testcase for search button
+test("Search for string(food) on Homepage", async () => {
   const body = render(
     <StaticRouter>
       <Provider store={store}>
-        <Body/>
+        <Body />
       </Provider>
     </StaticRouter>
   );
 
-  
-}) 
+  await waitFor(() => expect(body.getByTestId("search-btn")));
+
+  const input = body.getByTestId("search-input");
+  fireEvent.change(input, {
+    target: {
+      value: "Ice Cream",
+    },
+  });
+  const searchBtn = body.getByTestId("search-btn");
+  fireEvent.click(searchBtn);
+
+  const restaurantList = body.getByTestId("res-list");
+  expect(restaurantList.children.length).toBe(3);
+});

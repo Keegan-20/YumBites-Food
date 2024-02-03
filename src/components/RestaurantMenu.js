@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu flex">
+    <div className="restaurant-menu flex ">
       {/*restaurant summary details */}
       <div className="restaurant-summary">
         <img
@@ -62,7 +62,7 @@ const RestaurantMenu = () => {
             <h3 className="menu-title">Recommended</h3>
             <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
-          <div className="menu-items-list">
+          <div className="menu-items-list divide-y-4 divide-solid divide-orange-200">
             {menuItems.map((item) => (
               <div className="menu-item" key={item?.id}>
                 <div className="menu-item-details">
