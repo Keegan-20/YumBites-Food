@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
+
 import {
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
@@ -56,13 +57,13 @@ const RestaurantMenu = () => {
       </div>
 
       {/* Restaurant menu details */}
-      <div className="restaurant-menu-content">
+      <div className="restaurant-menu-content" >
         <div className="menu-items-container">
-          <div className="menu-title-wrap">
+          <div className="menu-title-wrap" >
             <h3 className="menu-title">Recommended</h3>
             <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
-          <div className="menu-items-list divide-y-4 divide-solid divide-orange-200">
+          <div className="menu-items-list divide-y-4 divide-solid divide-orange-200" data-testid="menuItems" >
             {menuItems.map((item) => (
               <div className="menu-item" key={item?.id}>
                 <div className="menu-item-details">
@@ -88,6 +89,7 @@ const RestaurantMenu = () => {
                     />
                   )}
                   <button
+                   data-testid="add-btn"
                     className="p-2 m-2 bg-green-200 rounded-lg font-medium "
                     onClick={() => addFoodItem(item)}
                   > ADD

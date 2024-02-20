@@ -1,8 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import 'react-loading-skeleton/dist/skeleton.css'
-import RestaurantMenu from "./RestaurantMenu";
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from "react-router-dom";
 import { filterData } from "./utils/helper";
 import useOnline from "../Custom Hooks/useOnline";
