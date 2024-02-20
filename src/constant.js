@@ -7,12 +7,12 @@ export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/
 export const ITEM_IMG_CDN_URL =
 "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-//swiggy restaurant details with  foodfire server
+//swiggy restaurant details 
 export const swiggy_restaurant_details= 
 "https://foodfire.onrender.com/api/restaurants/?lat=15.4934622&lng=73.8327136&page_type=DESKTOP_WEB_LISTING";
 
 
-// Swiggy API to get Restaurant Menu data with thingproxy
+// Swiggy API to get Restaurant Menu data 
 export const swiggy_menu_api_URL =
 "https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=15.4909301&lng=73.8278496&&submitAction=ENTER&restaurantId=";
 
