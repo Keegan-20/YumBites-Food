@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html -d dist",
+    "build": "parcel build index.html",
     "watch-test": "jest --watch"
   },
   "keywords": [],
@@ -18,11 +18,12 @@
     "@testing-library/jest-dom": "^6.4.1",
     "@testing-library/react": "^14.1.2",
     "babel-jest": "^29.7.0",
+    "cssnano": "^6.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "parcel": "^2.9.3",
-    "postcss": "^8.4.31",
+    "parcel": "^2.0.0-nightly.1500",
+    "postcss": "^8.4.35",
     "process": "^0.11.10",
     "tailwindcss": "^3.3.3"
   },
@@ -34,4 +35,4 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.15.0"
   }
-}
+} 
