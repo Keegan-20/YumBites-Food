@@ -1,17 +1,16 @@
 import { useContext } from 'react';
 import { IMG_CDN_URL } from '../constant';
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import UserContext from './utils/UserContext';
 
 const RestaurantCard = ({
   name, avgRating, cuisines, // this are props
   cloudinaryImageId,
-  locality
-  //   sla // This is the entire 'sla' object
+  locality,
+    sla // This is the entire 'sla' object
 }) => {
   const { user} = useContext(UserContext);
-  //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
+    const {deliveryTime} = sla; // Accessing nested loop
   return (
     <div className="card w-[235px] h-[300px] bg-amber-100 rounded-lg z-10 m-3 shadow-xl ">
       < img src={IMG_CDN_URL + cloudinaryImageId} className='w-full h-[155px] rounded-t-xl ' />
@@ -21,8 +20,8 @@ const RestaurantCard = ({
 
         <div className="sub-content">
           <p>{locality} </p>
+          <h4 className=" text-sm">{deliveryTime} mins </h4>
           <p className="cuisines text-sm font-medium">{cuisines.slice(0, 4).join(", ")}</p>
-          <h5>{user.state}</h5>
         </div>
       </div>
     </div>

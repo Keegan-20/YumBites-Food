@@ -77,15 +77,15 @@ const Body = () => {
   if (loading) return <Shimmer cards={20} />;
   return (
     <>
-      <div className="search-container my-2 p-2 flex ">
+      <div className="search-container my-3 p-2 flex justify-center align-middle ">
         {/* <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee> */}
 
         <input
           data-testid="search-input"
           type="text"
           placeholder="Search for restaurants"
-          className="search-input p-2 border-solid border-2 border-black-500 rounded-lg 
-       focus:bg-[#FFFBAC]  w-[80%]"
+          className="search-input p-2 border-solid  border-2 border-black-500 rounded-lg 
+       focus:bg-[#FFFBAC]  w-[50%]"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -95,7 +95,7 @@ const Body = () => {
         {/* Searching the restaurant */}
         <button
           data-testid="search-btn"
-          className="search-button bg-amber-200   py-1 px-2  my-2 rounded-lg text-black ml-2"
+          className="search-button bg-amber-200 text-lg  p-2  my-2 rounded-lg text-black ml-2"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
             setFilteredRestaurants(data);
