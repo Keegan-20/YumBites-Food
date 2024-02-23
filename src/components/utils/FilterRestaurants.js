@@ -20,7 +20,17 @@ export const filterData = (searchText, restaurants) => {
  export const filterLowPrice=(filteredRestaurants,setFilteredRestaurants) => {
   const filteredList = filteredRestaurants.filter((res) => {
     const price = res.info.costForTwo?.substring(1, 4);
-    if(price < 300) return price;
+    if(price <= 300) return price;
+    
+ })
+  setFilteredRestaurants(filteredList);
+ }
+
+ //Filtering Restaurants based on low Price
+ export const filterMidPrice=(filteredRestaurants,setFilteredRestaurants) => {
+  const filteredList = filteredRestaurants.filter((res) => {
+    const price = res.info.costForTwo?.substring(1, 4);
+    if(price >= 300 && price<=600) return price;
     
  })
   setFilteredRestaurants(filteredList);

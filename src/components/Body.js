@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
-import { filterData,ratingFilter,filterFastDelivery,filterLowPrice } from "./utils/FilterRestaurants";
+import { filterData,ratingFilter,filterFastDelivery,filterLowPrice, filterMidPrice } from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
@@ -130,6 +130,29 @@ const Body = () => {
                     Ratings 4.3+
                   </button>
             </div>
+        <div className="filter-buttons flex items-center">
+                <div className="rating-button mr-4">
+                  <button
+                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
+                    onClick={() => filterLowPrice(filteredRestaurants,setFilteredRestaurants)
+                    }
+                     >  
+                      Less than Rs.300
+                  </button>
+            </div>
+            </div>
+        <div className="filter-buttons flex items-center">
+                <div className="rating-button mr-4">
+                  <button
+                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
+                    onClick={() => filterMidPrice(filteredRestaurants,setFilteredRestaurants)
+                    }
+                     >  
+                      Rs.300 - Rs.600
+                  </button>
+            </div>
+            </div>
+
             <div className="fastdelivery-button mr-4">
                   <button
                     className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer focus:bg-orange-400"
