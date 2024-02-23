@@ -4,7 +4,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CarouselBtn from "./CarouselBtn";
 
 const Carousel = ({ carouselCards }) => {
-    console.log("carouselCards:", carouselCards);
+    // console.log("carouselCards:", carouselCards);
 
     // Check if carouselCards is falsy or not an array
     if (!carouselCards || !Array.isArray(carouselCards)) return null; 

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
-import { filterData } from "./utils/helper";
+import { filterData,ratingFilter,filterFastDelivery,filterLowPrice } from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
@@ -16,6 +16,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState([]);
+
 
   useEffect(() => {
     //callback fn will be called once after the render()
@@ -50,6 +51,7 @@ const Body = () => {
       setCarouselCards(
         json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
       );
+    
     } catch (error) {
       console.error("Error fetching restaurant data:", error);
     }
@@ -104,7 +106,42 @@ const Body = () => {
           Search
         </button>
       </div>
-      <Carousel carouselCards={carouselCards} />
+
+         <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
+
+      <div className="divider">
+        <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5"></hr>
+      </div>
+             {/* Filtering the Restaurants */}
+        <div className="reslist-header mb-5">
+          <h2 className="font-bold text-3xl ml-5">
+            Restaurants with online food delivery in Central Goa
+          </h2>
+        </div>
+
+        {/* filtering restaurants based on ratings */}
+        <div className="filter-buttons flex items-center">
+                <div className="rating-button mr-4">
+                  <button
+                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
+                    onClick={() => ratingFilter(filteredRestaurants,setFilteredRestaurants)
+                    }
+                     >  
+                    Ratings 4.3+
+                  </button>
+            </div>
+            <div className="fastdelivery-button mr-4">
+                  <button
+                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer focus:bg-orange-400"
+                    onClick={() =>{
+                      filterFastDelivery(filteredRestaurants,setFilteredRestaurants)
+                     }
+                    }
+                  >
+                    Fast Delivery
+                  </button>
+                </div>
+        </div>
 
       {
         <div
