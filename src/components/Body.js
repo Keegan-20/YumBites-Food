@@ -114,13 +114,13 @@ const Body = () => {
       </div>
              {/* Filtering the Restaurants */}
         <div className="reslist-header mb-5">
-          <h2 className="font-bold text-3xl ml-5">
+          <h2 className="font-bold text-3xl mt-5 p-4">
             Restaurants with online food delivery in Central Goa
           </h2>
         </div>
 
         {/* filtering restaurants based on ratings */}
-        <div className="filter-buttons flex items-center">
+        <div className="filter-buttons flex items-center ml-[2rem]">
                 <div className="rating-button mr-4">
                   <button
                     className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
