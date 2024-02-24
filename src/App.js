@@ -18,7 +18,7 @@ import store from './components/utils/store';
 //we can write .js or jsx one at the same
 
 //optimizing the react app:
-// chunking, Code Splitting,dynamic bundling,Laxy loading,on Demand Loading,Dynamic Import
+// chunking, Code Splitting,dynamic bundling,Lazy loading,on Demand Loading,Dynamic Import
 const Instamart = lazy(() => import("./components/Instamart")); //lazy import
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {

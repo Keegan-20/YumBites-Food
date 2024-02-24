@@ -1,6 +1,7 @@
 
 import { IMG_CDN_URL } from '../constant';
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
+import VegNonVeg from './utils/VegNonVeg';
 
 const MenuCart = ({
   name,
@@ -13,16 +14,24 @@ const MenuCart = ({
 //  The && (logical AND) operator is used to check if itemAttribute exists (is truthy) before attempting to access the vegClassifier property.
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
-    <div className="card w-[235px] h-[320px] bg-amber-100 rounded-lg z-10 m-3 shadow-lg  ">
-      < img src={IMG_CDN_URL + imageId} className='w-full h-[180px] rounded-t-xl ' />
-      <div className="card-content px-2">
-        <h2 className="RestaurantName font-medium text-center">{name}</h2>
-        <h4 className='font-semibold'> <i className="fa-solid fa-star bg-green-600 text-xs p-1  mb-1 mr-1 text-[#fff] rounded-[50%]"></i></h4>
-        <h4>{vegClassifierValue}</h4>
-       <h4>Rupees: {price/100}</h4>
+    <div className='menuCartContainer flex w-full h-full'>
+    <div className="restaurantItem flex  justify-between items-center w-[70%] m-auto  border border-indigo-100 rounded-lg mb-4 shadow-lg">
+      <img src={IMG_CDN_URL + imageId} className='w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300' alt={name} />
+      <div className="card-content m-auto flex justify-between items-center px-2">
+        <div className=' flex '>
+          <h2 className="RestaurantName flex justify-between mr-2 font-medium text-center">{name}</h2>
+          <h4 className='font-semibold mr-5'>
+           <VegNonVeg itemAttribute={itemAttribute} /> 
+          </h4>
+          <h4 className='mr-5 '>{vegClassifierValue} </h4>
+        <h4 className='mr-5 '>₹{price/100} </h4>
+        </div>
+
+
       </div>
     </div>
-
+  </div>
+  
 
   );
 

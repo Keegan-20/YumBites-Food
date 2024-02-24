@@ -87,7 +87,7 @@ const Body = () => {
           type="text"
           placeholder="Search for restaurants"
           className="search-input p-2 border-solid  border-2 border-black-500 rounded-lg 
-       focus:bg-[#FFFBAC]  w-[50%]"
+       focus:bg-[#FFFBAC]  w-[80%]"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
