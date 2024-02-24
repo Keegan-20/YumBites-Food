@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import logoImage from "../img/logo.svg";
+import logoImage from "../img/logo2.png";
 import { HeaderShimmer } from "./Shimmer";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useOnline from "../Custom Hooks/useOnline";
 import UserContext from "./utils/UserContext";
@@ -28,16 +29,16 @@ export const HeaderComponent = () => {
     /* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */
   }
   return (
-    <div className="flex justify-between  sticky  top-0 max-h-14 z-10 bg-red-400 text-white">
+    <div className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-red-400 text-white">
       {loading ? (
         <HeaderShimmer />
       ) : (
         <>
-          <img  data-testid="logo" className="w-20 p-2" src={logoImage} alt="logoImage" />
+          <img  data-testid="logo" className="w-28 h-24 " src={logoImage} alt="logoImage" />
 
-          <h1 data-testid="online-status" className="py-3">{isOnline?"🟢🟢🟢": "🔴🔴🔴"}</h1>
+          {/* <h1 data-testid="online-status" className="py-3">{isOnline?"🟢🟢🟢": "🔴🔴🔴"}</h1> */}
           <div className="nav-items">
-            <ul className="flex py-3 ">
+            <ul className="flex py-7 ">
               <Link to="/" className="nav-link">
                 <li className="px-2 hover:border-b-4 border-white hover:text-black">
                   Home
@@ -59,30 +60,41 @@ export const HeaderComponent = () => {
                 {" "}
                 <li>Instamart</li>{" "}
               </Link>
-              <Link to ="/cart">
-              <li className="px-2  hover:border-b-4 border-white hover:text-black" data-testid="cart">
-                Cart -{cartItems.length} items
-              </li>
-              </Link>
+           
 
             </ul>
           </div>
-          <h2 className="p-2 m-2 font-bold text-black">Hey {user.name} </h2>
-          {isLoggedIn ? (
+          {/* <h2 className="p-2 m-2 font-bold text-black">Hey {user.name} </h2> */}
+
+          {
+        
+          isLoggedIn ? (
+           
             <button
-              className="logOut text-sm p-2 m-2 rounded-lg bg-slate-950"
+              className="logOut  text-sm  h-10 w-auto my-6 p-2 rounded-lg bg-slate-950"
               onClick={() => setIsLoggedIn(false)}
             >
               Logout
             </button>
           ) : (
             <button
-              className="logIn m-2 p-2  last:text-sm rounded-lg bg-slate-950"
+              className="logIn my-6 p-2 w-auto h-10 last:text-sm rounded-lg bg-slate-950"
               onClick={() => setIsLoggedIn(true)}
             >
               LogIn
             </button>
+        
           )}
+         
+             <Link to ="/cart">
+             <button className="flex items-center  bg-[yellow] my-6 mx-4 p-2 px-3 rounded-md text-black" data-testid="cart">
+        <span className="mr-3">
+          {cartItems.length} 
+        </span>
+        <FaShoppingCart color="black" size="25px" />
+      </button>
+              </Link>
+              
         </>
       )}
     </div>
