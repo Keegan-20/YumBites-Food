@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
-
+import VegNonVeg from "./utils/VegNonVeg";
 import {
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
@@ -14,7 +14,7 @@ import useResMenuData from "../Custom Hooks/useResMenuData";
 import { addItem } from "./utils/cartSlice";
 import { useDispatch } from "react-redux";
 
-const RestaurantMenu = () => {
+const RestaurantMenu = ({itemAttribute}) => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
   const [restaurant, menuItems] = useResMenuData(
     swiggy_menu_api_URL,
@@ -22,6 +22,7 @@ const RestaurantMenu = () => {
     RESTAURANT_TYPE_KEY,
     MENU_ITEM_TYPE_KEY
   );
+  const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
 
   const dispatch = useDispatch();
 
@@ -63,11 +64,13 @@ const RestaurantMenu = () => {
             <h3 className="menu-title">Recommended</h3>
             <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
-          <div className="menu-items-list divide-y-4 divide-solid divide-orange-200" data-testid="menuItems" >
+          <div className="menu-items-list divide-y-4 min-w-full divide-solid divide-orange-200" data-testid="menuItems" >
             {menuItems.map((item) => (
               <div className="menu-item" key={item?.id}>
                 <div className="menu-item-details">
-                  <h3 className="item-title">{item?.name}</h3>
+                <VegNonVeg itemAttribute={item?.itemAttribute} /> 
+
+                  <h3 className="item-title">{item?.name} </h3>
                   <p className="item-cost">
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
@@ -88,6 +91,7 @@ const RestaurantMenu = () => {
                       alt={item?.name}
                     />
                   )}
+
                   <button
                    data-testid="add-btn"
                     className="p-2 m-2 bg-green-200 hover:bg-green-600 rounded-lg font-medium "
