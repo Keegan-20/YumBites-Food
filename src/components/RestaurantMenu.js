@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import VegNonVeg from "./utils/VegNonVeg";
 import {
@@ -32,6 +33,12 @@ const RestaurantMenu = ({itemAttribute}) => {
 
   const removeFoodItem = (itemId) => {
     dispatch(removeItem(itemId)); // Dispatch the removeItem action with the itemId
+  };
+
+  const cartItems=useSelector((store) => store.cart.items);
+  const itemInCart = (itemId) => {
+    // Check if any item in the cart matches the current menu item's id
+    return cartItems.some((item) => item.id === itemId);
   };
 
   return !restaurant ? (
@@ -96,19 +103,22 @@ const RestaurantMenu = ({itemAttribute}) => {
                     />
                   )} 
 
-                  <button
-                   data-testid="add-btn"
-                    className="p-2 m-2 bg-green-200 hover:bg-green-600 rounded-lg font-medium "
-                    onClick={() => addFoodItem(item)}
-                  > ADD
-                  </button>
-                <button
+{itemInCart(item.id) ? (
+        <button
           className="p-2 m-2 bg-red-200 hover:bg-red-600 rounded-lg font-medium"
-          onClick={() => removeFoodItem(item.id)} // Pass item id to removeFoodItem function
+          onClick={() => removeFoodItem(item.id)}
         >
           REMOVE
         </button>
-
+      ) : (
+        <button
+          data-testid="add-btn"
+          className="p-2 m-2 bg-green-200 hover:bg-green-600 rounded-lg font-medium"
+          onClick={() => addFoodItem(item)}
+        >
+          ADD
+        </button>
+      )}
                 </div>
               </div>
             ))}
