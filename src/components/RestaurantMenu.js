@@ -11,7 +11,7 @@ import {
 
 import Shimmer from "./Shimmer";
 import useResMenuData from "../Custom Hooks/useResMenuData";
-import { addItem } from "./utils/cartSlice";
+import { addItem,removeItem } from "./utils/cartSlice";
 import { useDispatch } from "react-redux";
 
 const RestaurantMenu = ({itemAttribute}) => {
@@ -28,6 +28,10 @@ const RestaurantMenu = ({itemAttribute}) => {
 
   const addFoodItem = (item) => {
    dispatch(addItem(item));
+  };
+
+  const removeFoodItem = (itemId) => {
+    dispatch(removeItem(itemId)); // Dispatch the removeItem action with the itemId
   };
 
   return !restaurant ? (
@@ -90,7 +94,7 @@ const RestaurantMenu = ({itemAttribute}) => {
                       src={ITEM_IMG_CDN_URL + item?.imageId}
                       alt={item?.name}
                     />
-                  )}
+                  )} 
 
                   <button
                    data-testid="add-btn"
@@ -98,6 +102,13 @@ const RestaurantMenu = ({itemAttribute}) => {
                     onClick={() => addFoodItem(item)}
                   > ADD
                   </button>
+                <button
+          className="p-2 m-2 bg-red-200 hover:bg-red-600 rounded-lg font-medium"
+          onClick={() => removeFoodItem(item.id)} // Pass item id to removeFoodItem function
+        >
+          REMOVE
+        </button>
+
                 </div>
               </div>
             ))}

@@ -11,7 +11,7 @@ const cartSlice = createSlice({
       state.items.push(action.payload); //action.payload is used to send data
     },
       removeItem: (state, action) => {
-      state.items.pop();
+        state.items = state.items.filter(item => item.id !== action.payload);
     },
       clearCart: (state) => {
       state.items = [];
