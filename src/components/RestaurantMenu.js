@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import VegNonVeg from "./utils/VegNonVeg";

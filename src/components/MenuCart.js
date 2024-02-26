@@ -1,4 +1,6 @@
-
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateCartItemQuantity } from './utils/cartSlice';
 import { IMG_CDN_URL } from '../constant';
 import 'react-loading-skeleton/dist/skeleton.css';
 import VegNonVeg from './utils/VegNonVeg';
@@ -8,6 +10,17 @@ const MenuCart = ({
   imageId,price,itemAttribute
   //   sla // This is the entire 'sla' object
 }) => {
+  // managingh the item quantity
+  const [quantity, setQuantity] = useState(1); 
+  const dispatch = useDispatch();
+
+  const handleQuantityChange = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    setQuantity(newQuantity);
+    dispatch(updateCartItemQuantity({ itemId: itemAttribute.id, quantity: newQuantity }));
+  };
+  const total = price * quantity;
+
  // Accessing the 'vegClassifier' property from 'itemAttribute'
  const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
 
@@ -24,7 +37,12 @@ const MenuCart = ({
            <VegNonVeg itemAttribute={itemAttribute} /> 
           </h4>
           <h4 className='mr-5 '>{vegClassifierValue} </h4>
-        <h4 className='mr-5 '>₹{price/100} </h4>
+        <h4 className='mr-5 '>₹{total / 100} </h4>
+        <select value={quantity} onChange={handleQuantityChange}>
+              {[...Array(10).keys()].map((num) => (
+                <option key={num + 1} value={num + 1}>{num + 1}</option>
+              ))}
+            </select>
         </div>
 
 
