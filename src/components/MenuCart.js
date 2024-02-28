@@ -64,6 +64,12 @@ const MenuCart = ({
           </div>
         </div>
       </div>
+      {/* subtotal section */}
+      <div>
+        <div className="totalContainer bg-zinc-400 flex flex-col"> 
+        <h3>Sub total</h3>
+        </div>
+      </div>
     </div>
   );
 };
