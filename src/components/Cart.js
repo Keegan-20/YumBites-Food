@@ -24,7 +24,7 @@ const Cart = () => {
         ))}
          <button className="bg-red-400 text-white ml-2 p-2" onClick={handleClearCart}>Clear Cart</button>
       </div>
-      <div className="totalSummary w-42  min-h-[90vh] flex flex-col bg-green-500">
+      <div className="totalSummary w-56 min-h-[90vh] flex flex-col bg-green-500">
         <span id="title" className="font-bold">Subtotal ({cartItems.length}) items</span>
         <span style={{ fontWeight: 700, fontSize: 20 }}> Total: ₹</span>
         <button type="button" disabled={cartItems.length === 0} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
