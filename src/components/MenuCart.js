@@ -37,16 +37,16 @@ const MenuCart = ({
   //  The && (logical AND) operator is used to check if itemAttribute exists (is truthy) before attempting to access the vegClassifier property.
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
-    <div className="menuCartContainer flex w-full h-full">
-      <div className="restaurantItem flex  justify-between items-center w-[70%] m-auto  border border-indigo-100 rounded-lg mb-4 shadow-lg">
+    <div className="menuCartContainer">
+      <div className=" flex  justify-between items-center w-[70%] m-auto  border rounded-lg mb-4 shadow-lg ">
         <img
           src={IMG_CDN_URL + imageId}
           className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
           alt={name}
         />
-        <div className="card-content m-auto flex justify-between items-center px-2">
+        <div className="card-content flex justify-around p-2 ">
           <div className=" flex ">
-            <h2 className="RestaurantName flex justify-between mr-2 font-medium text-center">
+            <h2 className="RestaurantName flex justify-between  font-medium text-center">
               {name}
             </h2>
             <h4 className="font-semibold mr-5">
@@ -62,12 +62,6 @@ const MenuCart = ({
               ))}
             </select>
           </div>
-        </div>
-      </div>
-      {/* subtotal section */}
-      <div>
-        <div className="totalContainer bg-zinc-400 flex flex-col"> 
-        <h3>Sub total</h3>
         </div>
       </div>
     </div>
