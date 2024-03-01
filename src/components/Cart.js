@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import MenuCart from "./MenuCart";
-import { clearCart } from "./utils/cartSlice";
+import { clearCart,selectTotal  } from "./utils/cartSlice";
 
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
+  const total = useSelector(selectTotal);
+
   const dispatch = useDispatch();
 
   // Function to handle clearing the cart
@@ -26,7 +28,7 @@ const Cart = () => {
       </div>
       <div className="totalSummary w-56 min-h-[90vh] flex flex-col bg-green-500">
         <span id="title" className="font-bold">Subtotal ({cartItems.length}) items</span>
-        <span style={{ fontWeight: 700, fontSize: 20 }}> Total: ₹</span>
+        <span style={{ fontWeight: 700, fontSize: 20 }}> Total: ₹{total}</span>
         <button type="button" disabled={cartItems.length === 0} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Proceed to Checkout
         </button>

@@ -38,15 +38,15 @@ const MenuCart = ({
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
     <div className="menuCartContainer">
-      <div className=" flex  justify-between items-center w-[70%] m-auto  border rounded-lg mb-4 shadow-lg ">
+      <div className=" flex  justify-between items-center w-[70%] m-auto  border rounded-lg mb-3 shadow-lg ">
     
-        <div className="card-content flex items-center justify-around p-1 ">
+        <div className="card-content flex  items-center justify-around p-1 ">
         <img
           src={IMG_CDN_URL + imageId}
           className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
           alt={name}
         />
-          <div className="flex justify-center items-center p-2">
+          <div className="flex justify-center items-center  p-2 ">
             <h2 className="RestaurantName flex p-2   font-medium text-center">
               {name}
             </h2>
