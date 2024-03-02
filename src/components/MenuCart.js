@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateCartItemQuantity } from "./utils/cartSlice";
+import { updateCartItemQuantity,removeItem } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "../constant";
+import { AiFillDelete } from "react-icons/ai";
 import "react-loading-skeleton/dist/skeleton.css";
 import VegNonVeg from "./utils/VegNonVeg";
 
@@ -24,6 +25,11 @@ const MenuCart = ({
   };
 
   const total = price * quantity; //price calculation for each item depending on qty
+
+// removing an item
+const handleRemoveItem = () => {
+  dispatch(removeItem(id)); // Dispatching removeItem action with the item id
+};
 
   // Accessing the 'vegClassifier' property from 'itemAttribute'
   const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
@@ -59,6 +65,9 @@ const MenuCart = ({
                 </option>
               ))}
             </select>
+            <button onClick={() =>{handleRemoveItem()}}>  
+            <AiFillDelete fontSize="20px" />
+          </button>
           </div>
         </div>
       </div>
