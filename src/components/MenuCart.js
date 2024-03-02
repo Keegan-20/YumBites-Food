@@ -24,7 +24,7 @@ const MenuCart = ({
     dispatch(updateCartItemQuantity({ id, quantity: newQuantity }));
   };
 
-  const total = price * quantity; //price calculation for each item depending on qty
+  const total = !isNaN(price) && price !== 0 ? price * quantity : 0;
 
 // removing an item
 const handleRemoveItem = () => {
@@ -58,6 +58,7 @@ const handleRemoveItem = () => {
               className="border m-5"
               value={quantity}
               onChange={handleQuantityChange}
+              disabled={isNaN(price) || price === 0}
             >
               {[...Array(10).keys()].map((num) => (
                 <option key={num + 1} value={num + 1}>
@@ -66,7 +67,7 @@ const handleRemoveItem = () => {
               ))}
             </select>
             <button className="m-5" onClick={() =>{handleRemoveItem()}}>  
-            <AiFillDelete fontSize="20px" />
+            <AiFillDelete  className="hover:text-[red]" fontSize="20px" />
           </button>
           </div>
         </div>

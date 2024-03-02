@@ -14,9 +14,17 @@ const Cart = () => {
   };
 
   // Function to calculate total price for a single item
-  const calculateTotalPrice = (item) => {
+const calculateTotalPrice = (item) => {
+  // Check if item has a valid price
+  if (item && typeof item.price === 'number' && !isNaN(item.price)) {
+    // If price is valid, calculate total price
     return item.price * item.quantity;
-  };
+  } else {
+    // If price is not valid, return 0 
+    return 0;
+  }
+};
+
 
   // Calculate subtotal for all items in the cart
   const subTotal = cartItems.reduce((acc, item) => {
