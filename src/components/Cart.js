@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import MenuCart from "./MenuCart";
-import { clearCart,selectTotal  } from "./utils/cartSlice";
-
+import { clearCart } from "./utils/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  const total = useSelector(selectTotal);
 
   const dispatch = useDispatch();
 
@@ -15,6 +13,16 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  // Function to calculate total price for a single item
+  const calculateTotalPrice = (item) => {
+    return item.price * item.quantity;
+  };
+
+  // Calculate subtotal for all items in the cart
+  const subTotal = cartItems.reduce((acc, item) => {
+    return acc + calculateTotalPrice(item);
+  }, 0);
+
   return (
     <div className="mainContainer ">
     {/* <h1 className="font-bold text-2xl text-center">Cart Items: {cartItems.length}</h1> */}
@@ -22,13 +30,13 @@ const Cart = () => {
     <div className="mainCart flex ">
       <div className="menuItems pt-5 flex-grow">
         {cartItems.map((item) => (
-          <MenuCart key={item.id} {...item} />
+          <MenuCart key={item.id} id={item.id} {...item} />
         ))}
          <button className="bg-red-400 text-white ml-2 p-2" onClick={handleClearCart}>Clear Cart</button>
       </div>
       <div className="totalSummary w-56 min-h-[90vh] flex flex-col bg-green-500">
         <span id="title" className="font-bold">Subtotal ({cartItems.length}) items</span>
-        <span style={{ fontWeight: 700, fontSize: 20 }}> Total: ₹{total}</span>
+        <span style={{ fontWeight: 700, fontSize: 20 }}> Total: ₹{subTotal / 100} </span>
         <button type="button" disabled={cartItems.length === 0} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Proceed to Checkout
         </button>

@@ -1,4 +1,4 @@
-import { useState,useSelector } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCartItemQuantity } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "../constant";
@@ -6,30 +6,24 @@ import "react-loading-skeleton/dist/skeleton.css";
 import VegNonVeg from "./utils/VegNonVeg";
 
 const MenuCart = ({
+  id,
   name,
   imageId,
   price,
   itemAttribute,
-  
-  //   sla // This is the entire 'sla' object
 }) => {
-  // const cartItems=useSelector((store) => store.cart.items);
-
-  // managingh the item quantity
-  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+  // managing the item quantity
+  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (e) => {
-    const newQuantity = parseInt(e.target.value);
+    const newQuantity = parseInt(e.target.value); //qty selected by user
+
     setQuantity(newQuantity);
-    dispatch(
-      updateCartItemQuantity({
-        itemId: itemAttribute.id,
-        quantity: newQuantity,
-      })
-    );
+    dispatch(updateCartItemQuantity({ id, quantity: newQuantity }));
   };
-  const total = price * quantity;
+
+  const total = price * quantity; //price calculation for each item depending on qty
 
   // Accessing the 'vegClassifier' property from 'itemAttribute'
   const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
@@ -39,13 +33,12 @@ const MenuCart = ({
   return (
     <div className="menuCartContainer">
       <div className=" flex  justify-between items-center w-[70%] m-auto  border rounded-lg mb-3 shadow-lg ">
-    
         <div className="card-content flex  items-center justify-around p-1 ">
-        <img
-          src={IMG_CDN_URL + imageId}
-          className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
-          alt={name}
-        />
+          <img
+            src={IMG_CDN_URL + imageId}
+            className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
+            alt={name}
+          />
           <div className="flex justify-center items-center  p-2 ">
             <h2 className="RestaurantName flex p-2   font-medium text-center">
               {name}
@@ -54,8 +47,12 @@ const MenuCart = ({
               <VegNonVeg itemAttribute={itemAttribute} />
             </h4>
             <h4 className="p-5">{vegClassifierValue} </h4>
-            <h4 className="p-5">₹{total / 100} </h4>
-            <select className="border" value={quantity} onChange={handleQuantityChange}>
+            <h4 className="p-5">₹ {(total / 100).toFixed(2)} </h4>
+            <select
+              className="border"
+              value={quantity}
+              onChange={handleQuantityChange}
+            >
               {[...Array(10).keys()].map((num) => (
                 <option key={num + 1} value={num + 1}>
                   {num + 1}
