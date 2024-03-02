@@ -45,17 +45,17 @@ const handleRemoveItem = () => {
             className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
             alt={name}
           />
-          <div className="flex justify-center items-center  p-2 ">
-            <h2 className="RestaurantName flex p-2   font-medium text-center">
+          <div className="flex justify-center items-center p-2 ">
+            <h2 className="RestaurantName flex p-2 w-48 font-medium text-center">
               {name}
             </h2>
-            <h4 className="font-semibold p-5">
+            <h4 className="font-semibold m-5">
               <VegNonVeg itemAttribute={itemAttribute} />
             </h4>
-            <h4 className="p-5">{vegClassifierValue} </h4>
-            <h4 className="p-5">₹ {(total / 100).toFixed(2)} </h4>
+            <h4 className="w-20 m-5">{vegClassifierValue} </h4>
+            <h4 className="w-24 p-2">₹ {(total / 100).toFixed(2)} </h4>
             <select
-              className="border"
+              className="border m-5"
               value={quantity}
               onChange={handleQuantityChange}
             >
@@ -65,7 +65,7 @@ const handleRemoveItem = () => {
                 </option>
               ))}
             </select>
-            <button onClick={() =>{handleRemoveItem()}}>  
+            <button className="m-5" onClick={() =>{handleRemoveItem()}}>  
             <AiFillDelete fontSize="20px" />
           </button>
           </div>
