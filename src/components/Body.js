@@ -17,6 +17,8 @@ const Body = () => {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState([]);
 
+   //filtering the restaurant
+   const [isRatingFiltered, setIsRatingFiltered] = useState(false);
 
   useEffect(() => {
     //callback fn will be called once after the render()
@@ -123,11 +125,27 @@ const Body = () => {
         <div className="filter-buttons flex items-center ml-[2rem]">
                 <div className="rating-button mr-4">
                   <button
-                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
-                    onClick={() => ratingFilter(filteredRestaurants,setFilteredRestaurants)
-                    }
+                   className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isRatingFiltered ? 'bg-red-500 text-white' : ''}`}
+                    onClick={() => {
+                      if (isRatingFiltered) {
+                        // If the filter is already applied, clear it by setting the original list of restaurants
+                        setFilteredRestaurants(allRestaurants);
+                        setIsRatingFiltered(false);
+                      } else {
+                        // If the filter is not applied, apply it
+                        ratingFilter(filteredRestaurants, setFilteredRestaurants);
+                        setIsRatingFiltered(true);
+                      }
+                    }}
                      >  
                     Ratings 4.3+
+
+                    {isRatingFiltered && (
+      <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+        x
+      </span>
+    )}
                   </button>
             </div>
 
