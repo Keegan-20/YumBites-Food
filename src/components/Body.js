@@ -3,7 +3,14 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
-import { filterData,ratingFilter,filterFastDelivery,filterLowPrice, filterMidPrice, filterPureVeg } from "./utils/FilterRestaurants";
+import {
+  filterData,
+  ratingFilter,
+  filterFastDelivery,
+  filterLowPrice,
+  filterMidPrice,
+  filterPureVeg,
+} from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
@@ -17,8 +24,12 @@ const Body = () => {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState([]);
 
-   //filtering the restaurant
-   const [isRatingFiltered, setIsRatingFiltered] = useState(false);
+  //filtering the restaurant
+  const [isRatingFiltered, setIsRatingFiltered] = useState(false);
+  const [isFastDeliveryFiltered, setIsFastDeliveryFiltered] = useState(false);
+  const [isLowPriceFiltered, setIsLowPriceFiltered] = useState(false);
+  const [isMidPriceFiltered, setIsMidPriceFiltered] = useState(false);
+  const [isPureVegFiltered, setIsPureVegFiltered] = useState(false);
 
   useEffect(() => {
     //callback fn will be called once after the render()
@@ -26,7 +37,7 @@ const Body = () => {
     getRestaurants(); //sideffect:api calling
   }, []);
   async function getRestaurants() {
-  try {
+    try {
       const data = await fetch(swiggy_restaurant_details);
       const json = await data.json();
 
@@ -53,7 +64,6 @@ const Body = () => {
       setCarouselCards(
         json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
       );
-    
     } catch (error) {
       console.error("Error fetching restaurant data:", error);
     }
@@ -108,93 +118,137 @@ const Body = () => {
           Search
         </button>
       </div>
-
-         <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
-
+      <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
       <div className="divider">
         <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5"></hr>
       </div>
-             {/* Filtering the Restaurants */}
-        <div className="reslist-header mb-5">
-          <h2 className="font-bold text-3xl mt-5 p-4">
-            Restaurants with online food delivery in Central Goa
-          </h2>
+      {/* Filtering the Restaurants */}
+      <div className="reslist-header mb-5">
+        <h2 className="font-bold text-3xl mt-5 p-4">
+          Restaurants with online food delivery in Central Goa
+        </h2>
+      </div>
+      {/* filtering restaurants based on ratings */}
+      <div className="filter-buttons flex items-center ml-[2rem]">
+        <div className="rating-button mr-4">
+          <button
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isRatingFiltered ? "bg-red-500 text-white" : ""}`}
+            onClick={() => {
+              if (isRatingFiltered) {
+                // If the filter is already applied, clear it by setting the original list of restaurants
+                setFilteredRestaurants(allRestaurants);
+                setIsRatingFiltered(false);
+              } else {
+                ratingFilter(filteredRestaurants, setFilteredRestaurants);
+                setIsRatingFiltered(true);
+              }
+            }}
+          >
+            Ratings 4.3+
+            {isRatingFiltered && (
+              <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+                x
+              </span>
+            )}
+          </button>
         </div>
 
-        {/* filtering restaurants based on ratings */}
-        <div className="filter-buttons flex items-center ml-[2rem]">
-                <div className="rating-button mr-4">
-                  <button
-                   className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
-                    ${isRatingFiltered ? 'bg-red-500 text-white' : ''}`}
-                    onClick={() => {
-                      if (isRatingFiltered) {
-                        // If the filter is already applied, clear it by setting the original list of restaurants
-                        setFilteredRestaurants(allRestaurants);
-                        setIsRatingFiltered(false);
-                      } else {
-                        // If the filter is not applied, apply it
-                        ratingFilter(filteredRestaurants, setFilteredRestaurants);
-                        setIsRatingFiltered(true);
-                      }
-                    }}
-                     >  
-                    Ratings 4.3+
-
-                    {isRatingFiltered && (
-      <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
-        x
-      </span>
-    )}
-                  </button>
-            </div>
-
-            <div className="fastdelivery-button mr-4">
-                  <button
-                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer focus:bg-orange-400"
-                    onClick={() =>{
-                      filterFastDelivery(filteredRestaurants,setFilteredRestaurants)
-                     }
-                    }
-                  >
-                    Fast Delivery
-                  </button>
-                </div>
-
-                <div className="pureVeg-button mr-4">
-                  <button
-                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer focus:bg-orange-400"
-                    onClick={() =>{
-                      filterPureVeg(filteredRestaurants,setFilteredRestaurants)
-                     }
-                    }
-                  >
-                    Pure Veg Only
-                  </button>
-                </div>
-
-                <div className="lowPrice-button mr-4">
-                  <button
-                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
-                    onClick={() => filterLowPrice(filteredRestaurants,setFilteredRestaurants)
-                    }
-                     >  
-                      Less than Rs.300
-                  </button>
-            </div>
-                <div className="midPrice-button mr-4">
-                  <button
-                    className="p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer active:bg-orange-400"
-                    onClick={() => filterMidPrice(filteredRestaurants,setFilteredRestaurants)
-                    }
-                     >  
-                      Rs.300 - Rs.600
-                  </button>
-            </div>
-
-           
+        <div className="fastdelivery-button mr-4">
+          <button
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isFastDeliveryFiltered ? "bg-red-500 text-white" : ""}`}
+            onClick={() => {
+              if (isFastDeliveryFiltered) {
+                // If the filter is already applied, clear it by setting the original list of restaurants
+                setFilteredRestaurants(allRestaurants);
+                setIsFastDeliveryFiltered(false);
+              } else {
+                filterFastDelivery(filteredRestaurants, setFilteredRestaurants);
+                setIsFastDeliveryFiltered(true);
+              }
+            }}
+          >
+            Fast Delivery
+            {isFastDeliveryFiltered && (
+              <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+                x
+              </span>
+            )}
+          </button>
         </div>
 
+        <div className="pureVeg-button mr-4">
+          <button
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isPureVegFiltered ? "bg-red-500 text-white" : ""}`}
+            onClick={() => {
+              if (isPureVegFiltered) {
+                // If the filter is already applied, clear it by setting the original list of restaurants
+                setFilteredRestaurants(allRestaurants);
+                setIsPureVegFiltered(false);
+              } else {
+                filterPureVeg(filteredRestaurants, setFilteredRestaurants);
+                setIsPureVegFiltered(true);
+              }
+            }}
+          >
+            Pure Veg 
+            {isPureVegFiltered && (
+              <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+                x
+              </span>
+            )}
+          </button>
+        </div>
+
+        <div className="lowPrice-button mr-4">
+          <button
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isLowPriceFiltered ? "bg-red-500 text-white" : ""}`}
+            onClick={() => {
+              if (isLowPriceFiltered) {
+                // If the filter is already applied, clear it by setting the original list of restaurants
+                setFilteredRestaurants(allRestaurants);
+                setIsLowPriceFiltered(false);
+              } else {
+                filterLowPrice(filteredRestaurants, setFilteredRestaurants);
+                setIsLowPriceFiltered(true);
+              }
+            }}
+          >
+                 Less than Rs.300
+            {isLowPriceFiltered && (
+              <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+                x
+              </span>
+            )}
+          </button>
+        </div>
+        <div className="midPrice-button mr-4">
+          <button
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+                    ${isMidPriceFiltered ? "bg-red-500 text-white" : ""}`}
+            onClick={() => {
+              if (isMidPriceFiltered) {
+                // If the filter is already applied, clear it by setting the original list of restaurants
+                setFilteredRestaurants(allRestaurants);
+                setIsMidPriceFiltered(false);
+              } else {
+                filterMidPrice(filteredRestaurants, setFilteredRestaurants);
+                setIsMidPriceFiltered(true);
+              }
+            }}
+          >
+                 Rs.300 - Rs.600
+            {isMidPriceFiltered && (
+              <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
+                x
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
       {
         <div
           className="flex flex-wrap md:justify-center"

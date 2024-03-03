@@ -20,7 +20,7 @@ export const filterData = (searchText, restaurants) => {
 //Filtering Restaurants based on Fast Delivery
 export const filterFastDelivery= (filteredRestaurants,setFilteredRestaurants) => {
   const filteredList = filteredRestaurants.filter(
-    (res) => res.info.sla.deliveryTime <= 25
+    (res) => res.info.sla.deliveryTime <= 29
   );
 
   setFilteredRestaurants(filteredList);
