@@ -107,7 +107,7 @@ const RestaurantMenu = ({itemAttribute}) => {
           className="p-2 m-2 bg-red-200 hover:bg-red-600 rounded-lg font-medium"
           onClick={() => removeFoodItem(item.id)}
         >
-          REMOVE
+          REMOVE -
         </button>
       ) : (
         <button
@@ -115,7 +115,7 @@ const RestaurantMenu = ({itemAttribute}) => {
           className="p-2 m-2 bg-green-200 hover:bg-green-600 rounded-lg font-medium"
           onClick={() => addFoodItem(item)}
         >
-          ADD
+          ADD +
         </button>
       )}
                 </div>

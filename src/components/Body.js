@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import SearchBar from "./SearchBar";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import {
@@ -12,12 +13,18 @@ import {
   filterPureVeg,
 } from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
+import { FaSearch } from "react-icons/fa";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
 
 const Body = () => {
-  //let searchText="OLA" //normal js
-  const [searchText, setSearchText] = useState(""); //returns =[variable name,function to update the variable]
+
+   //  function to handle search
+   const handleSearch = (searchText) => {
+    const data = filterData(searchText, allRestaurants);
+    setFilteredRestaurants(data);
+  };
+ 
   const [carouselCards, setCarouselCards] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -69,8 +76,6 @@ const Body = () => {
     }
   }
 
-  console.log("render");
-
   //Checking if user is online or offline
   const isOnline = useOnline();
 
@@ -91,33 +96,6 @@ const Body = () => {
   if (loading) return <Shimmer cards={20} />;
   return (
     <>
-      <div className="search-container my-3 p-2 flex justify-center align-middle ">
-        {/* <marquee> <h1>Stay Disciplined And Stay Focused !! </h1> </marquee> */}
-
-        <input
-          data-testid="search-input"
-          type="text"
-          placeholder="Search for restaurants"
-          className="search-input p-2 border-solid  border-2 border-black-500 rounded-lg 
-       focus:bg-[#FFFBAC]  w-[80%]"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <h3>{searchText}</h3>
-        {/* Searching the restaurant */}
-        <button
-          data-testid="search-btn"
-          className="search-button bg-amber-200 text-lg  p-2  my-2 rounded-lg text-black ml-2"
-          onClick={() => {
-            const data = filterData(searchText, allRestaurants);
-            setFilteredRestaurants(data);
-          }}
-        >
-          Search
-        </button>
-      </div>
       <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
       <div className="divider">
         <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5"></hr>
@@ -193,7 +171,7 @@ const Body = () => {
               }
             }}
           >
-            Pure Veg 
+            Pure Veg
             {isPureVegFiltered && (
               <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
                 x
@@ -217,7 +195,7 @@ const Body = () => {
               }
             }}
           >
-                 Less than Rs.300
+            Less than Rs.300
             {isLowPriceFiltered && (
               <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
                 x
@@ -240,7 +218,7 @@ const Body = () => {
               }
             }}
           >
-                 Rs.300 - Rs.600
+            Rs.300 - Rs.600
             {isMidPriceFiltered && (
               <span className=" ml-3 p-2 pl-0 size-9 text-xl font-medium">
                 x
@@ -248,6 +226,9 @@ const Body = () => {
             )}
           </button>
         </div>
+
+        {/* Search bar functionality */}
+        <SearchBar handleSearch={handleSearch} />
       </div>
       {
         <div

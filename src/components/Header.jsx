@@ -44,6 +44,7 @@ export const HeaderComponent = () => {
                   Home
                 </li>
               </Link>
+              
               <Link to="/about" className="nav-link">
                 <li className="px-2  hover:border-b-4 border-white hover:text-black">
                   About
@@ -58,7 +59,7 @@ export const HeaderComponent = () => {
               <Link to="/instamart" className=" px-2 nav-link  hover:border-b-4 border-white  hover:text-black"
               >
                 {" "}
-                <li>Instamart</li>{" "}
+                <li>F&Q</li>{" "}
               </Link>
            
 
