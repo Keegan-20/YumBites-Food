@@ -228,7 +228,7 @@ const Body = () => {
         </div>
 
         {/* Search bar functionality */}
-        <SearchBar handleSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
       </div>
       {
         <div

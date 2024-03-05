@@ -1,7 +1,7 @@
 // SearchBar.js
 import React, { useState } from "react";
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
 
   const handleInputChange = (e) => {
@@ -9,7 +9,7 @@ const SearchBar = ({ handleSearch }) => {
   };
 
   const handleSearchClick = () => {
-    handleSearch(searchText);
+    onSearch(searchText);
   };
 
   return (
