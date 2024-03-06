@@ -34,7 +34,11 @@ export const HeaderComponent = () => {
         <HeaderShimmer />
       ) : (
         <>
-          <img  data-testid="logo" className="w-28 h-24 " src={logoImage} alt="logoImage" />
+        <Link to="/">
+      <div className="w-28 h-20 p-2 flex items-center justify-center">
+    <img data-testid="logo" className="rounded-full" src={logoImage} alt="logoImage" />
+    </div>
+    </Link>
 
           {/* <h1 data-testid="online-status" className="py-3">{isOnline?"🟢🟢🟢": "🔴🔴🔴"}</h1> */}
           <div className="nav-items">
@@ -67,34 +71,34 @@ export const HeaderComponent = () => {
           </div>
           {/* <h2 className="p-2 m-2 font-bold text-black">Hey {user.name} </h2> */}
 
-          {
-        
-          isLoggedIn ? (
-           
-            <button
-              className="logOut  text-sm  h-10 w-auto my-6 p-2 rounded-lg bg-slate-950"
-              onClick={() => setIsLoggedIn(false)}
-            >
-              Logout
-            </button>
-          ) : (
-            <button
-              className="logIn my-6 p-2 w-auto h-10 last:text-sm rounded-lg bg-slate-950"
-              onClick={() => setIsLoggedIn(true)}
-            >
-              LogIn
-            </button>
-        
-          )}
-         
-             <Link to ="/cart">
-             <button className="flex items-center  bg-[yellow] my-6 mx-4 p-2 px-3 rounded-md text-black" data-testid="cart">
-        <span className="mr-3">
-          {cartItems.length} 
-        </span>
-        <FaShoppingCart color="black" size="25px" />
+          <div className="flex items-center">
+  {
+    isLoggedIn ? (
+      <button
+        className="logOut  text-sm  w-16 mx-4 my-7 p-2 rounded-md bg-slate-950"
+        onClick={() => setIsLoggedIn(false)}
+      >
+        Logout
       </button>
-              </Link>
+    ) : (
+      <button
+        className="logIn my-7 p-2 mx-4 w-16 last:text-sm rounded-md bg-slate-950"
+        onClick={() => setIsLoggedIn(true)}
+      >
+        LogIn
+      </button>
+    )
+  }
+  <Link to="/cart">
+    <button className="flex items-center bg-[yellow] my-6 mx-2 p-2 rounded-md text-black" data-testid="cart">
+      <span className="mr-3">
+        {cartItems.length} 
+      </span>
+      <FaShoppingCart color="black" size="25px" />
+    </button>
+  </Link>
+</div>
+
               
         </>
       )}
