@@ -12,7 +12,7 @@ const useResMenuData = (
   useEffect(() => {
     getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
   }, []);
-
+  
   async function getRestaurantInfo() {
     try {
       const response = await fetch(swiggy_menu_api_URL + resId);
@@ -30,6 +30,7 @@ const useResMenuData = (
             ?.info || null;
         setRestaurant(restaurantData);
 
+  
         // Set menu item data
         const menuItemsData =
           json?.data?.cards
@@ -56,7 +57,7 @@ const useResMenuData = (
       console.error(err);
     }
   }
-  return [restaurant, menuItems];
+  return [restaurant,menuItems];
 };
 
 export default useResMenuData;

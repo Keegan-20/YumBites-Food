@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-container smy-3  w-[40%] flex justify-center align-middle ">
+    <div className="search-container my-3  w-[40%] flex justify-center align-middle ">
       <input
         data-testid="search-input"
         type="text"

@@ -8,7 +8,7 @@ import {
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../constant";
-
+import ResMenuHeader from "./ResMenuHeader";
 import Shimmer from "./Shimmer";
 import useResMenuData from "../Custom Hooks/useResMenuData";
 import { addItem,removeItem } from "./utils/cartSlice";
@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 
 const RestaurantMenu = ({itemAttribute}) => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
+
   const [restaurant, menuItems] = useResMenuData(
     swiggy_menu_api_URL,
     resId,
@@ -43,28 +44,10 @@ const RestaurantMenu = ({itemAttribute}) => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu flex ">
+    <div className="restaurant-menu ">
       {/*restaurant summary details */}
-      <div className="restaurant-summary">
-        <img
-          className="restaurant-img w-[200px] h-[150px] p-4 rounded-lg  "
-          src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
-          alt={restaurant?.name}
-        />
-        <div className="restaurant-summary-details">
-          <h2 className="restaurant-title">{restaurant?.name}</h2>
-          <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
-          <div className="restaurant-details">
-            <div className="restaurant-rating">
-              <i className="fa-solid fa-star"></i>
-              <span>{restaurant?.avgRating}</span>
-            </div>
-            <div className="restaurant-rating-slash">|</div>
-            <div>{restaurant?.sla?.slaString}</div>
-            <div className="restaurant-rating-slash">|</div>
-            <div>{restaurant?.costForTwoMessage}</div>
-          </div>
-        </div>
+      <div className="md:w-2/3 w-4/5 min-h-screen flex flex-col items-center  justify-center">
+      <ResMenuHeader restaurant={restaurant} />
       </div>
 
       {/* Restaurant menu details */}
