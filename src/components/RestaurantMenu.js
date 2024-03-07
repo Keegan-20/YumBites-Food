@@ -46,7 +46,7 @@ const RestaurantMenu = ({itemAttribute}) => {
   ) : (
     <div className="restaurant-menu ">
       {/*restaurant summary details */}
-      <div className="md:w-2/3 w-4/5 min-h-screen flex flex-col items-center  justify-center">
+      <div className="flex justify-center w-[80%] mt-10 py-4">
       <ResMenuHeader restaurant={restaurant} />
       </div>
 
