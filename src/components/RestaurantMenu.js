@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import VegNonVeg from "./utils/VegNonVeg";
 import {
-  IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
   swiggy_menu_api_URL,
   MENU_ITEM_TYPE_KEY,

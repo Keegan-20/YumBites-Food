@@ -44,23 +44,23 @@ export const HeaderComponent = () => {
           <div className="nav-items">
             <ul className="flex py-7 ">
               <Link to="/" className="nav-link">
-                <li className="px-2 hover:border-b-4 border-white hover:text-black">
+                <li className="px-3 hover:border-b-4 border-white hover:text-black">
                   Home
                 </li>
               </Link>
               
               <Link to="/about" className="nav-link">
-                <li className="px-2  hover:border-b-4 border-white hover:text-black">
+                <li className="px-3  hover:border-b-4 border-white hover:text-black">
                   About
                 </li>
               </Link>
               <Link to="/contactUs" className="nav-link">
-                <li className="px-2 hover:border-b-4 border-white hover:text-black">
+                <li className="px-3 hover:border-b-4 border-white hover:text-black">
                   Contact us
                 </li>{" "}
               </Link>
           
-              <Link to="/instamart" className=" px-2 nav-link  hover:border-b-4 border-white  hover:text-black"
+              <Link to="/instamart" className=" px-3 nav-link  hover:border-b-4 border-white  hover:text-black"
               >
                 {" "}
                 <li>F&Q</li>{" "}

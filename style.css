@@ -4,16 +4,6 @@
     box-sizing: border-box;
 }
 
-.header {
-    position: sticky;
-    top:0;
-    z-index:10;
-    background-color: #ffffff;
-    display: flex; 
-    justify-content:space-between;
-    margin:0.5rem 0.3rem;
-}
-
 .shimmer-header{
     display: flex; 
     justify-content:space-between;
@@ -22,105 +12,70 @@
 }
 
 
-.logo{
-    width:70px;
-}
-.nav-items >ul{
-    list-style: none;
-    display: flex; 
-    align-items: center;
-}
-
-.nav-link{
-    text-decoration: none;
-    color:#333;
-    font-weight: 800;
-    padding: 0.3rem 0.8rem;
-}
-.nav-link li:hover{
-    cursor: pointer;
-    border-bottom: 2px solid limegreen;
-}
-.logIn, .logOut{
-    width:60px;
-    height:30px;
-    border-radius:8px;
-    border:none;
-    outline:none;
-}
 /* Resturant cards items */
-
-.card{
-    width:235px;
-    height:330px;
-    background-color: wheat;
-    box-shadow: 2px 3px 23px #a19e9e;
-    margin:1rem;
-    border-radius:8px;
-}
-.cards-container {
-    display: flex; 
-    flex-wrap: wrap; 
-  }
-  .fa-solid {
-    font-size:12px;
-    padding: 0 0.2rem;
-  }
-
 .card-skeleton{
     width:230px;
     margin:1rem;
     border-radius:8px;
 }
 
-.card img{
-    
-    width:100%;
-    height:180px;
-    border-radius:8px;
-
-}
-.sub-content{
-    /* border:2px solid hotpink; */
-    padding-right: 0.5rem;
-}
-
-.card h2{
-    padding-bottom: 0.3rem;
-    font-size: 1rem;
-}
-.cuisines{
-   font-weight:600;
-    padding: 0.4rem 0;
-    font-size: 14px;
-}
-.RestaurantName{
-padding: 0.3rem 0;
-text-align: center;
-
-}
-
-.card-content{
-    text-align:justify;
-    font-weight: 100;
-    padding: 0 0.6rem;
-}
-.restaurant-list {
-display: flex;
-flex-wrap: wrap;
-
-}  
-/* Restaurant Menu page */
-
-.restaurantMenu-links {
-text-decoration: none;
-color: #333;
-}
 .footer-text{
     text-align: center;
 }
 
-/* Responsive adjustments */
+  /* about us page */
+  
+.about-container {
+    display: flex;
+    margin: 50px 25px 10px;
+    backgroun-color:#fffff;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+   .about-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    overflow-y: hidden;
+  }
+  
+ .about-desc h1 {
+   font-size:2.5rem;
+    color: #333;
+  }
+  
+  .about-desc  span {
+    background-color: tomato;
+    color:white !important;
+    padding: 0 10px;
+    border-radius: 15px;
+  }
+
+  
+ .about-desc h4 {
+    font-size: 25px;
+    margin-top: 10px;
+    font-style: italic;
+    color:#333;
+  }
+  
+
+  
+ .about-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;  
+  }
+  
+ .about-img img {
+    width: 500px;
+  }
+  
+ /* Responsive adjustments */
 @media (max-width: 768px) {
 
     .card{
