@@ -52,7 +52,7 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
                 <span>{feeDetails?.message}</span>
               </>
             )}
-            <div className="pl-20">
+            <div className="ml-24">
               <p className="flex md:gap-3 gap-1 items-center text-sm md:text-base">
             <FontAwesomeIcon icon={faClock} />
             {sla?.slaString}
@@ -67,10 +67,12 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
         <div>
         <img
             src={IMG_CDN_URL + cloudinaryImageId}
-            className="w-[100px] h-[100px] px-1 py-3"
+            className="w-[90px] h-[100px] px-1 py-3"
             alt={name}
           />
-        <div className="flex flex-col gap-1 mr-4 rounded-lg border-2 p-1 md:h-14 w-20 text-center bg-gray-50">
+      
+
+        <div className="flex flex-col gap-1 mr-4 rounded-lg border-2 p-1 md:h-14 w-24 text-center bg-gray-50">
           <div className="rounded-lg  text-green-500 text-xs  md:text-sm font-semibold md:font-bold md:border-b-2 border-b pb-1">
             <FontAwesomeIcon icon={faStar} />
             {avgRatingString}

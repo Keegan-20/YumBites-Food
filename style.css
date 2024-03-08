@@ -111,18 +111,6 @@ flex-wrap: wrap;
 
 }  
 /* Restaurant Menu page */
-.restaurant-img{
-    width:200px;
-    height:150px;
-    padding:1rem;
-    border-radius:8px;
-}
-.restaurant-menu{
-    display: flex;
-}
-.restaurant-summary-details{
-padding: 2rem;
-}
 
 .restaurantMenu-links {
 text-decoration: none;
