@@ -1,9 +1,9 @@
+import React from 'react'
+
 const Contact = () => {
-    return(
-        <>
-        <h1>Contact Us</h1>
-        <p>Message Us for any inquiry at : yumbitesfood2023@gmail.com</p>
-        </>
-    );
+  return (
+    <div>Contact</div>
+  )
 }
-export default Contact;
+
+export default Contact

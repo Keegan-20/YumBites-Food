@@ -71,9 +71,6 @@
     overflow-y: hidden;  
   }
   
- .about-img img {
-    width: 500px;
-  }
   
  /* Responsive adjustments */
 @media (max-width: 768px) {
