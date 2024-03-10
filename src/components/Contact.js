@@ -1,18 +1,42 @@
 import React from "react";
+import emailjs from '@emailjs/browser';
+import { useRef,useState } from "react";
 import { IoSendSharp } from "react-icons/io5";
 
 const Contact = () => {
+  const form = useRef();
+  const [showModal, setShowModal] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_vy22jox', 'template_zntb0x8', form.current, {
+        publicKey: 'xyfG0ymAFGdWOQhtz',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setShowModal(true);
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          setShowModal(true);
+        },
+      );
+  };
+
   return (
     <div className="flex justify-center my-5   items-center ">
       <div className="bg-slate-300 w-[450px] p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-        <form action="https://formspree.io/f/xzbnvazl" method="POST" className="space-y-4 ">
+        <form  ref={form} onSubmit={sendEmail} className="space-y-4 ">
           <div>
             <label htmlFor="username" className="block mb-1">Name:</label>
             <input
               type="text"
               id="username"
-              name="Name"
+              name="from_name"
               placeholder="Name"
               autoComplete="off"
               required
@@ -24,7 +48,7 @@ const Contact = () => {
             <input
               type="email"
               id="email"
-              name="email"
+              name="from_email"
               placeholder="Email Id"
               autoComplete="off"
               required
@@ -52,6 +76,16 @@ const Contact = () => {
           </div>
           </div>
         </form>
+        {showModal && (
+        <div className="absolute w-full h-full bg-slate-800 text-white opacity-50 z-50"></div>
+      )}
+      {
+      showModal && (
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-slate-800 text-white  p-6 rounded-xl shadow-lg z-50">
+          <h2>Your Form has been sent successfully !</h2>
+          <button onClick={() => setShowModal(false)} className="bg-red-600 rounded-md m-2 p-2">Close</button>
+        </div>
+      )}
       </div>
     </div>
   );
