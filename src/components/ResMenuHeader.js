@@ -6,7 +6,6 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { IMG_CDN_URL } from "../constant.js";
-import DiscountOfferCard from "./DiscountOfferCard.js";
 import { Link } from "react-router-dom";
 
 

@@ -5,14 +5,14 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'lg': {'max': '1023px'},
-      // => @media (max-width: 1023px) { ... }
+      'lg': {'max': '1024px'},
+      // => @media (max-width: 1024px) { ... }
 
-      'md': {'max': '767px'},
-      // => @media (max-width: 767px) { ... }
+      'md': {'max': '768px'},
+      // => @media (max-width: 768px) { ... }
 
       'sm': {'max': '320px'},
-      // => @media (max-width: 639px) { ... }
+      // => @media (max-width: 320px) { ... }
     },
 
     extend: {},

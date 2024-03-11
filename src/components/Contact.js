@@ -11,8 +11,9 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
+                  // service key, template key
       .sendForm('service_vy22jox', 'template_zntb0x8', form.current, {
-        publicKey: 'xyfG0ymAFGdWOQhtz',
+        publicKey: 'xyfG0ymAFGdWOQhtz', //public key
       })
       .then(
         () => {

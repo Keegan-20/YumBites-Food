@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 //creating a header section
 export const HeaderComponent = () => {
-  const [title, setTitle] = useState("YumBites Food");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const isOnline = useOnline();
@@ -29,7 +28,7 @@ export const HeaderComponent = () => {
     /* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */
   }
   return (
-    <div className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-red-400 text-white">
+    <div className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-red-400  md:bg-fuchsia-600  sm:bg-green-500  text-white">
       {loading ? (
         <HeaderShimmer />
       ) : (
