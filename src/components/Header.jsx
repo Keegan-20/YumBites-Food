@@ -110,11 +110,11 @@ export const HeaderComponent = () => {
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden py-7 md:flex  ">
+      <ul className="hidden  py-7 md:flex  ">
         {navmenu.map((menu, idx) => {
           return (
             
-            <li key={idx} className="px-2 hover:border-b-4 hover:text-[tomato]">
+            <li key={idx} className="px-2 hover:border-b-4 hover:text-orange-400">
               <NavLink
                 to={menu.link}
                 activeclassname="text-green-700"
@@ -125,18 +125,18 @@ export const HeaderComponent = () => {
             </li>
           );
         })}
-
-        <div className="flex items-center">
+  </ul>
+        <div className="flex items-center ">
           {isLoggedIn ? (
             <button
-              className="logOut  text-sm  w-16 mx-4 my-7 p-2 rounded-md bg-slate-950"
+              className="logOut  text-sm  w-16 mx-4  p-2 rounded-md bg-slate-900"
               onClick={() => setIsLoggedIn(false)}
             >
               Logout
             </button>
           ) : (
             <button
-              className="logIn my-7 p-2 mx-4 w-16 last:text-sm rounded-md bg-slate-950"
+              className="logIn my-6 p-2 mx-4 w-16 last:text-sm rounded-md bg-slate-950"
               onClick={() => setIsLoggedIn(true)}
             >
               LogIn
@@ -154,7 +154,7 @@ export const HeaderComponent = () => {
             </NavLink>
           </li>
         </div>
-      </ul>
+    
     </nav>
   );
 };
