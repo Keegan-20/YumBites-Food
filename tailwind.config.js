@@ -9,10 +9,10 @@ module.exports = {
       // => @media (max-width: 1024px) { ... }  <= 1024px and above
 
       'md':{'min': '768px'},
-      // => @media (max-width: 768px) { ... }
+      // => @media (min-width: 768px) { ... }
 
       'sm':{'min': '320px'},
-      // => @media (max-width: 320px) { ... }
+      // => @media (min-width: 320px) { ... }
     },
 
     extend: {},

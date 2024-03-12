@@ -107,7 +107,7 @@ const Body = () => {
         </h2>
       </div>
       {/* filtering restaurants based on ratings */}
-      <div className="filter-buttons flex items-center ml-[2rem]">
+      <div className="filter-buttons   flex items-center ml-[2rem]">
         <div className="rating-button mr-4">
           <button
             className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
