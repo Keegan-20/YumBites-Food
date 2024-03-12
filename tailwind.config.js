@@ -5,13 +5,13 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'lg': {'max': '1024px'},
-      // => @media (max-width: 1024px) { ... }
+      'lg':{'min': '1024px'},
+      // => @media (max-width: 1024px) { ... }  <= 1024px and above
 
-      'md': {'max': '768px'},
+      'md':{'min': '768px'},
       // => @media (max-width: 768px) { ... }
 
-      'sm': {'max': '320px'},
+      'sm':{'min': '320px'},
       // => @media (max-width: 320px) { ... }
     },
 
