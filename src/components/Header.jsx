@@ -135,7 +135,7 @@ export const HeaderComponent = () => {
           );
         })}
   </ul>
-        <div className="flex  justify-center items-center sm:hidden ">
+        <div className="hidden md:flex justify-center items-center ">
           {isLoggedIn ? (
             <button
               className="logOut  text-sm mt-2 py-3  mx-3 w-16 rounded-md bg-slate-900"
