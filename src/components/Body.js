@@ -13,6 +13,7 @@ import {
   filterPureVeg,
 } from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
+import '../../style.css'; 
 import { FaSearch } from "react-icons/fa";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
@@ -100,6 +101,7 @@ const Body = () => {
       <div className="divider">
         <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5"></hr>
       </div>
+
       {/* Filtering the Restaurants */}
       <div className="reslist-header mb-5">
         <h2 className="font-bold text-3xl mt-5 p-4 sm:text-sm">
@@ -107,10 +109,12 @@ const Body = () => {
         </h2>
       </div>
       {/* filtering restaurants based on ratings */}
+      <div className=" w-full md:filter-buttons-container  overflow-x-auto whitespace-nowrap ">
+
       <div className="filter-buttons   flex items-center ml-[2rem]">
         <div className="rating-button mr-4">
           <button
-            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer  sm:p-1
                     ${isRatingFiltered ? "bg-red-500 text-white" : ""}`}
             onClick={() => {
               if (isRatingFiltered) {
@@ -134,7 +138,7 @@ const Body = () => {
 
         <div className="fastdelivery-button mr-4">
           <button
-            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+            className={`p-2 sm:p-1 border border-black rounded-3xl border-opacity-30 cursor-pointer 
                     ${isFastDeliveryFiltered ? "bg-red-500 text-white" : ""}`}
             onClick={() => {
               if (isFastDeliveryFiltered) {
@@ -158,7 +162,7 @@ const Body = () => {
 
         <div className="pureVeg-button mr-4">
           <button
-            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+            className={`p-2 border sm:p-1 border-black rounded-3xl border-opacity-30 cursor-pointer 
                     ${isPureVegFiltered ? "bg-red-500 text-white" : ""}`}
             onClick={() => {
               if (isPureVegFiltered) {
@@ -182,7 +186,7 @@ const Body = () => {
 
         <div className="lowPrice-button mr-4">
           <button
-            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+            className={`p-2 sm:p-1 border  border-black rounded-3xl border-opacity-30 cursor-pointer 
                     ${isLowPriceFiltered ? "bg-red-500 text-white" : ""}`}
             onClick={() => {
               if (isLowPriceFiltered) {
@@ -205,7 +209,7 @@ const Body = () => {
         </div>
         <div className="midPrice-button mr-4">
           <button
-            className={`p-2 border border-black rounded-3xl border-opacity-30 cursor-pointer 
+            className={`p-2 sm:p-1 border border-black rounded-3xl border-opacity-30 cursor-pointer 
                     ${isMidPriceFiltered ? "bg-red-500 text-white" : ""}`}
             onClick={() => {
               if (isMidPriceFiltered) {
@@ -228,8 +232,15 @@ const Body = () => {
         </div>
 
         {/* Search bar functionality */}
+        <div className="desktop-search"  >
         <SearchBar onSearch={handleSearch} />
+        </div>
       </div>
+      </div>
+
+    <div className="responsive-search" >
+    <SearchBar onSearch={handleSearch} />
+    </div>
       {
         <div
           className="flex flex-wrap md:justify-center"

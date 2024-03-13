@@ -70,5 +70,25 @@
     align-items: center;
     overflow-y: hidden;  
   }
+.desktop-search{
+  width:100%;
+
+}
+
+  .responsive-search{
+display:none;
+  }
+@media screen and (max-width: 768px) {
+  .desktop-search{
+    display:none;
+  }
+
+  .responsive-search{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+   padding:2px;
+   width:100%;
   
-  
+  }
+}  

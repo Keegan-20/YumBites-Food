@@ -155,7 +155,7 @@ export const HeaderComponent = () => {
     
             <NavLink to="/cart">
               <button
-                className="flex items-center bg-[yellow]  mx-2 p-2 rounded-md text-black"
+                className="flex items-center bg-[yellow]  mx-2 mt-1 p-2 rounded-md text-black"
                 data-testid="cart"
               >
                 <span className="mr-3">{cartItems.length}</span>

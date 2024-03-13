@@ -13,14 +13,14 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-container my-3  w-[40%] flex justify-center align-middle ">
+    <div className="search-container my-3 w-full flex justify-center align-middle md:text-xs ">
       <input
         data-testid="search-input"
         type="text"
         id="#searchbar"
         placeholder="Search for restaurants"
-        className="search-input  border-solid p-2 border-2 border-black-500 rounded-lg 
-       focus:bg-[#FFFBAC] w-[70%]"
+        className="search-input min-w-[80%] border-solid p-2 border-2 border-black-500 rounded-lg 
+       focus:bg-[#f7f4c7]"
         value={searchText}
         onChange={handleInputChange}
       />
