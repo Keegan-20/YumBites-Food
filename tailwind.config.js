@@ -5,14 +5,17 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'lg':{'min': '1024px'},
-      // => @media (max-width: 1024px) { ... }  <= 1024px and above
+      'lg':{'max': '1024px'},
+      // => @media (max-width: 1024px) { ... }  <= 1024px and below
 
-      'md':{'min': '768px'},
-      // => @media (min-width: 768px) { ... }
+      'md':{'max': '768px'},
+      // => @media (max-width: 768px) { ... }
 
-      'sm':{'min': '320px'},
-      // => @media (min-width: 320px) { ... }
+      'semimd':{'max':'600px'},
+      // => @media (max-width: 600px) { ... }
+
+      'sm':{'max': '320px'},
+      // => @media (max-width: 320px) { ... }
     },
 
     extend: {},

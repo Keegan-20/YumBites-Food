@@ -63,63 +63,63 @@ export const HeaderComponent = () => {
         </NavLink>
       </div>
 
-      {/* Mobile Menu */}
-      <div className= "p-2 md:hidden">
-      <button
+    {/* Mobile Menu */}
+  <div className= "hidden semimd:flex">
+  <button
+    onClick={toggleMenu}
+    className={`text-3xl  transition-transform duration-300 ease-in-out transform ${
+      isMenuOpen ? "rotate-180" : ""
+    }`}
+  >
+    {isMenuOpen === true ? (
+      <IoMdClose className="text-3xl cursor-pointer" onClick={toggleMenu} />
+    ) : (
+      <GiHamburgerMenu
+        className="text-2xl cursor-pointer"
         onClick={toggleMenu}
-        className={`text-3xl md:hidden transition-transform duration-300 ease-in-out transform ${
-          isMenuOpen ? "rotate-180" : ""
-        }`}
-      >
-        {isMenuOpen === true ? (
-          <IoMdClose className="text-3xl cursor-pointer" onClick={toggleMenu} />
-        ) : (
-          <GiHamburgerMenu
-            className="text-2xl cursor-pointer"
-            onClick={toggleMenu}
-          />
-        )}
-        </button>
+      />
+    )}
+    </button>
 
-        {isMenuOpen && (
-          <ul className=" bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full h-50 flex flex-wrap items-center justify-center flex-col md:hidden z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
-            {navmenu.map((menu) => {
-              return (
-                <li key={menu.name}>
-                  <NavLink
-                    to={menu.link}
-                    activeclassname="text-green-700"
-                    className="text-xl font-medium p-2 hover:border-b-4 border-white
-                    hover:text-red-400"
-                    onClick={toggleMenu}
-                  >
-                    {menu.name}
-                  </NavLink>
-                </li>
-              );
-            })}
-
-            <li>
+    {isMenuOpen && (
+      <ul className="bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full h-50 flex flex-wrap items-center justify-center flex-col z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
+        {navmenu.map((menu) => {
+          return (
+            <li key={menu.name}>
               <NavLink
-                to="/cart"
-                className="flex relative"
+                to={menu.link}
+                activeclassname="text-green-700"
+                className="text-xl font-medium p-2 hover:border-b-4 border-white
+                hover:text-red-400"
                 onClick={toggleMenu}
               >
-                <button
-                  className="flex items-center bg-[yellow] my-6 mx-2 p-2 rounded-md text-black"
-                  data-testid="cart"
-                >
-                  <span className="mr-3">{cartItems.length}</span>
-                  <FaShoppingCart color="black" size="25px" />
-                </button>
+                {menu.name}
               </NavLink>
             </li>
-          </ul>
-        )}
-      </div>
+          );
+        })}
+
+        <li>
+          <NavLink
+            to="/cart"
+            className="flex relative"
+            onClick={toggleMenu}
+          >
+            <button
+              className="flex items-center bg-[yellow] my-6 mx-2 p-2 rounded-md text-black"
+              data-testid="cart"
+            >
+              <span className="mr-3">{cartItems.length}</span>
+              <FaShoppingCart color="black" size="25px" />
+            </button>
+          </NavLink>
+        </li>
+      </ul>
+    )}
+  </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden  py-7 md:flex  ">
+      <ul className="flex  py-7 semimd:hidden">
         {navmenu.map((menu, idx) => {
           return (
             
@@ -135,7 +135,7 @@ export const HeaderComponent = () => {
           );
         })}
   </ul>
-        <div className="hidden md:flex justify-center items-center ">
+        <div className="flex  justify-center items-center semimd:hidden ">
           {isLoggedIn ? (
             <button
               className="logOut  text-sm mt-2 py-3  mx-3 w-16 rounded-md bg-slate-900"
