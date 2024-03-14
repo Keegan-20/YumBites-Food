@@ -56,7 +56,7 @@ export const HeaderComponent = () => {
     },
   ];
   return (
-    <nav className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-[tomato] text-white ">
+    <nav className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-[tomato] text-white">
       <div className="w-28 h-20 p-2 flex items-center justify-center ">
         <NavLink to="/">
           <img src={logoImage} alt="Logo" />
@@ -82,7 +82,7 @@ export const HeaderComponent = () => {
     </button>
 
     {isMenuOpen && (
-      <ul className="bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full h-50 flex flex-wrap items-center justify-center flex-col z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
+      <ul className="bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full semimd:overflow-hidden h-50 flex flex-wrap items-center justify-center flex-col z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
         {navmenu.map((menu) => {
           return (
             <li key={menu.name}>

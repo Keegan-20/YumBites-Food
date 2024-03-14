@@ -87,7 +87,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
                 </div>
 
                 {/* menu-item image */}
-                <div className="menu-img-wrapper flex flex-col justify-center  items-end semimd:items-start w-1/3 semimd:w-2/3 overflow-hidden h-auto">
+                <div className="menu-img-wrapper flex flex-col justify-center  items-end semimd:items-start w-1/3 semimd:w-3/4 overflow-hidden h-auto">
                   {item?.imageId && (
                     <img
                       className="menu-item-img h-24 w-24 border rounded-md"
@@ -98,7 +98,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
 
                   {itemInCart(item.id) ? (
                     <button
-                      className="p-2 m-2 bg-red-200 hover:bg-red-600 rounded-lg border-none font-semibold text-sm cursor-pointer"
+                      className="p-2  m-2  bg-red-200 hover:bg-red-600 rounded-lg border-none font-semibold text-sm cursor-pointer md:text-xs"
                       onClick={() => removeFoodItem(item.id)}
                     >
                       REMOVE -
@@ -106,7 +106,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
                   ) : (
                     <button
                       data-testid="add-btn"
-                      className="p-2 m-2 bg-green-200 hover:bg-green-600 rounded-lg border-none font-semibold  text-sm cursor-pointer"
+                      className="p-2 m-2 mr-4 bg-green-200 hover:bg-green-600 rounded-lg border-none font-semibold  text-sm cursor-pointer md:text-xs"
                       onClick={() => addFoodItem(item)}
                     >
                       ADD +

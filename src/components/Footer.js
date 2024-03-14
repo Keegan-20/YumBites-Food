@@ -17,7 +17,7 @@ const Footer = () => {
         <FooterShimmer />
       ) : (
         <footer data-testid="footer">
-          <h4 className="flex justify-center w-full mt-4 max-h-14 p-3 bg-red-400 text-white ">
+          <h4 className="flex justify-center w-full md:w-auto md:overflow-hidden mt-4 max-h-14 p-3 bg-red-400 text-white ">
             YumBites Food &copy;2023 All Rights Reserved
             {/* have used useContext hook  */}
             <span className="ml-40">Develped by ❤️{user.name}❤️</span>
