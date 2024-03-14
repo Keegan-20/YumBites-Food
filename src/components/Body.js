@@ -104,7 +104,7 @@ const Body = () => {
 
       {/* Filtering the Restaurants */}
       <div className="reslist-header mb-5">
-        <h2 className="font-bold text-3xl mt-5 p-4 md:text-lg">
+        <h2 className="font-bold text-3xl mt-5 p-4 ml-5 md:text-lg">
           Restaurants with online food delivery in Central Goa
         </h2>
       </div>

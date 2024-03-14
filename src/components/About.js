@@ -4,7 +4,7 @@ import '../../style.css';
 
 const About = () => {
   return (
-    <div className='about-container flex justify-center p-3'>
+    <div className='about-container flex justify-center p-2'>
    <div className="about-desc">
           <h1>
             Welcome to YumBites <br/> 
@@ -16,7 +16,7 @@ const About = () => {
         </div>
 
      <div className='about-img'>
-     <img className="w-[520px] h-[440px] rounded-lg " src={aboutImage} alt="aboutImage" />
+     <img className="w-[520px] h-[397px] rounded-lg " src={aboutImage} alt="aboutImage" />
 
      </div>
 

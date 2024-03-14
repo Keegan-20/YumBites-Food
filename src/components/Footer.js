@@ -16,13 +16,29 @@ const Footer = () => {
       {loading ? (
         <FooterShimmer />
       ) : (
-        <footer data-testid="footer">
-          <h4 className="flex justify-center w-full md:w-auto md:overflow-hidden mt-4 max-h-14 p-3 bg-red-400 text-white ">
+        <footer data-testid="footer" className="bg-red-400 text-white  sticky  bottom-0 left-0 w-full">
+      <div className="container mx-auto py-4">
+        <div className="flex md:flex-col justify-between items-center">
+          <span className="md:text-center text-left mb-2 pl-2">
             YumBites Food &copy;2023 All Rights Reserved
-            {/* have used useContext hook  */}
-            <span className="ml-40">Develped by ❤️{user.name}❤️</span>
-          </h4>
-        </footer>
+          </span>
+          {/* have used useContext hook  */}
+          <span className="text-center pr-2 md:pr-0 md:pb-0">
+  Developed by{" "}
+  <a
+    href="https://www.linkedin.com/in/keegan-colaco20"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white hover:underline hover:text-black"
+  >
+    ❤️{user.name}❤️
+  </a>
+</span>
+        </div>
+      </div>
+    </footer>
+      
+      
       )}
     </>
   );
