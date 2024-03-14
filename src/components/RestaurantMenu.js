@@ -44,10 +44,10 @@ const RestaurantMenu = ({ itemAttribute }) => {
     <Shimmer />
   ) : (
     <div className="restaurant-menu ">
-      {/*restaurant summary details */}
-      {/* <div className="flex justify-center w-[80%] mt-3 pl-4">
+      {/* restaurant summary details  */}
+       <div className="flex justify-center  w-[80%] mt-3 pl-4 md:m-auto md:mt-4">
         <ResMenuHeader restaurant={restaurant} />
-      </div> */}
+      </div>
 
       {/* Restaurant menu details */}
       <div className="restaurant-menu-content flex justify-center md:flex-col">
@@ -81,7 +81,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
                         }).format(item?.price / 100)
                       : " "}
                   </p>
-                  <p className="item-desc mt-3 semimd:mt-1 semimd:mb-3 semimd:w-[80%] leading-6 text-gray-500 text-sm ">
+                  <p className="item-desc mt-3 semimd:mt-1 semimd:mb-3 semimd:w-[70%] leading-6 text-gray-500 text-sm ">
                     {item?.description}
                   </p>
                 </div>

@@ -8,6 +8,9 @@ module.exports = {
       'lg':{'max': '1024px'},
       // => @media (max-width: 1024px) { ... }  <= 1024px and below
 
+      'semilg':{'max':'830px'},
+      // => @media (max-width: 830px) { ... }  <= 830px and below
+
       'md':{'max': '768px'},
       // => @media (max-width: 768px) { ... }
 

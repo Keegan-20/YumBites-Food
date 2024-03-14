@@ -25,13 +25,13 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
   
   return (
     <>
-      <span className="text-[0.7rem] text-gray-500 font-semibold p-2 text-left w-1/3">
+      <span className="text-[0.8rem] text-gray-500 font-semibold p-2 text-left w-1/3 md:hidden ">
         <Link to="/">Home</Link>
         <span className="cursor-pointer"> / Central Goa / </span>
         <span className="text-gray-800">{name}</span>
       </span>
-      <div className=" w-full h-40 rounded-xl p-2 bg-gray-100 flex items-center justify-between">
-        <div className="flex flex-col gap-1 px-4">
+      <div className=" w-full md:w-auto   h-40 md:h-auto rounded-xl p-2 bg-gray-100 flex items-center justify-between border border-green-500">
+        <div className="flex flex-col  gap-1 px-4">
           <div className="font-bold text-xl">{name}</div>
           <div className="text-xs text-gray-400 font-medium">
             {cuisines?.join(", ")}
@@ -40,7 +40,7 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
           <div className="text-xs text-gray-400 font-medium">
             {areaName + ", " + sla?.lastMileTravelString}
           </div>
-          <div className="mt-2 flex items-center gap-2 text-gray-500 font-medium text-xs md:text-sm">
+          <div className="mt-2 flex items-center semimd:flex-row gap-2 text-gray-500 font-medium text-xs md:text-sm">
             {feeDetails?.message && (
               <>
                 <img
@@ -51,12 +51,12 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
                 <span>{feeDetails?.message}</span>
               </>
             )}
-            <div className="ml-24">
-              <p className="flex md:gap-3 gap-1 items-center text-sm md:text-base">
+            <div className="ml-24 semilg:ml-2">
+              <p className="flex  gap-1 items-center text-sm semilg:text-xs semilg:mb-2">
             <FontAwesomeIcon icon={faClock} />
             {sla?.slaString}
           </p>
-          <p className="flex md:gap-3 gap-1 items-center text-sm md:text-base">
+          <p className="flex gap-1 flex-row items-center text-sm semilg:text-xs">
             <FontAwesomeIcon icon={faRupeeSign} />
             {costForTwoMessage}
           </p>
@@ -66,12 +66,12 @@ const ResMenuHeader = ({ restaurantOffers,restaurant }) => {
         <div>
         <img
             src={IMG_CDN_URL + cloudinaryImageId}
-            className="w-[90px] h-[100px] px-1 py-3"
+            className="w-[90px] h-[100px] semimd:w-auto semimd:h-[90px] px-1 py-3"
             alt={name}
           />
       
 
-        <div className="flex flex-col gap-1 mr-4 rounded-lg border-2 p-1 md:h-14 w-24 text-center bg-gray-50">
+        <div className="flex flex-col gap-1 mr-4 rounded-lg border-2 p-1 md:h-14 w-24 text-center bg-gray-50 semimd:w-20">
           <div className="rounded-lg  text-green-500 text-xs  md:text-sm font-semibold md:font-bold md:border-b-2 border-b pb-1">
             <FontAwesomeIcon icon={faStar} />
             {avgRatingString}
