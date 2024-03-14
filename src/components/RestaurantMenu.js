@@ -45,13 +45,13 @@ const RestaurantMenu = ({ itemAttribute }) => {
   ) : (
     <div className="restaurant-menu ">
       {/*restaurant summary details */}
-      <div className="flex justify-center w-[80%] mt-3 pl-4">
+      {/* <div className="flex justify-center w-[80%] mt-3 pl-4">
         <ResMenuHeader restaurant={restaurant} />
-      </div>
+      </div> */}
 
       {/* Restaurant menu details */}
-      <div className="restaurant-menu-content flex justify-center">
-        <div className="menu-items-container mt-8 w-[80%]">
+      <div className="restaurant-menu-content flex justify-center md:flex-col">
+        <div className="menu-items-container mt-8 w-[80%] md:w-full">
           <div className="menu-title-wrap p-5">
             <h3 className="menu-title text-xl font-bold">All Items</h3>
             <p className="menu-count font-semibold text-gray-400 ">
@@ -64,7 +64,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
           >
             {menuItems.map((item) => (
               <div
-                className="menu-item flex justify-between p-5"
+                className="menu-item flex justify-between  semimd:flex-col p-5 semimd:p-8"
                 key={item?.id}
               >
                 <div className="menu-item-details flex  flex-col overflow-hidden h-auto self-start">
@@ -81,13 +81,13 @@ const RestaurantMenu = ({ itemAttribute }) => {
                         }).format(item?.price / 100)
                       : " "}
                   </p>
-                  <p className="item-desc mt-3 leading-6 text-gray-500 text-sm ">
+                  <p className="item-desc mt-3 semimd:mt-1 semimd:mb-3 semimd:w-[80%] leading-6 text-gray-500 text-sm ">
                     {item?.description}
                   </p>
                 </div>
 
                 {/* menu-item image */}
-                <div className="menu-img-wrapper flex flex-col justify-center  items-end w-1/3 overflow-hidden h-auto">
+                <div className="menu-img-wrapper flex flex-col justify-center  items-end semimd:items-start w-1/3 semimd:w-2/3 overflow-hidden h-auto">
                   {item?.imageId && (
                     <img
                       className="menu-item-img h-24 w-24 border rounded-md"

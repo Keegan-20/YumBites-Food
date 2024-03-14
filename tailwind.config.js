@@ -11,7 +11,7 @@ module.exports = {
       'md':{'max': '768px'},
       // => @media (max-width: 768px) { ... }
 
-      'semimd':{'max':'600px'},
+      'semimd':{'max':'602px'},
       // => @media (max-width: 600px) { ... }
 
       'sm':{'max': '320px'},
