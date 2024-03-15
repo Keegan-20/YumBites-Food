@@ -5,6 +5,7 @@ import UserContext from "./utils/UserContext";
 
 const Footer = () => {
   const [loading, setLoading] = useState(true);
+  const currentYear = new Date().getFullYear();
   const { user } = useContext(UserContext);
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +21,7 @@ const Footer = () => {
       <div className="container mx-auto py-4">
         <div className="flex md:flex-col justify-between items-center">
           <span className="md:text-center text-left mb-2 pl-2">
-            YumBites Food &copy;2023 All Rights Reserved
+            YumBites Food &copy; {currentYear} All Rights Reserved
           </span>
           {/* have used useContext hook  */}
           <span className="text-center pr-2 md:pr-0 md:pb-0">
