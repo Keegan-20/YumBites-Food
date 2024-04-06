@@ -62,7 +62,7 @@ const Contact = () => {
               name="message"
               id="message"
               cols="10"
-              rows="6"
+              rows="4"
               className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-green-500"
             ></textarea>
           </div>

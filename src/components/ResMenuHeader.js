@@ -47,7 +47,7 @@ const ResMenuHeader = ({ restaurantOffers, restaurant }) => {
                 src={IMG_CDN_URL + feeDetails?.icon}
                 alt="icon"
               />
-              <span className=" text-base semimd:py-2 semimd:text-xs">{feeDetails?.message}</span>
+              <span className=" text-base semimd:py-2 semimd:text-xs"  dangerouslySetInnerHTML={{ __html: feeDetails?.message }}></span>
             </div>
             )}
             <div className="ml-24 semilg:ml-2">
