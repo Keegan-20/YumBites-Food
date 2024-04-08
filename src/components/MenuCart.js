@@ -41,7 +41,7 @@ const handleRemoveItem = () => {
       <div className=" flex  justify-between items-center max-w-[70%] md:max-w-full m-auto md:mx-auto  border rounded-lg mb-3 shadow-lg ">
         <div className="card-content flex flex-wrap items-center justify-around p-1 ">
         
-          <div className="flex  flex-wrap border border-green-600 justify-center items-center p-2 ">
+          <div className="flex  flex-wrap md:shadow-black  justify-center items-center p-2 ">
           <img
             src={IMG_CDN_URL + imageId}
             className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-fuchsia-300"
