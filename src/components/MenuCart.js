@@ -37,25 +37,26 @@ const handleRemoveItem = () => {
   //  The && (logical AND) operator is used to check if itemAttribute exists (is truthy) before attempting to access the vegClassifier property.
   //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
-    <div className="menuCartContainer">
-      <div className=" flex  justify-between items-center w-[70%] m-auto  border rounded-lg mb-3 shadow-lg ">
-        <div className="card-content flex  items-center justify-around p-1 ">
+    <div className="menuCartContainer  flex md:flex-wrap md:mx-3 ">
+      <div className=" flex  justify-between items-center max-w-[70%] md:max-w-full m-auto md:mx-auto  border rounded-lg mb-3 shadow-lg ">
+        <div className="card-content flex flex-wrap items-center justify-around p-1 ">
+        
+          <div className="flex  flex-wrap border border-green-600 justify-center items-center p-2 ">
           <img
             src={IMG_CDN_URL + imageId}
-            className="w-[130px] h-[100px] p-2 rounded-lg bg-fuchsia-300"
+            className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-fuchsia-300"
             alt={name}
           />
-          <div className="flex justify-center items-center p-2 ">
-            <h2 className="RestaurantName flex p-2 w-48 font-medium text-center">
+            <h2 className="RestaurantName flex p-2 w-48 md:w-full font-medium text-center">
               {name}
             </h2>
-            <h4 className="font-semibold m-5">
+            <h4 className="font-semibold m-5 md:m-1">
               <VegNonVeg itemAttribute={itemAttribute} />
             </h4>
-            <h4 className="w-20 m-5">{vegClassifierValue} </h4>
-            <h4 className="w-24 p-2">₹ {(total / 100).toFixed(2)} </h4>
+            <h4 className="w-20 m-5 md:m-1">{vegClassifierValue} </h4>
+            <h4 className="w-24 p-2 ">₹ {(total / 100).toFixed(2)} </h4>
             <select
-              className="border m-5"
+              className="border m-5 md:mr-3"
               value={quantity}
               onChange={handleQuantityChange}
               disabled={isNaN(price) || price === 0}
@@ -66,7 +67,7 @@ const handleRemoveItem = () => {
                 </option>
               ))}
             </select>
-            <button className="m-5" onClick={() =>{handleRemoveItem()}}>  
+            <button className="m-5 md:m-1" onClick={() =>{handleRemoveItem()}}>  
             <AiFillDelete  className="hover:text-[red]" fontSize="20px" />
           </button>
           </div>
