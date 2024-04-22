@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateCartItemQuantity,removeItem } from "./utils/cartSlice";
+import { updateCartItemQuantity, removeItem } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "../constant";
 import { AiFillDelete } from "react-icons/ai";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -12,6 +12,7 @@ const MenuCart = ({
   imageId,
   price,
   itemAttribute,
+  isFirstItem, // Prop to indicate if it's the first item
 }) => {
   const dispatch = useDispatch();
   // managing the item quantity
@@ -26,28 +27,25 @@ const MenuCart = ({
 
   const total = !isNaN(price) && price !== 0 ? price * quantity : 0;
 
-// removing an item
-const handleRemoveItem = () => {
-  dispatch(removeItem(id)); // Dispatching removeItem action with the item id
-};
+  // removing an item
+  const handleRemoveItem = () => {
+    dispatch(removeItem(id)); // Dispatching removeItem action with the item id
+  };
 
   // Accessing the 'vegClassifier' property from 'itemAttribute'
   const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
 
-  //  The && (logical AND) operator is used to check if itemAttribute exists (is truthy) before attempting to access the vegClassifier property.
-  //   const { deliveryTime, lastMileTravelString } = sla; // Accessing nested loo
   return (
-    <div className="menuCartContainer  flex md:flex-wrap md:mx-3 ">
+    <div className={`menuCartContainer  flex md:flex-wrap md:mx-3 ${isFirstItem ? 'md:mt-20 sm:mt-32' : ''}`}>
       <div className=" flex  justify-between items-center max-w-[70%] md:max-w-full m-auto md:mx-auto  border rounded-lg mb-3 shadow-lg ">
         <div className="card-content flex flex-wrap items-center justify-around p-1 ">
-        
           <div className="flex  flex-wrap md:shadow-black  justify-center items-center p-2 ">
-          <img
-            src={IMG_CDN_URL + imageId}
-            className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-fuchsia-300"
-            alt={name}
-          />
-            <h2 className="RestaurantName flex p-2 w-48 md:w-full font-medium text-center">
+            <img
+              src={IMG_CDN_URL + imageId}
+              className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-fuchsia-300"
+              alt={name}
+            />
+            <h2 className="RestaurantName flex p-2 w-48 md:w-full font-medium justify-center align-middle">
               {name}
             </h2>
             <h4 className="font-semibold m-5 md:m-1">
@@ -67,9 +65,9 @@ const handleRemoveItem = () => {
                 </option>
               ))}
             </select>
-            <button className="m-5 md:m-1" onClick={() =>{handleRemoveItem()}}>  
-            <AiFillDelete  className="hover:text-[red]" fontSize="20px" />
-          </button>
+            <button className="m-5 md:m-1" onClick={handleRemoveItem}>  
+              <AiFillDelete  className="hover:text-[red]" fontSize="20px" />
+            </button>
           </div>
         </div>
       </div>
