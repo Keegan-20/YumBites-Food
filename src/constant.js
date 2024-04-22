@@ -5,7 +5,7 @@ export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/
 
  // Image CDN URL for Restaurant Menu
 export const ITEM_IMG_CDN_URL =
-"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 
 //swiggy restaurant details 
 export const swiggy_restaurant_details= 
