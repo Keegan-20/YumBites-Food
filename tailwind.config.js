@@ -17,6 +17,9 @@ module.exports = {
       'semimd':{'max':'602px'},
       // => @media (max-width: 600px) { ... }
 
+      'semism':{'max': '440px'},
+      // => @media (max-width: 400px) { ... }
+
       'sm':{'max': '320px'},
       // => @media (max-width: 320px) { ... }
     },

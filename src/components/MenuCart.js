@@ -36,7 +36,7 @@ const MenuCart = ({
   const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
 
   return (
-    <div className={`menuCartContainer  flex md:flex-wrap md:mx-3 ${isFirstItem ? 'md:mt-20 sm:mt-32' : ''}`}>
+    <div className={`menuCartContainer  flex md:flex-wrap md:mx-3 ${isFirstItem ? 'md:mt-20 semism:mt-[8rem] sm:mt-36' : ''}`}>
       <div className=" flex  justify-between items-center max-w-[70%] md:max-w-full m-auto md:mx-auto  border rounded-lg mb-3 shadow-lg ">
         <div className="card-content flex flex-wrap items-center justify-around p-1 ">
           <div className="flex  flex-wrap md:shadow-black  justify-center items-center p-2 ">

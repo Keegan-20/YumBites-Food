@@ -46,7 +46,7 @@ const Cart = () => {
             Clear Cart
           </button>
         </div>
-        <div className="totalSummary w-56 md:w-full min-h-[90vh] flex flex-wrap flex-col md:flex-row md:min-h-1 md:absolute md:top-18 md:p-5 bg-[#252525] text-white p-3">
+        <div className="totalSummary w-56 md:w-full min-h-[85vh] overflow-hidden flex flex-wrap flex-col  md:justify-center md:align-middle md:flex-row md:min-h-1 md:absolute md:top-18 md:p-5 bg-[#252525] text-white p-3">
           <span id="title" className="font-bold text-lg  md:text-base pb-3">
             Subtotal ({cartItems.length}) items
           </span>
@@ -55,11 +55,11 @@ const Cart = () => {
             Total: ₹{subTotal / 100}{" "}
           </span>
 
-          <div className="pt-10 md:pt-0  md:ml-[10rem] semimd:ml-[2rem] sm:ml-2">
+          <div className="pt-10 md:pt-0 float-right md:ml-72 semimd:ml-[2rem] sm:ml-2">
             <button
               type="button"
               disabled={cartItems.length === 0}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
+              className="bg-red-500 hover:bg-green-600 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
             >
               <span className="md:hidden">Proceed to Checkout</span>
               <span className="hidden md:inline">Checkout</span>
