@@ -12,7 +12,7 @@ const RestaurantCard = ({
   const { user} = useContext(UserContext);
     const {deliveryTime} = sla; // Accessing nested loop
   return (
-    <div className="card w-[235px] h-[300px] md:h-[315px] bg-amber-100 rounded-lg z-10 m-3 shadow-xl ">
+    <div className="card w-[235px] h-[300px] md:h-[315px] bg-[#FBF0C0] rounded-lg z-10 m-3 shadow-xl ">
       < img src={IMG_CDN_URL + cloudinaryImageId} className='w-full h-[155px] rounded-t-xl ' />
       <div className="card-content px-2">
         <h2 className="RestaurantName font-medium text-center">{name}</h2>
