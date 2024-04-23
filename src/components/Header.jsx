@@ -56,7 +56,7 @@ export const HeaderComponent = () => {
     },
   ];
   return (
-    <nav className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-[tomato] text-white">
+    <nav className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-[#862B0D] text-white">
       <div className="w-28 h-20 p-2 flex items-center justify-center ">
         <NavLink to="/">
           <img src={logoImage} alt="Logo" />
