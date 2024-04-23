@@ -14,7 +14,6 @@ import {
 } from "./utils/FilterRestaurants";
 import Carousel from "./Carousel";
 import '../../style.css'; 
-import { FaSearch } from "react-icons/fa";
 import useOnline from "../Custom Hooks/useOnline";
 import { swiggy_restaurant_details } from "../constant";
 
@@ -115,7 +114,7 @@ const Body = () => {
         <div className="rating-button mr-4">
           <button
             className={`p-2   border border-black rounded-3xl border-opacity-30 cursor-pointer md:text-sm md:p-3
-                    ${isRatingFiltered ? "bg-red-500 text-white" : ""}`}
+                    ${isRatingFiltered ? "bg-[#A84908] text-white" : ""}`}
             onClick={() => {
               if (isRatingFiltered) {
                 // If the filter is already applied, clear it by setting the original list of restaurants
@@ -139,7 +138,7 @@ const Body = () => {
         <div className="fastdelivery-button mr-4">
           <button
             className={`p-2  border border-black rounded-3xl border-opacity-30 cursor-pointer md:text-sm md:p-3
-                    ${isFastDeliveryFiltered ? "bg-red-500 text-white" : ""}`}
+                    ${isFastDeliveryFiltered ? "bg-[#A84908] text-white" : ""}`}
             onClick={() => {
               if (isFastDeliveryFiltered) {
                 // If the filter is already applied, clear it by setting the original list of restaurants
@@ -163,7 +162,7 @@ const Body = () => {
         <div className="pureVeg-button mr-4">
           <button
             className={`p-2 border  border-black rounded-3xl border-opacity-30 cursor-pointer md:text-sm md:p-3 
-                    ${isPureVegFiltered ? "bg-red-500 text-white" : ""}`}
+                    ${isPureVegFiltered ? "bg-[#A84908] text-white" : ""}`}
             onClick={() => {
               if (isPureVegFiltered) {
                 // If the filter is already applied, clear it by setting the original list of restaurants
@@ -187,7 +186,7 @@ const Body = () => {
         <div className="lowPrice-button mr-4">
           <button
             className={`p-2  border  border-black rounded-3xl border-opacity-30 cursor-pointer md:text-sm md:p-3 
-                    ${isLowPriceFiltered ? "bg-red-500 text-white" : ""}`}
+                    ${isLowPriceFiltered ? "bg-[#A84908] text-white" : ""}`}
             onClick={() => {
               if (isLowPriceFiltered) {
                 // If the filter is already applied, clear it by setting the original list of restaurants
@@ -210,7 +209,7 @@ const Body = () => {
         <div className="midPrice-button mr-4">
           <button
             className={`p-2  border border-black rounded-3xl border-opacity-30 cursor-pointer md:text-sm md:p-3
-                    ${isMidPriceFiltered ? "bg-red-500 text-white" : ""}`}
+                    ${isMidPriceFiltered ? "bg-[#A84908] text-white" : ""}`}
             onClick={() => {
               if (isMidPriceFiltered) {
                 // If the filter is already applied, clear it by setting the original list of restaurants

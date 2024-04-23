@@ -90,7 +90,7 @@ export const HeaderComponent = () => {
                 to={menu.link}
                 activeclassname="text-green-700"
                 className="text-xl font-medium p-2 hover:border-b-4 border-white
-                hover:text-red-400"
+                hover:bg-[#FFC95F]"
                 onClick={toggleMenu}
               >
                 {menu.name}
@@ -123,7 +123,7 @@ export const HeaderComponent = () => {
         {navmenu.map((menu, idx) => {
           return (
             
-            <li key={idx} className="px-2 hover:border-b-4 border-white hover:text-indigo-950">
+            <li key={idx} className="px-2 hover:border-b-4 border-white hover:text-[#FFC95F]">
               <NavLink
                 to={menu.link}
                 activeclassname="text-green-700"
