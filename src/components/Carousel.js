@@ -8,7 +8,7 @@ const Carousel = ({ carouselCards }) => {
 
     // Check if carouselCards is falsy or not an array
     if (!carouselCards || !Array.isArray(carouselCards)) return null; 
-  if (!carouselCards) return null; // when api call on small screens remove Carousel
+  if (!carouselCards) return null; 
   const carousel = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
@@ -51,7 +51,7 @@ const Carousel = ({ carouselCards }) => {
           />
         </div>
       </div>
-      <div className="w-full h-52 relative overflow-hidden">
+      <div className="w-full  h-52 md:h-44 relative overflow-hidden ">
         <div
           ref={carousel}
           className="h-full pl-5 flex gap-8 overflow-hidden scroll-smooth"
@@ -59,7 +59,7 @@ const Carousel = ({ carouselCards }) => {
           {carouselCards.map((carouselCard) => (
             <img
               key={carouselCard.id}
-              className="object-center h-full w-52 transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
+              className="object-center h-full w-52 md:w-20 md:h-[60%] transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
               src={ITEM_IMG_CDN_URL + carouselCard.imageId}
               alt="card img"
             />
