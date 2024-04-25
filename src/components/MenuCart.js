@@ -42,7 +42,7 @@ const MenuCart = ({
           <div className="flex  flex-wrap md:shadow-black  justify-center items-center p-2 ">
             <img
               src={IMG_CDN_URL + imageId}
-              className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-fuchsia-300"
+              className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-[#FBF0C0]"
               alt={name}
             />
             <h2 className="RestaurantName flex p-2 w-48 md:w-full font-medium justify-center align-middle">
