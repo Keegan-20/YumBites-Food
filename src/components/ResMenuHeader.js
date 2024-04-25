@@ -29,7 +29,7 @@ const ResMenuHeader = ({ restaurantOffers, restaurant }) => {
         <span className="cursor-pointer"> / Central Goa / </span>
         <span className="text-gray-800">{name}</span>
       </span>
-      <div className=" w-full md:w-auto   h-40 md:h-auto rounded-xl p-2 bg-gray-100 flex items-center justify-between ">
+      <div className=" w-full md:w-[90%]   h-40 md:h-auto rounded-xl p-2 bg-gray-100 flex items-center justify-between">
         <div className="flex flex-col  gap-1 px-4">
           <div className="font-bold text-xl">{name}</div>
           <div className="text-xs text-gray-400 font-medium">
