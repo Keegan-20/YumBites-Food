@@ -98,7 +98,7 @@ const Body = () => {
     <>
       <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
       <div className="divider">
-        <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5"></hr>
+        <hr className=" border-[1px] bg-[rgb(240, 240, 245)] m-5 sm:m-2"></hr>
       </div>
 
       {/* Filtering the Restaurants */}

@@ -35,7 +35,7 @@ const Carousel = ({ carouselCards }) => {
   }, [currentIndex]);
 
   return (
-    <div className="w-11/12 h-64 flex flex-col mt-10  ">
+    <div className="w-11/12 h-64 md:h-48 flex flex-col mt-10 md:mt-5">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-bold text-xl pl-4 p-5">What's on your mind?</h3>
         <div className="flex gap-4">
@@ -51,15 +51,15 @@ const Carousel = ({ carouselCards }) => {
           />
         </div>
       </div>
-      <div className="w-full  h-52 md:h-44 relative overflow-hidden ">
+      <div className="w-full  h-52 md:h-48 relative overflow-hidden ">
         <div
           ref={carousel}
-          className="h-full pl-5 flex gap-8 overflow-hidden scroll-smooth"
+          className="h-full md:h-auto pl-5 flex gap-8 overflow-hidden scroll-smooth"
         >
           {carouselCards.map((carouselCard) => (
             <img
               key={carouselCard.id}
-              className="object-center h-full w-52 md:w-20 md:h-[60%] transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
+              className="object-center h-full w-52 md:w-24 md:h-[65%] transition-transform hover:scale-110 duration-200 mix-blend-multiply cursor-pointer"
               src={ITEM_IMG_CDN_URL + carouselCard.imageId}
               alt="card img"
             />
