@@ -54,7 +54,7 @@ const Carousel = ({ carouselCards }) => {
       <div className="w-full  h-52 md:h-48 relative overflow-hidden ">
         <div
           ref={carousel}
-          className="h-full md:h-auto pl-5 flex gap-8 overflow-hidden scroll-smooth"
+          className="h-full md:h-auto pl-5  flex gap-8 md:gap-2 overflow-hidden scroll-smooth"
         >
           {carouselCards.map((carouselCard) => (
             <img
