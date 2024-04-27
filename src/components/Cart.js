@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import MenuCart from "./MenuCart";
+import EmptyCart from "../img/EmptyCart.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { clearCart } from "./utils/cartSlice";
 
@@ -36,11 +37,19 @@ const Cart = () => {
 
       <div className="mainCart flex ">
         <div className="menuItems pt-5 flex-grow">
-          {cartItems.map((item,index) => (
-            <MenuCart key={item.id} id={item.id} isFirstItem={index === 0} {...item}  />
-          ))}
+        {cartItems.length === 0 ? (
+      
+     <div className='Empty-cart mt-10 flex items-center justify-center flex-col gap-4'>
+     <img className="h-80 md:h-52 sm:h-36 md:mt-20" src={EmptyCart} alt="CartEmpty" />
+     <p className="text-2xl md:text-base font-bold text-[#e48657]" >Your Cart is Empty !!</p>
+     </div>
+          ) : (
+            cartItems.map((item,index) => (
+              <MenuCart key={item.id} id={item.id} isFirstItem={index === 0} {...item}  />
+            ))
+          )}
           <button
-            className="bg-red-400 text-white ml-2 p-2"
+            className="bg-red-400 text-white ml-2 p-2 md:p-1 md:mx-2"
             onClick={handleClearCart}
           >
             Clear Cart
