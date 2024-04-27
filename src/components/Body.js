@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import SearchBar from "./SearchBar";
+import noRestaurant from"../img/noRes.png";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import {
@@ -240,25 +241,22 @@ const Body = () => {
     <div className="responsive-search" >
     <SearchBar onSearch={handleSearch} />
     </div>
-      {
-        <div
-          className="flex flex-wrap justify-center align-middle "
-          data-testid="res-list"
-        >
-          {filteredRestaurants.map((eachRestaurant) => {
-            return (
-              <Link
-                className="restaurantMenu-links"
-                to={"/restaurant/" + eachRestaurant?.info?.id}
-                key={eachRestaurant?.info?.id}
-              >
-                <RestaurantCard {...eachRestaurant?.info} />
-              </Link>
-            );
-            // <RestaurantCard {...restaurant.data} key={restaurant.data.id} />);
-          })}
-        </div>
-      }
+    {
+  filteredRestaurants.length === 0 ? (
+    <div className="flex justify-center items-center">
+
+<img className="mb-20" src={noRestaurant} alt="No Restaurant Found" />
+    </div>
+  ) : (
+    <div className="flex flex-wrap justify-center align-middle " data-testid="res-list">
+      {/* Render restaurants here */}
+      {filteredRestaurants.map((eachRestaurant) => (
+        <Link className="restaurantMenu-links" to={"/restaurant/" + eachRestaurant?.info?.id} key={eachRestaurant?.info?.id}>
+          <RestaurantCard {...eachRestaurant?.info} />
+        </Link>
+      ))}
+    </div>
+  )}
     </>
   );
 };

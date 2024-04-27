@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
-  faRupeeSign,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { IMG_CDN_URL } from "../constant.js";
@@ -57,7 +56,7 @@ const ResMenuHeader = ({ restaurantOffers, restaurant }) => {
                 {sla?.slaString}
               </p>
               <p className="flex gap-1 semimd:flex-row items-center text-sm semilg:text-xs">
-                <FontAwesomeIcon icon={faRupeeSign} />
+           
                 {costForTwoMessage}
               </p>
             </div>
