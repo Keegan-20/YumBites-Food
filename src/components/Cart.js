@@ -59,7 +59,7 @@ const Cart = () => {
             <button
               type="button"
               disabled={cartItems.length === 0}
-              className="bg-red-500 hover:bg-green-600 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
             >
               <span className="md:hidden">Proceed to Checkout</span>
               <span className="hidden md:inline">Checkout</span>

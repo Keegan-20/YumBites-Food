@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import logoImage from "../img/logo2.png";
 import { HeaderShimmer } from "./Shimmer";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsFillCartFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -65,6 +64,22 @@ export const HeaderComponent = () => {
 
     {/* Mobile Menu */}
   <div className= "hidden semimd:flex">
+    <ul>
+  <li>
+          <NavLink
+            to="/cart"
+            className="flex relative"
+          >
+            <button
+              className="flex items-center bg-[yellow]  my-6 mx-7 p-1 rounded-md text-black"
+              data-testid="cart"
+            >
+              <span className="mr-3">{cartItems.length}</span>
+              <FaShoppingCart color="black" size="20px" />
+            </button>
+          </NavLink>
+        </li>
+        </ul>
   <button
     onClick={toggleMenu}
     className={`text-3xl  transition-transform duration-300 ease-in-out transform ${
@@ -72,15 +87,15 @@ export const HeaderComponent = () => {
     }`}
   >
     {isMenuOpen === true ? (
-      <IoMdClose className="text-3xl cursor-pointer" onClick={toggleMenu} />
+      <IoMdClose className="text-3xl cursor-pointer mr-2" onClick={toggleMenu} />
     ) : (
       <GiHamburgerMenu
-        className="text-2xl cursor-pointer"
+        className="text-2xl cursor-pointer mr-2"
         onClick={toggleMenu}
       />
     )}
     </button>
-
+ 
     {isMenuOpen && (
       <ul className="bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full semimd:overflow-hidden h-50 flex flex-wrap items-center justify-center flex-col z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
         {navmenu.map((menu) => {
