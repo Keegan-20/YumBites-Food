@@ -17,7 +17,7 @@ const Footer = () => {
       {loading ? (
         <FooterShimmer />
       ) : (
-        <footer data-testid="footer" className="bg-[#6D2E0F] md:bg-[#804527] text-white  fixed bottom-0 left-0 w-full mt-3  over">
+        <footer data-testid="footer" className="bg-[#6D2E0F] md:bg-[#804527] text-white  fixed bottom-0 left-0 w-full mt-3">
       <div className="container mx-auto py-3">
         <div className="flex md:flex-col justify-between items-center">
           <span className="md:text-center text-left mb-2 pl-2 sm:text-xs">

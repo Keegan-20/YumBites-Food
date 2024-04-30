@@ -248,7 +248,7 @@ const Body = () => {
 <img className="mb-20" src={noRestaurant} alt="No Restaurant Found" />
     </div>
   ) : (
-    <div className="flex flex-wrap justify-center align-middle " data-testid="res-list">
+    <div className="flex flex-wrap justify-center align-middle mb-16 md:mb-24 " data-testid="res-list">
       {/* Render restaurants here */}
       {filteredRestaurants.map((eachRestaurant) => (
         <Link className="restaurantMenu-links" to={"/restaurant/" + eachRestaurant?.info?.id} key={eachRestaurant?.info?.id}>

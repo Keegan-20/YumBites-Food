@@ -52,7 +52,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
       </div>
 
       {/* Restaurant menu details */}
-      <div className="restaurant-menu-content flex justify-center md:flex-col">
+      <div className="restaurant-menu-content flex justify-center mb-16 md:flex-col">
         <div className="menu-items-container mt-8 w-[80%] md:w-full">
           <div className="menu-title-wrap p-5">
             <h3 className="menu-title text-xl font-bold">All Items</h3>
