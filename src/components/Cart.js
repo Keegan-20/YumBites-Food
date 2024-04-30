@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MenuCart from "./MenuCart";
 import EmptyCart from "../img/EmptyCart.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
 import { clearCart } from "./utils/cartSlice";
 
@@ -37,12 +38,14 @@ const Cart = () => {
       {/* <h1 className="font-bold text-2xl text-center">Cart Items: {cartItems.length}</h1> */}
 
       <div className="mainCart flex ">
-        <div className="menuItems pt-5 flex-grow">
+        <div className="menuItems pt-5 flex-grow mb-16 md:mb-24">
         {cartItems.length === 0 ? (
       
      <div className='Empty-cart mt-10 flex items-center justify-center flex-col gap-4'>
      <img className="h-80 md:h-52 sm:h-36 md:mt-20" src={EmptyCart} alt="CartEmpty" />
      <p className="text-2xl md:text-base font-bold text-[#e48657]" >Your Cart is Empty !!</p>
+     <a href="/" className="text-xl md:text-base font-bold text-[#e48657] flex items-center hover:text-[#8d4623]  hover:underline">
+  Back to Home <GrUndo className="ml-2 hover:text-[#8d4623]" /></a>
      </div>
           ) : (
             cartItems.map((item,index) => (
