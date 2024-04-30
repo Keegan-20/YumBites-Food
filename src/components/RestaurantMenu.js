@@ -103,7 +103,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
                       className="p-2  m-2  bg-red-200 hover:bg-red-600 rounded-lg border-none font-semibold text-sm cursor-pointer md:text-xs"
                       onClick={() => {
                         removeFoodItem(item.id)
-                        toast.error("Item Removed");
+                        toast.error("Item removed from cart");
                       }}
                     >
                       REMOVE -
@@ -114,7 +114,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
                       className="p-2 m-2 mr-4 bg-green-200 hover:bg-green-600 rounded-lg border-none font-semibold  text-sm cursor-pointer md:text-xs"
                       onClick={() => {
                         addFoodItem(item)
-                        toast.success("Item added");
+                        toast.success("Item added to cart");
                       }}
                     >
                       ADD +
