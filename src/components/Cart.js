@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MenuCart from "./MenuCart";
 import EmptyCart from "../img/EmptyCart.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { toast } from "react-toastify";
 import { clearCart } from "./utils/cartSlice";
 
 const Cart = () => {
@@ -69,6 +70,9 @@ const Cart = () => {
               type="button"
               disabled={cartItems.length === 0}
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
+              onClick={() =>
+                toast.success("Checked out successfully")
+              }
             >
               <span className="md:hidden">Proceed to Checkout</span>
               <span className="hidden md:inline">Checkout</span>
