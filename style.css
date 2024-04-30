@@ -1,95 +1,99 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.shimmer-header{
-    display: flex; 
-    justify-content:space-between;
-    gap:8rem;
-    margin:0.5rem 0.3rem;
+.shimmer-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8rem;
+  margin: 0.5rem 0.3rem;
 }
-
 
 /* Resturant cards items */
-.card-skeleton{
-    width:230px;
-    margin:1rem;
-    border-radius:8px;
+.card-skeleton {
+  width: 230px;
+  margin: 1rem;
+  border-radius: 8px;
 }
 
-.footer-text{
-    text-align: center;
-}
-
-  /* about us page */
-  
+   /* about us page */
 .about-container {
-    display: flex;
-    margin: 50px 25px 10px;
-    backgroun-color:#fffff;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  
-   .about-desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    overflow-y: hidden;
-  }
-  
- .about-desc h1 {
-   font-size:2.5rem;
-    color: #333;
-  }
-  
-  .about-desc  span {
-    background-color:#d67a4c;
-    color:white !important;
-    padding: 0 10px;
-    border-radius: 15px;
+  display: flex;
+  margin: 50px 25px 10px;
+  backgroun-color: #fffff;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  overflow-y: hidden;
+}
+
+.about-desc h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.about-desc span {
+  background-color: #d67a4c;
+  color: white !important;
+  padding: 0 10px;
+  border-radius: 15px;
+}
+
+.about-desc h4 {
+  font-size: 25px;
+  margin-top: 10px;
+  font-style: italic;
+  color: #333;
+}
+
+.about-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.desktop-search {
+  width: 100%;
+}
+
+.responsive-search {
+  display: none;
+}
+
+/* Default position for large screens */
+.toast-container {
+  position: fixed;
+  bottom: 45px;
+  right: 45px;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-search {
+    display: none;
   }
 
-  
- .about-desc h4 {
-    font-size: 25px;
-    margin-top: 10px;
-    font-style: italic;
-    color:#333;
+  .toast-container {
+    bottom: 90px;
+    right:50px;
+    width:90%;
   }
-  
 
-  
- .about-img {
+  .responsive-search {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;  
+    margin: 2px;
+    padding: 2px;
+    width: 100%;
   }
-.desktop-search{
-  width:100%;
-
 }
-
-  .responsive-search{
-display:none;
-  }
-@media screen and (max-width: 768px) {
-  .desktop-search{
-    display:none;
-  }
-
-  .responsive-search{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:2px;
-   padding:2px;
-   width:100%;
-  
-  }
-}  

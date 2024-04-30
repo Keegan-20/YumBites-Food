@@ -12,6 +12,8 @@ import Shimmer from "./Shimmer";
 import useResMenuData from "../Custom Hooks/useResMenuData";
 import { addItem, removeItem } from "./utils/cartSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
 
 const RestaurantMenu = ({ itemAttribute }) => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
@@ -99,7 +101,10 @@ const RestaurantMenu = ({ itemAttribute }) => {
                   {itemInCart(item.id) ? (
                     <button
                       className="p-2  m-2  bg-red-200 hover:bg-red-600 rounded-lg border-none font-semibold text-sm cursor-pointer md:text-xs"
-                      onClick={() => removeFoodItem(item.id)}
+                      onClick={() => {
+                        removeFoodItem(item.id)
+                        toast.error("Item Removed");
+                      }}
                     >
                       REMOVE -
                     </button>
@@ -107,10 +112,15 @@ const RestaurantMenu = ({ itemAttribute }) => {
                     <button
                       data-testid="add-btn"
                       className="p-2 m-2 mr-4 bg-green-200 hover:bg-green-600 rounded-lg border-none font-semibold  text-sm cursor-pointer md:text-xs"
-                      onClick={() => addFoodItem(item)}
+                      onClick={() => {
+                        addFoodItem(item)
+                        toast.success("Item added");
+                      }}
                     >
                       ADD +
                     </button>
+                     
+
                   )}
                 </div>
               </div>
