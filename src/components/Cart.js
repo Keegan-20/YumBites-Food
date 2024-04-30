@@ -45,7 +45,7 @@ const Cart = () => {
      <img className="h-80 md:h-52 sm:h-36 md:mt-20" src={EmptyCart} alt="CartEmpty" />
      <p className="text-2xl md:text-base font-bold text-[#e48657]" >Your Cart is Empty !!</p>
      <a href="/" className="text-xl md:text-base font-bold text-[#e48657] flex items-center hover:text-[#8d4623]  hover:underline">
-  Back to Home <GrUndo className="ml-2 hover:text-[#8d4623]" /></a>
+  Back to Home <GrUndo className="ml-1 hover:text-[#8d4623]" /></a>
      </div>
           ) : (
             cartItems.map((item,index) => (
