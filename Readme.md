@@ -25,8 +25,8 @@ Unit and integrated testing are performed using Jest to ensure the reliability a
 ![Desktop View](/src/img/dv2.png)
 
 ### Mobile View
-<img src="/src/img/mv1.png" alt="Mobile View" style="width: 48%; margin-right: 5px;">
-<img src="/src/img/mv2.png" alt="Mobile View" style="width: 48%;">
+<img src="/src/img/mv1.png" alt="Mobile View" style="width: 45%; margin-right: 5px;">
+<img src="/src/img/mv2.png" alt="Mobile View" style="width: 45%;">
 
 ## Tech Stack Used
 
