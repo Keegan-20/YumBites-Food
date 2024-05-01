@@ -66,9 +66,17 @@ Follow these steps to set up and run YumBites Food locally on your setup:
 4. **Open in Your Browser:**
 
     Open http://localhost:3000 in your web browser.Explore YumBites Food and enjoy the experience!
-### Thank You
+
+## Thank You😄
 Thank you for exploring YumBites Food! Your feedback is valuable and If you have any suggestions or thoughts, feel free to share them with me. 
 And hey, if you enjoyed your experience, why not show us some love by starring the  repository,Please don't hesitate to star this GitHub repository!"
 
+<p align="right">
+  <b style="color: green;  ">Visitor count</b>
+  <br>
+  <a style="" href="https://github.com/Keegan-20">
+  <img src="https://profile-counter.glitch.me/YumBites-Food/count.svg" />
+  </a>
+</p>
 
 
