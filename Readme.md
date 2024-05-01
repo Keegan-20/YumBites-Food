@@ -1,4 +1,4 @@
-# YumBites Food
+# YumBites Food 🍔🌯
 YumBites Food is a dynamic food delivery website powered by Swiggy Live API.This project utilizes cutting-edge technologies developed with the powerful combination of React,Parcel and Redux,ensuring a seamless and efficient user experience.
 
 ## Features
@@ -15,11 +15,20 @@ YumBites Food is a dynamic food delivery website powered by Swiggy Live API.This
 
 State management is handled using Redux Toolkit, ensuring a predictable state container and control &organization of data.
 
-## Testing
+## Jest Library for Testing
 
 Unit and integrated testing are performed using Jest to ensure the reliability and stability of the application.
 
-## Tech Stack
+## Preview
+### Desktop View
+![Desktop View](/src/img/dv1.png)
+![Desktop View](/src/img/dv2.png)
+
+### Mobile View
+<img src="/src/img/mv1.png" alt="Mobile View" style="width: 48%; margin-right: 5px;">
+<img src="/src/img/mv2.png" alt="Mobile View" style="width: 48%;">
+
+## Tech Stack Used
 
 - React
 - Parcel
@@ -58,6 +67,3 @@ Follow these steps to set up and run YumBites Food locally on your setup:
 4. **Open in Your Browser:**
 
     Open http://localhost:3000 in your web browser.Explore YumBites Food and enjoy the experience!
-
-## Preview
-
