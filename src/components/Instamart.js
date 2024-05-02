@@ -37,7 +37,8 @@ const Instamart = () => {
       <Section
         title={"Why Choose YumBite Fooods ?"}
         description={
-          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+          "YumBite Foods stands out for its wide selection of quality cuisines, convenience in ordering and reliable delivery service, exceptional customer support, and great value for money. Enjoy a deliciously convenient dining experience delivered right to your doorstep with YumBite Foods.Our commitment to quality begins with our ingredients. We partner with trusted suppliers to ensure that only the freshest and highest-quality ingredients make it into your meals. Whether you're craving authentic Indian flavors, indulgent comfort food, or healthy options to fuel your day, YumBite Foods has something for everyone.Convenience is key in today's fast-paced world, and YumBite Foods delivers on that front. Our user-friendly website and mobile app make ordering a breeze, with intuitive navigation, secure payment options, and real-time order tracking. Say goodbye to long wait times and busy phone lines with YumBite Foods, your favorite meals are just a few clicks away."
+          
         }
         isVisible={visibleSection === "Why Choose YumBite Fooods ?"}
         setIsVisible={setIsVisibleSection}
@@ -46,7 +47,7 @@ const Instamart = () => {
       <Section
         title={"Most Famous Restaurants in Goa?"}
         description={
-          "voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores rep"
+          "In the vibrant culinary landscape of Goa, several iconic restaurants have earned acclaim for their delectable offerings and unique ambiance. From the legendary Ritz Classic, renowned for its sumptuous seafood dishes and warm hospitality, to the quaint charm of Cooperleaf Panaji, where traditional Goan flavors mingle with global influences, each dining destination offers a distinct experience. Sharda Classic beckons with its authentic Goan fare, tantalizing the taste buds with generations-old recipes passed down through time. For those craving a feast, Barbeque Nation stands out as a haven for barbecue enthusiasts, offering an array of grilled delights in a lively setting. Meanwhile, the Tiffin Factory captures the essence of Goan cuisine with its innovative twists on classic dishes, creating culinary masterpieces that delight locals and tourists alike. Whether you seek traditional flavors or contemporary cuisine, these renowned restaurants in Goa promise an unforgettable dining experience that celebrates the rich culinary heritage of the region."
         }
         isVisible={visibleSection === "Most Famous Restaurants in Goa?"}
         setIsVisible={setIsVisibleSection}
@@ -55,7 +56,7 @@ const Instamart = () => {
       <Section
         title={"Cancel order & Refund Policy?"}
         description={
-          "voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores rep"
+          "You can cancel your order on YumBite before it is confirmed by the restaurant. Once the restaurant confirms the order, cancellation may not be possible. To cancel, simply navigate to your order history and select the option to cancel.If your order is canceled before confirmation or due to unforeseen circumstances, we will initiate a refund to your original payment method. Refunds typically take 3-5 business days to process, depending on your bank or payment provider.For any assistance with cancellations or refunds, please contact our customer support team, and we'll be happy to assist you promptly."
         }
         isVisible={visibleSection === "Cancel order & Refund Policy?"}
         setIsVisible={setIsVisibleSection}
