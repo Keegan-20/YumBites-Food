@@ -52,7 +52,7 @@ const RestaurantMenu = ({ itemAttribute }) => {
       </div>
 
       {/* Restaurant menu details */}
-      <div className="restaurant-menu-content mb-28">
+      <div className="restaurant-menu-content mb-0">
         <div className="menu-items-container mt-8 w-full">
           <div className="menu-title-wrap py-4 flex items-baseline justify-between">
             <h3 className="menu-title text-xl font-bold tracking-tight text-ink-900">

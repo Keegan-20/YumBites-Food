@@ -35,7 +35,7 @@ const Section = ({ title, description, isVisible, setIsVisible }) => {
 const Instamart = () => {
   const [visibleSection, setIsVisibleSection] = useState("whyYumBite");
   return (
-    <div className="max-w-3xl mx-auto px-6 md:px-4 py-12 md:py-8 mb-24 animate-fade-in">
+    <div className="max-w-3xl mx-auto px-6 md:px-4 py-12 md:py-8 mb-0 animate-fade-in">
       <h1 className="text-3xl md:text-2xl font-extrabold tracking-tight text-ink-900 mb-2">
         Frequently Asked Questions
       </h1>

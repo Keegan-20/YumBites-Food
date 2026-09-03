@@ -34,9 +34,9 @@ const Carousel = ({ carouselCards }) => {
 
   return (
     <section className="max-w-7xl mx-auto px-6 md:px-4 mt-10 md:mt-6">
-      <div className="rounded-3xl bg-gradient-fresh border border-brand-100 px-6 py-6 md:px-4 md:py-4">
+      <div className="rounded-3xl bg-cream-100 border border-cream-300 px-7 py-7 md:px-4 md:py-5">
         <div className="flex items-center justify-between w-full mb-4">
-          <h3 className="font-bold text-2xl md:text-lg tracking-tight text-ink-900">
+          <h3 className="font-display text-2xl md:text-xl font-semibold tracking-tight text-ink-900">
             What's on your mind?
           </h3>
           <div className="flex gap-3">

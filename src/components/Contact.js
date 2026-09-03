@@ -31,7 +31,7 @@ const Contact = () => {
     "w-full h-12 px-4 bg-white border border-ink-200 rounded-xl text-sm text-ink-900 placeholder:text-ink-300 outline-none transition-all duration-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100";
 
   return (
-    <div className="flex justify-center items-center px-4 py-12 md:py-8 mb-24">
+    <div className="flex justify-center items-center px-4 py-12 md:py-8 mb-0">
       <div className="w-full max-w-md bg-white border border-ink-100 rounded-2xl shadow-card p-8 md:p-6">
         <h2 className="text-2xl font-extrabold tracking-tight text-ink-900 mb-1">
           Contact Us
@@ -92,7 +92,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full h-12 flex items-center justify-center gap-2 bg-gradient-brand hover:brightness-110 text-white font-bold text-sm rounded-full transition-all duration-200 active:scale-95 shadow-action focus:outline-none focus:ring-4 focus:ring-brand-100"
+            className="w-full h-12 flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-full transition-all duration-200 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-brand-100"
           >
             Send Message <IoSendSharp />
           </button>

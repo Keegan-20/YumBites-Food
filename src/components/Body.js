@@ -22,11 +22,11 @@ import { swiggy_restaurant_details } from "../constant";
 const FilterChip = ({ label, isActive, onClick }) => (
   <button
     aria-pressed={isActive}
-    className={`shrink-0 h-10 px-4 md:px-3 inline-flex items-center gap-2 rounded-full border text-sm md:text-xs font-medium cursor-pointer transition-all duration-200 active:scale-95
+    className={`shrink-0 h-9 px-4 md:px-3 inline-flex items-center gap-2 rounded-full border text-sm md:text-xs font-medium cursor-pointer transition-colors duration-200
       ${
         isActive
-          ? "bg-brand-600 border-brand-600 text-white shadow-action"
-          : "bg-white border-ink-200 text-ink-700 hover:border-brand-300 hover:text-brand-700 hover:shadow-card"
+          ? "bg-brand-600 border-brand-600 text-white"
+          : "bg-white border-cream-300 text-ink-700 hover:border-brand-300 hover:text-brand-700"
       }`}
     onClick={onClick}
   >
@@ -123,20 +123,18 @@ const Body = () => {
   return (
     <>
       {/* Hero */}
-      <section className="w-full bg-gradient-hero border-b border-oat-300">
-        <div className="max-w-7xl mx-auto px-6 md:px-4 pt-14 md:pt-10 pb-10 md:pb-8 flex flex-col items-center text-center gap-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-200 text-brand-700 text-xs font-semibold shadow-card">
-            ⚡ Delivery in under 30 minutes
+      <section className="w-full bg-cream-100 border-b border-cream-300">
+        <div className="max-w-7xl mx-auto px-6 md:px-4 pt-16 md:pt-10 pb-12 md:pb-9 flex flex-col items-center text-center gap-5">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-cream-300 text-ink-700 text-xs font-medium tracking-wide">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-500" aria-hidden="true"></span>
+            Delivery in under 30 minutes
           </span>
-          <h1 className="text-5xl md:text-3xl font-extrabold tracking-tight text-ink-900 leading-tight">
-            Hungry?{" "}
-            <span className="bg-gradient-heading bg-clip-text text-transparent">
-              We've got you.
-            </span>
+          <h1 className="font-display text-[3.25rem] md:text-4xl semism:text-3xl font-semibold tracking-tight text-ink-900 leading-[1.05] max-w-3xl">
+            Good food, from the places Goa actually eats at.
           </h1>
-          <p className="text-lg md:text-base text-ink-500 max-w-xl">
-            Order from the best restaurants in Central Goa — fresh, fast and
-            right to your doorstep.
+          <p className="text-base text-ink-500 max-w-lg leading-relaxed">
+            {filteredRestaurants?.length || 0} restaurants across Central Goa,
+            delivered fresh to your door.
           </p>
         </div>
       </section>
@@ -148,7 +146,7 @@ const Body = () => {
       <section className="max-w-7xl mx-auto px-6 md:px-4">
         <div className="reslist-header mt-10 md:mt-6 mb-5 flex items-end justify-between gap-6 md:flex-col md:items-stretch md:gap-3">
           <div>
-            <h2 className="font-bold text-2xl md:text-lg tracking-tight text-ink-900">
+            <h2 className="font-display text-2xl md:text-xl font-semibold tracking-tight text-ink-900">
               Restaurants with online food delivery in Central Goa
             </h2>
             <p className="text-sm text-ink-500 mt-1">
@@ -242,7 +240,7 @@ const Body = () => {
       </section>
 
       {filteredRestaurants.length === 0 ? (
-        <div className="flex flex-col justify-center items-center gap-4 py-10 mb-24 px-6 text-center">
+        <div className="flex flex-col justify-center items-center gap-4 py-16 px-6 text-center">
           <img
             className="max-h-72 md:max-h-52"
             src={noRestaurant}
@@ -257,13 +255,13 @@ const Body = () => {
         </div>
       ) : (
         <div
-          className="max-w-7xl mx-auto px-3 flex flex-wrap justify-center mt-4 mb-24 md:mb-28"
+          className="max-w-7xl mx-auto px-3 flex flex-wrap justify-center mt-5"
           data-testid="res-list"
         >
           {/* Render restaurants here */}
           {filteredRestaurants.map((eachRestaurant) => (
             <Link
-              className="restaurantMenu-links focus:outline-none focus:ring-4 focus:ring-brand-100 rounded-2xl"
+              className="restaurantMenu-links focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-100 rounded-2xl"
               to={"/restaurant/" + eachRestaurant?.info?.id}
               key={eachRestaurant?.info?.id}
             >

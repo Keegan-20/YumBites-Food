@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <div className="mainContainer max-w-6xl mx-auto px-6 md:px-4 animate-fade-in">
       {cartItems.length === 0 ? (
-        <div className="Empty-cart min-h-[60vh] mb-24 flex items-center justify-center flex-col gap-4 text-center">
+        <div className="Empty-cart min-h-[60vh] mb-0 flex items-center justify-center flex-col gap-4 text-center">
           <img
             className="h-72 md:h-52 sm:h-36 rounded-2xl"
             src={EmptyCart}
@@ -50,13 +50,13 @@ const Cart = () => {
           </p>
           <a
             href="/"
-            className="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-brand hover:brightness-110 text-white font-bold text-sm transition-all duration-200 active:scale-95 shadow-action"
+            className="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all duration-200 active:scale-[0.98]"
           >
             <GrUndo /> Back to Home
           </a>
         </div>
       ) : (
-        <div className="mainCart flex md:flex-col items-start gap-8 md:gap-4 mt-8 md:mt-5 mb-28">
+        <div className="mainCart flex md:flex-col items-start gap-8 md:gap-4 mt-8 md:mt-5 mb-0">
           {/* Items list */}
           <div className="menuItems flex-1 w-full min-w-0">
             <div className="flex items-center justify-between mb-5">
@@ -111,7 +111,7 @@ const Cart = () => {
             <button
               type="button"
               disabled={cartItems.length === 0}
-              className="w-full h-12 flex items-center justify-center gap-2 rounded-full bg-gradient-brand hover:brightness-110 text-white font-bold text-sm transition-all duration-200 active:scale-95 shadow-action disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full h-12 flex items-center justify-center gap-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition-all duration-200 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
               onClick={() => toast.success("Checked out successfully")}
             >
               <span className="md:hidden">Proceed to Checkout</span>

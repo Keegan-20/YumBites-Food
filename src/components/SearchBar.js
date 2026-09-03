@@ -36,7 +36,7 @@ const SearchBar = ({ onSearch }) => {
           id="#searchbar"
           placeholder="Search for restaurants"
           aria-label="Search for restaurants"
-          className="search-input w-full h-11 pl-11 pr-4 bg-white border border-ink-200 rounded-full text-sm text-ink-900 placeholder:text-ink-300 shadow-card outline-none transition-all duration-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+          className="search-input w-full h-11 pl-11 pr-4 bg-white border border-cream-300 rounded-full text-sm text-ink-900 placeholder:text-ink-300 outline-none transition-colors duration-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
           value={searchText}
           onChange={handleInputChange}
         />

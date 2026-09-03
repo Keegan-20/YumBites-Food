@@ -60,9 +60,10 @@ body {
 }
 
 .about-desc h1 {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
   font-size: 2.75rem;
-  line-height: 1.15;
-  font-weight: 800;
+  line-height: 1.1;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--color-text);
 }
@@ -70,7 +71,7 @@ body {
 .about-desc span {
   display: inline-block;
   margin-top: 12px;
-  background-image: var(--gradient-brand);
+  background-color: var(--color-action);
   color: var(--color-on-brand) !important;
   padding: 4px 16px;
   border-radius: 999px;
