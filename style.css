@@ -4,6 +4,29 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide scrollbars on horizontal rails while keeping them scrollable */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .shimmer-header {
   display: flex;
   justify-content: space-between;
@@ -11,20 +34,20 @@
   margin: 0.5rem 0.3rem;
 }
 
-/* Resturant cards items */
+/* Restaurant card skeletons */
 .card-skeleton {
-  width: 230px;
-  margin: 1rem;
-  border-radius: 8px;
+  width: 260px;
+  margin: 0.75rem;
+  border-radius: 16px;
 }
 
-   /* about us page */
+/* About us page */
 .about-container {
   display: flex;
-  margin: 50px 25px 10px;
-  backgroun-color: #fffff;
+  margin: 64px 24px 96px;
   justify-content: space-evenly;
   align-items: center;
+  gap: 40px;
 }
 
 .about-desc {
@@ -33,25 +56,34 @@
   justify-content: left;
   align-items: left;
   overflow-y: hidden;
+  max-width: 560px;
 }
 
 .about-desc h1 {
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 2.75rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
 }
 
 .about-desc span {
-  background-color: #d67a4c;
-  color: white !important;
-  padding: 0 10px;
-  border-radius: 15px;
+  display: inline-block;
+  margin-top: 12px;
+  background-image: var(--gradient-brand);
+  color: var(--color-on-brand) !important;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .about-desc h4 {
-  font-size: 25px;
-  margin-top: 10px;
+  font-size: 1.25rem;
+  margin-top: 20px;
   font-style: italic;
-  color: #333;
+  font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .about-img {
@@ -62,14 +94,6 @@
   overflow-y: hidden;
 }
 
-.desktop-search {
-  width: 100%;
-}
-
-.responsive-search {
-  display: none;
-}
-
 /* Default position for large screens */
 .toast-container {
   position: fixed;
@@ -77,23 +101,28 @@
   right: 45px;
 }
 
-@media screen and (max-width: 768px) {
-  .desktop-search {
-    display: none;
-  }
+.toast-container .Toastify__toast {
+  border-radius: 12px;
+  box-shadow: var(--shadow-float);
+  font-family: inherit;
+}
 
+@media screen and (max-width: 768px) {
   .toast-container {
     bottom: 90px;
-    right:50px;
-    width:90%;
+    right: 50px;
+    width: 90%;
   }
 
-  .responsive-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2px;
-    padding: 2px;
-    width: 100%;
+  .about-container {
+    margin: 32px 16px 96px;
+  }
+
+  .about-desc h1 {
+    font-size: 2rem;
+  }
+
+  .about-desc span {
+    font-size: 1.125rem;
   }
 }

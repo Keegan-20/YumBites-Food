@@ -1,0 +1,171 @@
+/* =============================================================================
+   YumBites — Design Tokens
+   -----------------------------------------------------------------------------
+   Single source of truth. Nothing in the app hardcodes a hex value.
+
+   IDENTITY — Herb green + Tandoor terracotta + Cocoa type on Cream
+     Primary    herb        #1F5C3D   deep, warm-leaning green
+     Offer      tandoor     #A9451F   terracotta, for deals and attention only
+     Type       cocoa       #2B211A   brown-black, not charcoal
+     Ground     cream       #FDFAF6   warm white with a red bias, not yellow
+
+     The green is pulled to ~150deg (warm, herbal) rather than the ~160-165deg
+     blue-green every delivery and fintech brand sits on, and it is DEEP rather
+     than bright — bright mint is Careem/Uber Eats territory and cannot survive
+     next to thousands of food photographs without competing.
+
+     Brown is a first-class brand colour here, not a leftover: it carries every
+     word on the page. Cocoa type on cream is the most distinctive decision in
+     this system — the category runs black-on-white — and it is what makes the
+     UI read warm without spending saturation on it.
+
+     The cream is biased red, not yellow. Yellow-grey creams are what read as
+     "beige" and date a product; a red-biased warm white stays appetising.
+
+   COLOUR BUDGET (roughly, by painted area)
+     ~60%  cream surfaces        page, bands, cards
+     ~25%  cocoa ink             type, icons, hairlines
+     ~10%  herb green            CTAs, active states, links, veg/success
+      ~4%  tandoor terracotta    offers, ratings star, cart count
+      ~1%  functional            error, warning
+
+     Green is an ACCENT here, not a theme. If more than a tenth of the painted
+     area is green, something is wrong.
+
+   CONTRAST RULES (do not break these)
+     * White text needs brand-600 (7.9:1) or accent-600 (5.9:1) or darker.
+     * brand-500 / accent-500 are surface, icon and large-text colours.
+     * ink-500 is the floor for secondary text (5.4:1 on cream-50).
+     * Green never carries meaning alone — always pair with an icon or a label,
+       because the brand is green and status green cannot compete with it.
+
+   Two layers:
+     1. PRIMITIVES  — the raw palette, as space-separated RGB channels so any
+                      consumer can apply its own alpha: rgb(var(--brand-500)/.4)
+                      Tailwind maps these to `brand-*`, `accent-*`, `cream-*`
+                      and `ink-*` utilities (see `<alpha-value>` in the config),
+                      so `bg-brand-600/40` keeps working.
+     2. SEMANTICS   — role aliases (surface / text / border / action). Prefer
+                      these in CSS: re-theming repoints one alias instead of
+                      hunting usages.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------------
+     1. PRIMITIVES  (R G B channels — do not wrap in rgb() here)
+     ------------------------------------------------------------------------ */
+
+  /* Herb — the brand green. Hue ~150deg, deliberately deep. */
+  --brand-50: 240 246 242; /* #F0F6F2 — active nav pill, tinted rows */
+  --brand-100: 219 235 225; /* #DBEBE1 — focus ring, subtle border */
+  --brand-200: 183 215 195; /* #B7D7C3 — borders on brand surfaces */
+  --brand-300: 139 188 158; /* #8BBC9E — disabled action */
+  --brand-400: 87 155 117; /* #579B75 — icons and wordmark on dark */
+  --brand-500: 47 127 85; /* #2F7F55 — icons, links, veg/success (4.9:1) */
+  --brand-600: 31 92 61; /* #1F5C3D — PRIMARY: buttons, white text (7.9:1) */
+  --brand-700: 23 72 47; /* #17482F — hover/pressed (10.6:1) */
+  --brand-800: 16 54 33; /* #103621 */
+  --brand-900: 11 38 23; /* #0B2617 — footer, deepest chrome */
+
+  /* Tandoor — terracotta. OFFERS, deals, ratings, cart count. Never a second
+     primary; if it appears more than twice on a screen, cut one. */
+  --accent-50: 253 243 238; /* #FDF3EE — offer strip background */
+  --accent-100: 250 227 216; /* #FAE3D8 */
+  --accent-200: 244 198 178; /* #F4C6B2 — offer border */
+  --accent-300: 235 161 132; /* #EBA184 */
+  --accent-400: 222 123 84; /* #DE7B54 — star, wordmark on dark */
+  --accent-500: 200 90 46; /* #C85A2E — large text, icons */
+  --accent-600: 169 69 31; /* #A9451F — offer fill, white text (5.9:1) */
+  --accent-700: 138 56 24; /* #8A3818 — offer text on light (7.6:1) */
+  --accent-800: 110 45 20; /* #6E2D14 */
+  --accent-900: 82 34 15; /* #52220F */
+
+  /* Cream — warm white surfaces, red-biased so they never read beige. */
+  --cream-50: 253 250 246; /* #FDFAF6 — page background */
+  --cream-100: 248 242 233; /* #F8F2E9 — section bands, hero */
+  --cream-200: 240 232 219; /* #F0E8DB — hover, wells, skeletons */
+  --cream-300: 227 216 199; /* #E3D8C7 — the workhorse border */
+  --cream-400: 207 192 169; /* #CFC0A9 */
+  --cream-500: 179 161 136; /* #B3A188 */
+  --cream-600: 143 126 103; /* #8F7E67 */
+  --cream-700: 110 96 81; /* #6E6051 */
+  --cream-800: 82 72 61; /* #52483D */
+  --cream-900: 58 50 43; /* #3A322B */
+
+  /* Ink — cocoa brown. Every word on the page. */
+  --ink-50: 247 243 238; /* #F7F3EE */
+  --ink-100: 239 233 226; /* #EFE9E2 — hairline */
+  --ink-200: 224 215 206; /* #E0D7CE — dividers */
+  --ink-300: 169 155 142; /* #A99B8E — placeholder, disabled (decorative) */
+  --ink-500: 117 101 84; /* #756554 — secondary text (5.4:1 on cream-50) */
+  --ink-700: 74 60 49; /* #4A3C31 — body text */
+  --ink-900: 43 33 26; /* #2B211A — headings (13.8:1) */
+
+  /* Fixed poles */
+  --white: 255 255 255;
+  --black: 0 0 0;
+
+  /* ---------------------------------------------------------------------------
+     2. SEMANTICS  (resolved colors — use these in stylesheets)
+     ------------------------------------------------------------------------ */
+
+  /* Surfaces */
+  --color-bg: rgb(var(--cream-50));
+  --color-surface: rgb(var(--white)); /* cards: the only pure white on the page */
+  --color-surface-raised: rgb(var(--cream-100)); /* bands that segment the page */
+  --color-surface-sunken: rgb(var(--cream-200)); /* wells, inputs, skeletons */
+  --color-surface-inverse: rgb(var(--brand-900)); /* footer */
+
+  /* Text */
+  --color-text: rgb(var(--ink-900));
+  --color-text-muted: rgb(var(--ink-500));
+  --color-text-subtle: rgb(var(--ink-300));
+  --color-text-inverse: rgb(var(--cream-50));
+  --color-text-brand: rgb(var(--brand-600));
+  --color-on-brand: rgb(var(--white));
+
+  /* Borders — cream-300 on tinted surfaces, ink-100 on white */
+  --color-border: rgb(var(--ink-100));
+  --color-border-strong: rgb(var(--cream-300));
+  --color-border-brand: rgb(var(--brand-200));
+
+  /* Primary action */
+  --color-action: rgb(var(--brand-600));
+  --color-action-hover: rgb(var(--brand-700));
+  --color-action-active: rgb(var(--brand-800));
+  --color-action-text: rgb(var(--white));
+  --color-action-subtle: rgb(var(--brand-50));
+
+  /* Offer / deal — the only place terracotta is allowed to fill */
+  --color-offer: rgb(var(--accent-600));
+  --color-offer-text: rgb(var(--accent-700));
+  --color-offer-subtle: rgb(var(--accent-50));
+  --color-offer-border: rgb(var(--accent-200));
+
+  /* Focus — one ring, everywhere */
+  --color-focus: rgb(var(--brand-600));
+  --ring-focus: 0 0 0 3px rgb(var(--brand-500) / 0.28);
+
+  /* Elevation — cocoa-tinted, and deliberately shallow. Cards sit on the page,
+     they do not float above it. */
+  --shadow-card: 0 1px 2px rgb(var(--ink-900) / 0.04),
+    0 2px 8px rgb(var(--ink-900) / 0.04);
+  --shadow-card-hover: 0 2px 6px rgb(var(--ink-900) / 0.07),
+    0 10px 24px rgb(var(--ink-900) / 0.09);
+  --shadow-float: 0 8px 30px rgb(var(--ink-900) / 0.14);
+
+  /* Gradients — exactly one, on the food image scrim. Nothing else gradients. */
+  --gradient-image-scrim: linear-gradient(
+    to top,
+    rgb(var(--ink-900) / 0.55),
+    transparent
+  );
+
+  /* Functional. Success is the brand green on purpose — a green brand cannot
+     also own a distinct "success green", so status is carried by icon + label
+     and the hue merely agrees. */
+  --color-success: 47 127 85; /* #2F7F55 */
+  --color-error: 179 38 30; /* #B3261E — 6.3:1 on cream */
+  --color-warning: 146 89 10; /* #92590A — text/border only, never a fill */
+  --color-warning-surface: 242 200 121; /* #F2C879 — takes ink-900 */
+}

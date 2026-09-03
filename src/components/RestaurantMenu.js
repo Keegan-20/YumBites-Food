@@ -45,37 +45,39 @@ const RestaurantMenu = ({ itemAttribute }) => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu ">
+    <div className="restaurant-menu max-w-4xl mx-auto px-6 md:px-4 animate-fade-in">
       {/* restaurant summary details  */}
-       <div className="flex justify-center  w-[80%] md:w-auto mt-3 pl-4  md:pl-0 md:m-auto md:mt-4">
+      <div className="w-full mt-6 md:mt-4">
         <ResMenuHeader restaurant={restaurant} />
       </div>
 
       {/* Restaurant menu details */}
-      <div className="restaurant-menu-content flex justify-center mb-16 md:flex-col">
-        <div className="menu-items-container mt-8 w-[80%] md:w-full">
-          <div className="menu-title-wrap p-5">
-            <h3 className="menu-title text-xl font-bold">All Items</h3>
-            <p className="menu-count font-semibold text-gray-400 ">
+      <div className="restaurant-menu-content mb-28">
+        <div className="menu-items-container mt-8 w-full">
+          <div className="menu-title-wrap py-4 flex items-baseline justify-between">
+            <h3 className="menu-title text-xl font-bold tracking-tight text-ink-900">
+              All Items
+            </h3>
+            <p className="menu-count text-xs font-bold text-ink-300 tracking-widest">
               {menuItems.length} ITEMS
             </p>
           </div>
           <div
-            className="menu-items-list flex flex-col justify-center divide-y-4  divide-solid divide-orange-200"
+            className="menu-items-list flex flex-col divide-y divide-ink-100"
             data-testid="menuItems"
           >
             {menuItems.map((item) => (
               <div
-                className="menu-item flex justify-between  semimd:flex-col p-5 semimd:p-8"
+                className="menu-item flex justify-between gap-6 md:gap-4 py-6"
                 key={item?.id}
               >
-                <div className="menu-item-details flex  flex-col overflow-hidden h-auto self-start">
+                <div className="menu-item-details flex flex-col min-w-0 self-start flex-1">
                   <VegNonVeg itemAttribute={item?.itemAttribute} />
 
-                  <h3 className="item-title w-auto text-[#333] font-bold pt-2 text-lg">
+                  <h3 className="item-title text-ink-900 font-bold pt-2 text-lg md:text-base leading-snug">
                     {item?.name}{" "}
                   </h3>
-                  <p className="item-cost mt-1">
+                  <p className="item-cost mt-1 text-ink-700 font-semibold text-sm">
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
                           style: "currency",
@@ -83,35 +85,40 @@ const RestaurantMenu = ({ itemAttribute }) => {
                         }).format(item?.price / 100)
                       : " "}
                   </p>
-                  <p className="item-desc mt-3 semimd:mt-1 semimd:mb-3 semimd:w-[70%] leading-6 text-gray-500 text-sm ">
-                    {item?.description}
-                  </p>
+                  {item?.description && (
+                    <p className="item-desc mt-2 leading-6 text-ink-500 text-sm line-clamp-3">
+                      {item?.description}
+                    </p>
+                  )}
                 </div>
 
                 {/* menu-item image */}
-                <div className="menu-img-wrapper flex flex-col justify-center  items-end semimd:items-start w-1/3 semimd:w-3/4 overflow-hidden h-auto">
-                  {item?.imageId && (
+                <div className="menu-img-wrapper relative shrink-0 w-32 md:w-28 flex flex-col items-center">
+                  {item?.imageId ? (
                     <img
-                      className="menu-item-img h-24 w-24 border rounded-md"
+                      className="menu-item-img h-28 w-32 md:h-24 md:w-28 object-cover rounded-xl shadow-card"
                       src={ITEM_IMG_CDN_URL + item?.imageId}
                       alt={item?.name}
+                      loading="lazy"
                     />
+                  ) : (
+                    <div className="h-28 w-32 md:h-24 md:w-28 rounded-xl bg-ink-50" aria-hidden="true"></div>
                   )}
 
                   {itemInCart(item.id) ? (
                     <button
-                      className="p-2  m-2  bg-red-200 hover:bg-red-600 rounded-lg border-none font-semibold text-sm cursor-pointer md:text-xs"
+                      className="-mt-4 px-5 py-2 bg-white text-red-600 hover:bg-red-50 rounded-lg border border-ink-100 shadow-card-hover font-bold text-sm md:text-xs cursor-pointer active:scale-95 transition-all duration-200 tracking-wide"
                       onClick={() => {
                         removeFoodItem(item.id)
                         toast.error("Item removed from cart");
                       }}
                     >
-                      REMOVE -
+                      REMOVE
                     </button>
                   ) : (
                     <button
                       data-testid="add-btn"
-                      className="p-2 m-2 mr-4 bg-green-200 hover:bg-green-600 rounded-lg border-none font-semibold  text-sm cursor-pointer md:text-xs"
+                      className="-mt-4 px-6 py-2 bg-white text-brand-700 hover:bg-brand-50 rounded-lg border border-brand-200 shadow-card-hover font-bold text-sm md:text-xs cursor-pointer active:scale-95 transition-all duration-200 tracking-wide"
                       onClick={() => {
                         addFoodItem(item)
                         toast.success("Item added to cart");
@@ -119,8 +126,6 @@ const RestaurantMenu = ({ itemAttribute }) => {
                     >
                       ADD +
                     </button>
-                     
-
                   )}
                 </div>
               </div>

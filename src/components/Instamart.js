@@ -5,26 +5,29 @@ import { useState } from "react";
 const Section = ({ title, description, isVisible, setIsVisible }) => {
   return (
     //accordion component //F&Q section kind thing
-    <div className="border border-amber-400 m-2 p-2">
-      <h3 className="font-bold">{title} </h3>
-      {isVisible ? (
-        <button
-          className=" cursor-pointer px-2"
-          onClick={() => setIsVisible(null)}
+    <div className="border border-ink-100 rounded-2xl bg-white shadow-card mb-3 overflow-hidden transition-shadow duration-200 hover:shadow-card-hover">
+      <button
+        className="w-full flex items-center justify-between gap-4 text-left px-6 md:px-4 py-5 md:py-4 cursor-pointer"
+        aria-expanded={isVisible}
+        onClick={() => (isVisible ? setIsVisible(null) : setIsVisible(title))}
+      >
+        <h3 className="font-bold text-ink-900 text-base md:text-sm">{title}</h3>
+        <span
+          className={`h-8 w-8 shrink-0 flex items-center justify-center rounded-full bg-brand-50 text-brand-600 transition-transform duration-300 ${
+            isVisible ? "rotate-180" : ""
+          }`}
+          aria-hidden="true"
         >
-          <i className="fa-solid fa-caret-up fa-caret-up bg-red-500 rounded-lg text-white px-2 py-1"></i>
-        </button>
-      ) : (
-        <button
-          className=" cursor-pointer px-2"
-          onClick={() => setIsVisible(title)}
-        >
-          <i className="fa-solid fa-caret-down bg-red-500 rounded-lg text-white px-2 py-1"></i>
-        </button>
-      )}
+          <i className="fa-solid fa-caret-down"></i>
+        </span>
+      </button>
       {
         // wrapping it inside { } so we can use it as js
-        isVisible && <p>{description}</p>
+        isVisible && (
+          <p className="px-6 md:px-4 pb-6 md:pb-4 text-sm leading-7 text-ink-500 animate-slide-down">
+            {description}
+          </p>
+        )
       }
     </div>
   );
@@ -32,13 +35,19 @@ const Section = ({ title, description, isVisible, setIsVisible }) => {
 const Instamart = () => {
   const [visibleSection, setIsVisibleSection] = useState("whyYumBite");
   return (
-    <div>
+    <div className="max-w-3xl mx-auto px-6 md:px-4 py-12 md:py-8 mb-24 animate-fade-in">
+      <h1 className="text-3xl md:text-2xl font-extrabold tracking-tight text-ink-900 mb-2">
+        Frequently Asked Questions
+      </h1>
+      <p className="text-ink-500 text-sm mb-8">
+        Everything you need to know about ordering with YumBites.
+      </p>
+
       {/* Controlled accordion Component */}
       <Section
         title={"Why Choose YumBite Fooods ?"}
         description={
           "YumBite Foods stands out for its wide selection of quality cuisines, convenience in ordering and reliable delivery service, exceptional customer support, and great value for money. Enjoy a deliciously convenient dining experience delivered right to your doorstep with YumBite Foods.Our commitment to quality begins with our ingredients. We partner with trusted suppliers to ensure that only the freshest and highest-quality ingredients make it into your meals. Whether you're craving authentic Indian flavors, indulgent comfort food, or healthy options to fuel your day, YumBite Foods has something for everyone.Convenience is key in today's fast-paced world, and YumBite Foods delivers on that front. Our user-friendly website and mobile app make ordering a breeze, with intuitive navigation, secure payment options, and real-time order tracking. Say goodbye to long wait times and busy phone lines with YumBite Foods, your favorite meals are just a few clicks away."
-          
         }
         isVisible={visibleSection === "Why Choose YumBite Fooods ?"}
         setIsVisible={setIsVisibleSection}

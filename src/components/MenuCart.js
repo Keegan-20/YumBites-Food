@@ -36,39 +36,47 @@ const MenuCart = ({
   const vegClassifierValue = itemAttribute && itemAttribute.vegClassifier;
 
   return (
-    <div className={`menuCartContainer  flex md:flex-wrap md:mx-3 ${isFirstItem ? 'md:mt-20 semism:mt-[8rem] sm:mt-36' : ''}`}>
-      <div className=" flex  justify-between items-center max-w-[70%] md:max-w-full m-auto md:mx-auto  border rounded-lg mb-3 shadow-lg ">
-        <div className="card-content flex flex-wrap items-center justify-around p-1 ">
-          <div className="flex  flex-wrap md:shadow-black  justify-center items-center p-2 ">
-            <img
-              src={IMG_CDN_URL + imageId}
-              className="w-[130px] h-[100px] md:w-[80px] md:h-[80px] p-2 rounded-lg bg-[#FBF0C0]"
-              alt={name}
-            />
-            <h2 className="RestaurantName flex p-2 w-48 md:w-full font-medium justify-center align-middle">
+    <div className="menuCartContainer w-full">
+      <div className="w-full flex items-center gap-4 md:gap-3 p-4 md:p-3 bg-white border border-ink-100 rounded-2xl shadow-card mb-3 transition-shadow duration-200 hover:shadow-card-hover">
+        <img
+          src={IMG_CDN_URL + imageId}
+          className="w-[88px] h-[88px] md:w-[64px] md:h-[64px] shrink-0 object-cover rounded-xl bg-ink-50"
+          alt={name}
+        />
+
+        <div className="flex-1 min-w-0 flex flex-col gap-1">
+          <div className="flex items-center gap-2">
+            <VegNonVeg itemAttribute={itemAttribute} />
+            <h2 className="RestaurantName font-semibold text-ink-900 text-sm leading-snug truncate">
               {name}
             </h2>
-            <h4 className="font-semibold m-5 md:m-1">
-              <VegNonVeg itemAttribute={itemAttribute} />
-            </h4>
-            <h4 className="w-20 m-5 md:m-1">{vegClassifierValue} </h4>
-            <h4 className="w-24 p-2 ">₹ {(total / 100).toFixed(2)} </h4>
-            <select
-              className="border m-5 md:mr-3"
-              value={quantity}
-              onChange={handleQuantityChange}
-              disabled={isNaN(price) || price === 0}
-            >
-              {[...Array(10).keys()].map((num) => (
-                <option key={num + 1} value={num + 1}>
-                  {num + 1}
-                </option>
-              ))}
-            </select>
-            <button className="m-5 md:m-1" onClick={handleRemoveItem}>  
-              <AiFillDelete  className="hover:text-[red]" fontSize="20px" />
-            </button>
           </div>
+          <h4 className="font-bold text-ink-900 text-base">
+            ₹ {(total / 100).toFixed(2)}
+          </h4>
+        </div>
+
+        <div className="flex items-center gap-3 md:gap-2 shrink-0">
+          <select
+            aria-label={`Quantity for ${name}`}
+            className="h-10 px-2 rounded-lg border border-ink-200 bg-white text-sm font-medium text-ink-900 cursor-pointer outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-100 disabled:opacity-40 disabled:cursor-not-allowed"
+            value={quantity}
+            onChange={handleQuantityChange}
+            disabled={isNaN(price) || price === 0}
+          >
+            {[...Array(10).keys()].map((num) => (
+              <option key={num + 1} value={num + 1}>
+                {num + 1}
+              </option>
+            ))}
+          </select>
+          <button
+            aria-label={`Remove ${name} from cart`}
+            className="h-10 w-10 flex items-center justify-center rounded-lg text-ink-300 hover:text-red-600 hover:bg-red-50 transition-colors duration-200"
+            onClick={handleRemoveItem}
+          >
+            <AiFillDelete fontSize="20px" />
+          </button>
         </div>
       </div>
     </div>

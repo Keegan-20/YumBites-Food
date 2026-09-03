@@ -1,22 +1,18 @@
 import { useState, useEffect, useContext } from "react";
-import logoImage from "../img/logo2.png";
+import logoImage from "../img/logo1.png";
 import { HeaderShimmer } from "./Shimmer";
 import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import useOnline from "../Custom Hooks/useOnline";
 import UserContext from "./utils/UserContext";
 import { useSelector } from "react-redux";
 
 //creating a header section
 export const HeaderComponent = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  const isOnline = useOnline();
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
   const { user } = useContext(UserContext);
   useEffect(() => {
     setTimeout(() => {
@@ -24,9 +20,6 @@ export const HeaderComponent = () => {
     }, 1000);
   }, []);
 
-  {
-    /* <button onClick={() => title === "YumBite Foods" ? setTitle("Pops Kitchen") : setTitle("YumBite Foods")}>  Change Title</button> */
-  }
   //responsive NavBar
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -54,132 +47,112 @@ export const HeaderComponent = () => {
       name: "F&Q",
     },
   ];
-  return (
-    <nav className="flex justify-between  sticky  top-0 h-20 w-full z-10 bg-[#8d4623] text-white">
-      <div className="w-28 h-20 p-2 flex items-center justify-center">
-        <NavLink to="/">
-          <img src={logoImage} alt="Logo" />
-        </NavLink>
-      </div>
 
-    {/* Mobile Menu */}
-  <div className= "hidden semimd:flex">
-    <ul>
-  <li>
-          <NavLink
-            to="/cart"
-            className="flex relative"
-          >
-            <button
-              className="flex items-center bg-[yellow]  my-6 mx-7 p-1 rounded-md text-black"
-              data-testid="cart"
-            >
-              <span className="mr-3">{cartItems.length}</span>
-              <FaShoppingCart color="black" size="20px" />
-            </button>
-          </NavLink>
-        </li>
-        </ul>
-  <button
-    onClick={toggleMenu}
-    className={`text-3xl  transition-transform duration-300 ease-in-out transform ${
-      isMenuOpen ? "rotate-180" : ""
-    }`}
-  >
-    {isMenuOpen === true ? (
-      <IoMdClose className="text-3xl cursor-pointer mr-2" onClick={toggleMenu} />
-    ) : (
-      <GiHamburgerMenu
-        className="text-2xl cursor-pointer mr-2"
-        onClick={toggleMenu}
-      />
-    )}
+  const navLinkClasses = ({ isActive }) =>
+    `relative px-3.5 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+      isActive
+        ? "text-brand-700 bg-brand-50 font-semibold"
+        : "text-ink-500 hover:text-ink-900 hover:bg-cream-100"
+    }`;
+
+  const CartButton = ({ size = "20px", onClick }) => (
+    <button
+      className="relative flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-[0.98] transition-colors duration-200 text-white font-semibold text-sm px-5 py-2.5 rounded-full"
+      data-testid="cart"
+      aria-label={`Cart, ${cartItems.length} items`}
+      onClick={onClick}
+    >
+      <FaShoppingCart size={size} />
+      <span>Cart</span>
+      {cartItems.length > 0 && (
+        <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full bg-accent-600 text-white text-[11px] font-bold ring-2 ring-cream-50">
+          {cartItems.length}
+        </span>
+      )}
     </button>
- 
-    {isMenuOpen && (
-      <ul className="bg-gray-800 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 w-full semimd:overflow-hidden h-50 flex flex-wrap items-center justify-center flex-col z-10  absolute m-auto  left-0 right-0 top-20 text-lg gap-2 font-semibold ">
-        {navmenu.map((menu) => {
-          return (
-            <li key={menu.name}>
-              <NavLink
-                to={menu.link}
-                activeclassname="text-green-700"
-                className="text-xl font-medium p-2 hover:border-b-4 border-white
-                hover:bg-[#FFC95F]"
-                onClick={toggleMenu}
-              >
-                {menu.name}
-              </NavLink>
-            </li>
-          );
-        })}
+  );
 
-        <li>
-          <NavLink
-            to="/cart"
-            className="flex relative"
-            onClick={toggleMenu}
-          >
-            <button
-              className="flex items-center bg-[yellow] my-6 mx-2 p-2 rounded-md text-black"
-              data-testid="cart"
-            >
-              <span className="mr-3">{cartItems.length}</span>
-              <FaShoppingCart color="black" size="25px" />
-            </button>
+  return (
+    <nav className="sticky top-0 z-50 w-full h-16 bg-cream-50/85 backdrop-blur-md border-b border-cream-300">
+      <div className="h-full w-full max-w-7xl mx-auto px-6 md:px-4 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center gap-2 shrink-0" aria-label="YumBites home">
+          <img
+            src={logoImage}
+            alt="YumBites logo"
+            className="h-10 w-10 object-contain"
+          />
+          <span className="font-display text-2xl font-semibold tracking-tight text-ink-900 semism:hidden">
+            Yum<span className="text-brand-600">Bites</span>
+          </span>
+        </NavLink>
+
+        {/* Desktop Menu */}
+        <ul className="flex items-center gap-1 semimd:hidden">
+          {navmenu.map((menu, idx) => {
+            return (
+              <li key={idx}>
+                <NavLink to={menu.link} className={navLinkClasses}>
+                  {menu.name}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Desktop cart */}
+        <div className="flex items-center gap-3 semimd:hidden">
+          <NavLink to="/cart">
+            <CartButton />
           </NavLink>
-        </li>
-      </ul>
-    )}
-  </div>
-
-      {/* Desktop Menu */}
-      <ul className="flex  py-7 semimd:hidden">
-        {navmenu.map((menu, idx) => {
-          return (
-            
-            <li key={idx} className="px-2 hover:border-b-4 border-white hover:text-[#FFC95F]">
-              <NavLink
-                to={menu.link}
-                activeclassname="text-green-700"
-                className="p-2"
-              >
-                {menu.name}
-              </NavLink>
-            </li>
-          );
-        })}
-  </ul>
-        <div className="flex  justify-center items-center semimd:hidden ">
-          {isLoggedIn ? (
-            <button
-              className="logOut  text-sm mt-2 py-3  mx-3 w-16 rounded-md bg-slate-900"
-              onClick={() => setIsLoggedIn(false)}
-            >
-              Logout
-            </button>
-          ) : (
-            <button
-              className="logIn w-16  mt-2 py-3 mx-3 text-sm rounded-md bg-slate-950"
-              onClick={() => setIsLoggedIn(true)}
-            >
-              LogIn
-            </button>
-          )}
-
-    
-            <NavLink to="/cart">
-              <button
-                className="flex items-center bg-[yellow]  mx-2 mt-1 p-2 rounded-md text-black"
-                data-testid="cart"
-              >
-                <span className="mr-3">{cartItems.length}</span>
-                <FaShoppingCart color="black" size="25px" />
-              </button>
-            </NavLink>
-         
         </div>
-    
+
+        {/* Mobile Menu */}
+        <div className="hidden semimd:flex items-center gap-3">
+          <NavLink to="/cart">
+            <CartButton size="16px" />
+          </NavLink>
+
+          <button
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            className={`h-11 w-11 flex items-center justify-center rounded-full text-ink-900 hover:bg-ink-50 transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? "rotate-180" : ""
+            }`}
+          >
+            {isMenuOpen === true ? (
+              <IoMdClose className="text-2xl cursor-pointer" onClick={toggleMenu} />
+            ) : (
+              <GiHamburgerMenu className="text-xl cursor-pointer" onClick={toggleMenu} />
+            )}
+          </button>
+
+          {isMenuOpen && (
+            <ul className="absolute left-0 right-0 top-20 z-10 mx-4 p-3 flex flex-col gap-1 rounded-2xl bg-white shadow-float border border-cream-300 animate-slide-down">
+              {navmenu.map((menu) => {
+                return (
+                  <li key={menu.name}>
+                    <NavLink
+                      to={menu.link}
+                      className={({ isActive }) =>
+                        `block w-full px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                          isActive
+                            ? "text-brand-700 bg-brand-50"
+                            : "text-ink-700 hover:bg-cream-100"
+                        }`
+                      }
+                      onClick={toggleMenu}
+                    >
+                      {menu.name}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };

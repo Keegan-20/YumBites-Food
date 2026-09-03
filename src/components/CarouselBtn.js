@@ -4,10 +4,10 @@ const CircularBtn = ({ onClick, disabled, icon }) => {
   return (
     <button
       onClick={onClick}
-      className="h-10 w-10 md:h-5 md:w-5 text-center rounded-full bg-[#1c1c24] text-white flex items-center justify-center cursor-pointer hover:scale-90 transition-all duration-200 drop-shadow-xl focus:ring-4 ring-yellow-300 active:scale-105 disabled:opacity-25 disabled:cursor-not-allowed"
+      className="h-10 w-10 md:h-8 md:w-8 rounded-full bg-white border border-ink-200 text-ink-700 flex items-center justify-center cursor-pointer shadow-card transition-all duration-200 hover:bg-ink-50 hover:shadow-card-hover active:scale-90 focus:outline-none focus:ring-4 focus:ring-brand-100 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:shadow-card"
       disabled={disabled}
     >
-      <FontAwesomeIcon icon={icon} />
+      <FontAwesomeIcon icon={icon} className="text-sm" />
     </button>
   );
 };

@@ -34,56 +34,96 @@ const Cart = () => {
   }, 0);
 
   return (
-    <div className="mainContainer ">
-      {/* <h1 className="font-bold text-2xl text-center">Cart Items: {cartItems.length}</h1> */}
-
-      <div className="mainCart flex ">
-        <div className="menuItems pt-5 flex-grow mb-16 md:mb-24">
-        {cartItems.length === 0 ? (
-      
-     <div className='Empty-cart mt-10 flex items-center justify-center flex-col gap-4'>
-     <img className="h-80 md:h-52 sm:h-36 md:mt-20" src={EmptyCart} alt="CartEmpty" />
-     <p className="text-2xl md:text-base font-bold text-[#e48657]" >Your Cart is Empty !!</p>
-     <a href="/" className="text-xl md:text-base font-bold text-[#e48657] flex items-center hover:text-[#8d4623]  hover:underline">
-  Back to Home <GrUndo className="ml-1 hover:text-[#8d4623]" /></a>
-     </div>
-          ) : (
-            cartItems.map((item,index) => (
-              <MenuCart key={item.id} id={item.id} isFirstItem={index === 0} {...item}  />
-            ))
-          )}
-          <button
-            className="bg-red-400 text-white ml-2 p-2 md:p-1 md:mx-2"
-            onClick={handleClearCart}
+    <div className="mainContainer max-w-6xl mx-auto px-6 md:px-4 animate-fade-in">
+      {cartItems.length === 0 ? (
+        <div className="Empty-cart min-h-[60vh] mb-24 flex items-center justify-center flex-col gap-4 text-center">
+          <img
+            className="h-72 md:h-52 sm:h-36 rounded-2xl"
+            src={EmptyCart}
+            alt="CartEmpty"
+          />
+          <p className="text-2xl md:text-lg font-bold text-ink-900">
+            Your cart is empty
+          </p>
+          <p className="text-ink-500 text-sm">
+            Good food is just a few clicks away.
+          </p>
+          <a
+            href="/"
+            className="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-brand hover:brightness-110 text-white font-bold text-sm transition-all duration-200 active:scale-95 shadow-action"
           >
-            Clear Cart
-          </button>
+            <GrUndo /> Back to Home
+          </a>
         </div>
-        <div className="totalSummary w-56 md:w-full min-h-[85vh] overflow-hidden flex flex-wrap flex-col  md:justify-center md:align-middle md:flex-row md:min-h-1 md:absolute md:top-18 md:p-5 bg-[#252525] text-white p-3">
-          <span id="title" className="font-bold text-lg  md:text-base pb-3">
-            Subtotal ({cartItems.length}) items
-          </span>
-          <span className="font-bold text-xl md:text-base pb-3 md:px-5">
-            {" "}
-            Total: ₹{subTotal / 100}{" "}
-          </span>
+      ) : (
+        <div className="mainCart flex md:flex-col items-start gap-8 md:gap-4 mt-8 md:mt-5 mb-28">
+          {/* Items list */}
+          <div className="menuItems flex-1 w-full min-w-0">
+            <div className="flex items-center justify-between mb-5">
+              <h1 className="font-extrabold text-2xl md:text-xl tracking-tight text-ink-900">
+                Your Cart
+                <span className="ml-2 text-sm font-semibold text-ink-300 align-middle">
+                  {cartItems.length} {cartItems.length === 1 ? "item" : "items"}
+                </span>
+              </h1>
+              <button
+                className="text-sm font-semibold text-red-600 hover:text-white hover:bg-red-600 border border-red-200 rounded-full px-4 py-2 transition-colors duration-200"
+                onClick={handleClearCart}
+              >
+                Clear Cart
+              </button>
+            </div>
 
-          <div className="pt-10 md:pt-0 float-right md:ml-72 semimd:ml-[2rem] sm:ml-2">
+            {cartItems.map((item, index) => (
+              <MenuCart
+                key={item.id}
+                id={item.id}
+                isFirstItem={index === 0}
+                {...item}
+              />
+            ))}
+          </div>
+
+          {/* Order summary */}
+          <div className="totalSummary w-80 md:w-full shrink-0 sticky top-24 md:static bg-white border border-ink-100 rounded-2xl shadow-card p-6 md:p-5 flex flex-col gap-4">
+            <span id="title" className="font-bold text-lg text-ink-900">
+              Order Summary
+            </span>
+
+            <div className="flex justify-between text-sm text-ink-500">
+              <span>Subtotal ({cartItems.length} items)</span>
+              <span className="font-semibold text-ink-900">
+                ₹{subTotal / 100}
+              </span>
+            </div>
+            <div className="flex justify-between text-sm text-ink-500">
+              <span>Delivery</span>
+              <span className="font-semibold text-brand-700">Free</span>
+            </div>
+
+            <div className="border-t border-dashed border-ink-100 pt-4 flex justify-between items-baseline">
+              <span className="font-bold text-ink-900">Total</span>
+              <span className="font-extrabold text-xl text-ink-900">
+                ₹{subTotal / 100}
+              </span>
+            </div>
+
             <button
               type="button"
               disabled={cartItems.length === 0}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 md:py-2 px-4 md:px-2 rounded flex items-center "
-              onClick={() =>
-                toast.success("Checked out successfully")
-              }
+              className="w-full h-12 flex items-center justify-center gap-2 rounded-full bg-gradient-brand hover:brightness-110 text-white font-bold text-sm transition-all duration-200 active:scale-95 shadow-action disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={() => toast.success("Checked out successfully")}
             >
               <span className="md:hidden">Proceed to Checkout</span>
               <span className="hidden md:inline">Checkout</span>
-              <FaLongArrowAltRight className=" hidden md:inline ml-2 " />
+              <FaLongArrowAltRight />
             </button>
+            <p className="text-[11px] text-ink-300 text-center">
+              Taxes calculated at checkout · Secure payment
+            </p>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
