@@ -122,23 +122,6 @@ const Body = () => {
   if (loading) return <Shimmer cards={20} />;
   return (
     <>
-      {/* Hero */}
-      <section className="w-full bg-cream-100 border-b border-cream-300">
-        <div className="max-w-7xl mx-auto px-6 md:px-4 pt-16 md:pt-10 pb-12 md:pb-9 flex flex-col items-center text-center gap-5">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-cream-300 text-ink-700 text-xs font-medium tracking-wide">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-500" aria-hidden="true"></span>
-            Delivery in under 30 minutes
-          </span>
-          <h1 className="font-display text-[3.25rem] md:text-4xl semism:text-3xl font-semibold tracking-tight text-ink-900 leading-[1.05] max-w-3xl">
-            Good food, from the places Goa actually eats at.
-          </h1>
-          <p className="text-base text-ink-500 max-w-lg leading-relaxed">
-            {filteredRestaurants?.length || 0} restaurants across Central Goa,
-            delivered fresh to your door.
-          </p>
-        </div>
-      </section>
-
       {/* Category carousel */}
       <Carousel carouselCards={carouselCards} /> {/*item carouselCards */}
 
@@ -146,11 +129,11 @@ const Body = () => {
       <section className="max-w-7xl mx-auto px-6 md:px-4">
         <div className="reslist-header mt-10 md:mt-6 mb-5 flex items-end justify-between gap-6 md:flex-col md:items-stretch md:gap-3">
           <div>
-            <h2 className="font-display text-2xl md:text-xl font-semibold tracking-tight text-ink-900">
+            <h1 className="font-display text-3xl md:text-2xl font-bold tracking-tight text-ink-900">
               Restaurants with online food delivery in Central Goa
-            </h2>
+            </h1>
             <p className="text-sm text-ink-500 mt-1">
-              {filteredRestaurants?.length || 0} places to explore
+              Browse everything open near you, or search by name
             </p>
           </div>
           <div className="w-full max-w-sm md:max-w-full shrink-0">
