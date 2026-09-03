@@ -82,7 +82,7 @@
 
   /* Cream — warm white surfaces, red-biased so they never read beige. */
   --cream-50: 253 250 246; /* #FDFAF6 — page background */
-  --cream-100: 248 242 233; /* #F8F2E9 — section bands, hero */
+  --cream-100: 248 242 233; /* #F8F2E9 — section bands */
   --cream-200: 240 232 219; /* #F0E8DB — hover, wells, skeletons */
   --cream-300: 227 216 199; /* #E3D8C7 — the workhorse border */
   --cream-400: 207 192 169; /* #CFC0A9 */
@@ -114,7 +114,7 @@
   --color-surface: rgb(var(--white)); /* cards: the only pure white on the page */
   --color-surface-raised: rgb(var(--cream-100)); /* bands that segment the page */
   --color-surface-sunken: rgb(var(--cream-200)); /* wells, inputs, skeletons */
-  --color-surface-inverse: rgb(var(--brand-900)); /* footer */
+  --color-surface-inverse: rgb(var(--brand-900)); /* hero band, footer */
 
   /* Text */
   --color-text: rgb(var(--ink-900));

@@ -36,9 +36,16 @@ const AppLayout = () => {
         <UserContext.Provider value={{
             user:user,
         }}>
+            {/* Column layout so the footer is pushed to the bottom of the
+                viewport on short pages (an empty result list, an error) instead
+                of riding up under the content. */}
+            <div className="min-h-screen flex flex-col">
             <HeaderComponent />
-            <Outlet /> {/* Outlet is a component that serves as a placeholder where child routes can be rendered.*/} 
+            <main className="flex-1">
+            <Outlet /> {/* Outlet is a component that serves as a placeholder where child routes can be rendered.*/}
+            </main>
             <Footer />
+            </div>
             <ToastContainer
  className="toast-container"
   position="bottom-right"

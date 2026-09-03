@@ -52,8 +52,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        // Display face — wordmark and hero headline ONLY. Never body copy.
-        display: ['Fraunces', 'ui-serif', 'Georgia', 'Cambria', 'serif'],
+        // Display face — wordmark and section headings ONLY. Never body copy.
+        // A grotesk, not a serif: the headline should read like signage on a
+        // shopfront, not like a magazine feature.
+        display: ['Bricolage Grotesque', 'Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       boxShadow: {
         card: 'var(--shadow-card)',
